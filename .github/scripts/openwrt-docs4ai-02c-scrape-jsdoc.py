@@ -73,8 +73,8 @@ for src in luci_srcs:
     mod = os.path.splitext(filename)[0]
     relpath = os.path.relpath(src, repo_luci).replace("\\", "/")
 
-    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none", src]
-    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
+    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none", relpath]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_luci, encoding="utf-8")
     stdout = res.stdout or ""
     stderr = res.stderr or ""
 
@@ -110,9 +110,10 @@ for src in luci_srcs:
 # Fallback: if no individual files produced output, try whole-directory mode
 if file_count == 0 and len(luci_srcs) > 0:
     print("[02c] WARN: 0 files generated individually. Running whole-directory fallback.")
+    target_rel = os.path.relpath(target_dir, repo_luci).replace("\\", "/")
     cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none",
-           os.path.join(target_dir, "**", "*.js")]
-    res = subprocess.run(" ".join(cmd), shell=True, capture_output=True, text=True)
+           f"{target_rel}/**/*.js"]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_luci, encoding="utf-8")
     output = res.stdout.strip()
     if output:
         with open(os.path.join(out_dir, "luci-api-all.md"), "w", encoding="utf-8", newline="\n") as fw:
