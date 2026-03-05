@@ -37,11 +37,12 @@ jobs:
   generate-docs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    env:
-      OUTDIR: ${{ runner.temp }}/staging
-      WORKDIR: ${{ runner.temp }}/work
-
     steps:
+      - name: Set dynamic environment variables
+        run: |
+          echo "OUTDIR=${{ runner.temp }}/staging" >> $GITHUB_ENV
+          echo "WORKDIR=${{ runner.temp }}/work" >> $GITHUB_ENV
+
       # ── Setup ──────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
