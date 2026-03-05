@@ -1,6 +1,6 @@
 # openwrt-docs4ai — condensed OpenWrt documentation
 
-> Generated: 2026-03-05 18:11 UTC
+> Generated: 2026-03-05 18:33 UTC
 
 This repository provides LLM-optimized documentation scraped from
 multiple upstream OpenWrt sources. Two consumption modes:
@@ -12,8 +12,8 @@ multiple upstream OpenWrt sources. Two consumption modes:
 
 ## Complete Reference Files
 
-- [ucode-complete-reference.md](/ucode-complete-reference.md): ucode Documentation (25136 lines, 963 KB) — commit: e87be9d
-- [luci-jsapi-complete-reference.md](/luci-jsapi-complete-reference.md): LuCI JS API Documentation (2610 lines, 110 KB) — commit: 6959675
+- [ucode-complete-reference.md](/ucode-complete-reference.md): ucode Documentation (1193 lines, 170 KB) — commit: e87be9d
+- [luci-jsapi-complete-reference.md](/luci-jsapi-complete-reference.md): LuCI JS API Documentation (2086 lines, 88 KB) — commit: 6959675
 - [openwrt-wiki-complete-reference.md](/openwrt-wiki-complete-reference.md): OpenWrt Wiki Developer Docs (15633 lines, 867 KB)
 - [openwrt-buildroot-complete-reference.md](/openwrt-buildroot-complete-reference.md): OpenWrt Buildroot Packages (2823 lines, 68 KB) — commit: 6c7dd69
 - [openwrt-examples-complete-reference.md](/openwrt-examples-complete-reference.md): LuCI Application Examples (11270 lines, 351 KB) — commit: 6959675
@@ -24,7 +24,7 @@ multiple upstream OpenWrt sources. Two consumption modes:
 - [luci-docs/llms.txt](/luci-docs/llms.txt): LuCI JS API Documentation index (10 files)
 - [openwrt-wiki-docs/llms.txt](/openwrt-wiki-docs/llms.txt): OpenWrt Wiki Developer Docs index (90 files)
 - [openwrt-buildroot-docs/llms.txt](/openwrt-buildroot-docs/llms.txt): OpenWrt Buildroot Packages index (7 files)
-- [openwrt-examples/llms.txt](/openwrt-examples/llms.txt): LuCI Application Examples index (0 files)
+- [openwrt-examples/llms.txt](/openwrt-examples/llms.txt): LuCI Application Examples index (27 files)
 
 ## Metadata
 

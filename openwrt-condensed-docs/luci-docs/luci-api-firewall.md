@@ -2,7 +2,7 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/firewall.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/firewall.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.firewall.html
-> **Generated:** 2026-03-05 18:07 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
 
 ---
 

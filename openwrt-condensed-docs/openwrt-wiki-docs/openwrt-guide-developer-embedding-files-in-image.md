@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/embedding-files-in-image
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:08 UTC
+> **Fetched:** 2026-03-05 18:31 UTC
 
 ---
 
