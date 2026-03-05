@@ -1,6 +1,6 @@
 # LuCI JavaScript API Complete Reference
 
-> **Generated:** 2026-03-05 18:33 UTC
+> **Generated:** 2026-03-05 18:46 UTC
 > **Source:** https://github.com/openwrt/luci
 > **Contains:** 10 documents concatenated
 
@@ -10,7 +10,7 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/cbi.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/cbi.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.cbi.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -345,7 +345,7 @@ Update or initialize a table UI widget with new data.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/firewall.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/firewall.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.firewall.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -407,7 +407,7 @@ Generate a colour for a name.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/form.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/form.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.form.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -441,7 +441,7 @@ Determines containment of two provided parameters. Can be arrays or objects.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/fs.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/fs.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.fs.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -482,7 +482,7 @@ Handle a CGI-IO reply.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/luci.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/luci.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -1848,7 +1848,7 @@ if either the `node` argument was no valid DOM `node` or if the
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/tools/prng.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/prng.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.prng.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -1967,7 +1967,7 @@ hash and producing RGB components. Returns a `#rrggbb` hex string.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/protocol/static.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/protocol/static.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.static.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -2012,7 +2012,7 @@ Validate a broadcast IP for a section value.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/uci.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/uci.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.uci.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -2034,7 +2034,7 @@ Determine whether an object is empty.
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/ui.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/ui.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.ui.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 
@@ -2055,7 +2055,7 @@ Erase the menu node
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/tools/widgets.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/widgets.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.widgets.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `6959675`
+> **Generated:** 2026-03-05 18:43 UTC from commit `6959675`
 
 ---
 

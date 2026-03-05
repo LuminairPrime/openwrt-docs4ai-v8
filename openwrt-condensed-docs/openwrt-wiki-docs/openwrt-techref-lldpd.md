@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/lldpd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:33 UTC
+> **Fetched:** 2026-03-05 18:45 UTC
 
 ---
 

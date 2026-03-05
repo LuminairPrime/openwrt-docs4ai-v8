@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-03-05 18:33 UTC
+> **Generated:** 2026-03-05 18:46 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 
@@ -10,7 +10,7 @@
 
 > **Source:** [`lib/debug.c`](https://github.com/jow-/ucode/blob/master/lib/debug.c)
 > **Live docs:** https://ucode.mein.io/module-debug.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -89,7 +89,7 @@ dmd
 
 > **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
 > **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -168,7 +168,7 @@ dmd
 
 > **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
 > **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -247,7 +247,7 @@ dmd
 
 > **Source:** [`lib/io.c`](https://github.com/jow-/ucode/blob/master/lib/io.c)
 > **Live docs:** https://ucode.mein.io/module-io.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -326,7 +326,7 @@ dmd
 
 > **Source:** [`lib/log.c`](https://github.com/jow-/ucode/blob/master/lib/log.c)
 > **Live docs:** https://ucode.mein.io/module-log.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -405,7 +405,7 @@ dmd
 
 > **Source:** [`lib/math.c`](https://github.com/jow-/ucode/blob/master/lib/math.c)
 > **Live docs:** https://ucode.mein.io/module-math.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -484,7 +484,7 @@ dmd
 
 > **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
 > **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -563,7 +563,7 @@ dmd
 
 > **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
 > **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -642,7 +642,7 @@ dmd
 
 > **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
 > **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -721,7 +721,7 @@ dmd
 
 > **Source:** [`lib/socket.c`](https://github.com/jow-/ucode/blob/master/lib/socket.c)
 > **Live docs:** https://ucode.mein.io/module-socket.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -800,7 +800,7 @@ dmd
 
 > **Source:** [`lib/struct.c`](https://github.com/jow-/ucode/blob/master/lib/struct.c)
 > **Live docs:** https://ucode.mein.io/module-struct.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -879,7 +879,7 @@ dmd
 
 > **Source:** [`lib/ubus.c`](https://github.com/jow-/ucode/blob/master/lib/ubus.c)
 > **Live docs:** https://ucode.mein.io/module-ubus.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -958,7 +958,7 @@ dmd
 
 > **Source:** [`lib/uci.c`](https://github.com/jow-/ucode/blob/master/lib/uci.c)
 > **Live docs:** https://ucode.mein.io/module-uci.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -1037,7 +1037,7 @@ dmd
 
 > **Source:** [`lib/uloop.c`](https://github.com/jow-/ucode/blob/master/lib/uloop.c)
 > **Live docs:** https://ucode.mein.io/module-uloop.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
@@ -1116,7 +1116,7 @@ dmd
 
 > **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
 > **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 

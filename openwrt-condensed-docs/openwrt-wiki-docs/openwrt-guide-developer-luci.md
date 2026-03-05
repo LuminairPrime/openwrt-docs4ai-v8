@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/luci
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:31 UTC
+> **Fetched:** 2026-03-05 18:44 UTC
 
 ---
 

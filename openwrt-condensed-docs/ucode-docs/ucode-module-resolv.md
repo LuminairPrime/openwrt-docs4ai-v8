@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
 > **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-05 18:30 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
 
 ---
 
