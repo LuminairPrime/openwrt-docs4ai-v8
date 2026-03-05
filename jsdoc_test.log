@@ -1,0 +1,4 @@
+C:\Users\MC\Documents\AirSentinel\openwrt-docs4ai-v8\.github\scripts\openwrt-docs4ai-02c-scrape-jsdoc.py:27: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+[02c] Generate LuCI JS API documentation (JSDoc)
+[02c] SKIP: C:\Users\MC\Documents\AirSentinel\openwrt-docs4ai-v8\tmp\repo-luci not found
