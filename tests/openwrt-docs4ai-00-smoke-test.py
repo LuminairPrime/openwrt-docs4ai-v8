@@ -102,10 +102,16 @@ def main():
     print(f"Run AI: {RUN_AI}")
     print()
 
-    # Create temp directory
-    temp_dir = tempfile.mkdtemp(prefix="openwrt-docs4ai-smoke-test-")
+    # Create temp directory inside the project's tmp/ folder
+    project_root = os.path.dirname(TEST_DIR)
+    base_tmp = os.path.join(project_root, "tmp")
+    os.makedirs(base_tmp, exist_ok=True)
+    
+    # Use mkdtemp but forced into our local tmp directory
+    temp_dir = tempfile.mkdtemp(prefix="smoke-test-", dir=base_tmp)
+    
     out_dir  = os.path.join(temp_dir, "openwrt-condensed-docs")
-    work_dir = os.path.join(temp_dir, "tmp")
+    work_dir = os.path.join(temp_dir, "work")
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(work_dir, exist_ok=True)
     print(f"Temp dir: {temp_dir}")

@@ -3,6 +3,9 @@ name: openwrt-docs4ai pipeline
 on:
   schedule:
     - cron: "0 4 1 * *"  # 1st of each month at 4:00 UTC
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       skip_wiki:

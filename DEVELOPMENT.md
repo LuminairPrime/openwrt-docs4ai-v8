@@ -38,6 +38,7 @@ python tests/openwrt-docs4ai-00-smoke-test.py
 python tests/openwrt-docs4ai-00-smoke-test.py --run-ai
 
 # Keep temp directory for inspection after run
+# (preserves files in ./tmp/smoke-test-*/ instead of deleting them)
 python tests/openwrt-docs4ai-00-smoke-test.py --keep-temp
 ```
 

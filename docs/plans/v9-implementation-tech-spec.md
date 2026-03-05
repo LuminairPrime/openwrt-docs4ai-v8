@@ -586,6 +586,8 @@ These are interesting ideas from the existing plans, but they'd over-engineer a 
 - **Delta/incremental updates** — wiki already does this; others don't need it yet
 - **Golden samples test set** — good for catching pandoc/jsdoc regressions in a future v10
 - **Format drift guards / schema checks** — add after the staging gate proves itself
+- **Historical Metrics Log** — Have `06-generate-index.py` append run statistics (Date, WikiCount, LuCICount, TotalSizeMB, etc.) to a persistent `docs/metrics-history.csv` file to track source health over years.
+- **Enhanced Local Smoke Test Logging** — Update the smoke test run log (`tests/openwrt-docs4ai-00-smoke-test-log.txt`) to record the individual file count and total byte size of each generated output folder for better local diagnostics.
 
 ---
 
