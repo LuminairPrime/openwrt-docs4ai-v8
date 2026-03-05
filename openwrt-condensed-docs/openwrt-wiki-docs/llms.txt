@@ -1,0 +1,99 @@
+# OpenWrt Wiki Developer Documentation Index
+# Source: https://openwrt.org/docs/
+# Generated: 2026-03-05 16:01 UTC
+# Scope: /docs/techref/ + /docs/guide-developer/ -- last 2 years
+# Discovery: DokuWiki namespace index (no sitemap)
+# Incremental: unchanged pages are preserved from previous run.
+#
+## Files in this directory
+
+- [openwrt-guide-developer-20-xx-major-changes.md](/openwrt-wiki-docs/openwrt-guide-developer-20-xx-major-changes.md): 21.02: Major cosmetic changes (modified: unknown) -- https://openwrt.org/docs/guide-developer/20.xx.major.changes
+- [openwrt-guide-developer-add-new-device.md](/openwrt-wiki-docs/openwrt-guide-developer-add-new-device.md): Adding new device support (modified: unknown) -- https://openwrt.org/docs/guide-developer/add.new.device
+- [openwrt-guide-developer-add-new-platform.md](/openwrt-wiki-docs/openwrt-guide-developer-add-new-platform.md): Adding new platform support (modified: unknown) -- https://openwrt.org/docs/guide-developer/add.new.platform
+- [openwrt-guide-developer-adding-new-device.md](/openwrt-wiki-docs/openwrt-guide-developer-adding-new-device.md): Adding a new device (modified: unknown) -- https://openwrt.org/docs/guide-developer/adding_new_device
+- [openwrt-guide-developer-build-image-with-3g-dongle-support.md](/openwrt-wiki-docs/openwrt-guide-developer-build-image-with-3g-dongle-support.md): Building image with support for 3g/4g and usb tethering (modified: unknown) -- https://openwrt.org/docs/guide-developer/build-image-with-3g-dongle-support
+- [openwrt-guide-developer-build-mpd-full-pulse.md](/openwrt-wiki-docs/openwrt-guide-developer-build-mpd-full-pulse.md): Building MPD-full with PulseAudio (modified: unknown) -- https://openwrt.org/docs/guide-developer/build.mpd-full.pulse
+- [openwrt-guide-developer-build-mpd-full.md](/openwrt-wiki-docs/openwrt-guide-developer-build-mpd-full.md): MPD-full building from source (modified: unknown) -- https://openwrt.org/docs/guide-developer/build.mpd-full
+- [openwrt-guide-developer-build-wndr3700.md](/openwrt-wiki-docs/openwrt-guide-developer-build-wndr3700.md): Building OpenWrt for Netgear WNDR3700 (modified: unknown) -- https://openwrt.org/docs/guide-developer/build.wndr3700
+- [openwrt-guide-developer-building-kernels-for-debian-binaries.md](/openwrt-wiki-docs/openwrt-guide-developer-building-kernels-for-debian-binaries.md): Building OpenWrt Kernel for Debian System (modified: unknown) -- https://openwrt.org/docs/guide-developer/building_kernels_for_debian_binaries
+- [openwrt-guide-developer-buildserver-virtualbox.md](/openwrt-wiki-docs/openwrt-guide-developer-buildserver-virtualbox.md): Setting up a build VM in VirtualBox (modified: unknown) -- https://openwrt.org/docs/guide-developer/buildserver_virtualbox
+- [openwrt-guide-developer-config-scripting.md](/openwrt-wiki-docs/openwrt-guide-developer-config-scripting.md): Configuration in scripts (modified: unknown) -- https://openwrt.org/docs/guide-developer/config-scripting
+- [openwrt-guide-developer-creating-a-cmake-package-in-openwrt.md](/openwrt-wiki-docs/openwrt-guide-developer-creating-a-cmake-package-in-openwrt.md): Create a Cmake package in OpenWrt (modified: unknown) -- https://openwrt.org/docs/guide-developer/creating-a-cmake-package-in-openwrt
+- [openwrt-guide-developer-creating-a-meson-based-package.md](/openwrt-wiki-docs/openwrt-guide-developer-creating-a-meson-based-package.md): Create Meson-based packages in OpenWrt (modified: unknown) -- https://openwrt.org/docs/guide-developer/creating_a_meson_based_package
+- [openwrt-guide-developer-debugging.md](/openwrt-wiki-docs/openwrt-guide-developer-debugging.md): Debugging (modified: unknown) -- https://openwrt.org/docs/guide-developer/debugging
+- [openwrt-guide-developer-defining-firmware-partitions.md](/openwrt-wiki-docs/openwrt-guide-developer-defining-firmware-partitions.md): Device Tree Usage in OpenWrt (DTS) (modified: unknown) -- https://openwrt.org/docs/guide-developer/defining-firmware-partitions
+- [openwrt-guide-developer-dependencies.md](/openwrt-wiki-docs/openwrt-guide-developer-dependencies.md): Using Dependencies (modified: unknown) -- https://openwrt.org/docs/guide-developer/dependencies
+- [openwrt-guide-developer-device-support-policies.md](/openwrt-wiki-docs/openwrt-guide-developer-device-support-policies.md): Device support policies / best practices (modified: unknown) -- https://openwrt.org/docs/guide-developer/device-support-policies
+- [openwrt-guide-developer-drivers.md](/openwrt-wiki-docs/openwrt-guide-developer-drivers.md): Drivers (modified: unknown) -- https://openwrt.org/docs/guide-developer/drivers
+- [openwrt-guide-developer-embedding-files-in-image.md](/openwrt-wiki-docs/openwrt-guide-developer-embedding-files-in-image.md): embedding-files-in-image (modified: unknown) -- https://openwrt.org/docs/guide-developer/embedding-files-in-image
+- [openwrt-guide-developer-external-toolchain.md](/openwrt-wiki-docs/openwrt-guide-developer-external-toolchain.md): External Toolchain (modified: unknown) -- https://openwrt.org/docs/guide-developer/external_toolchain
+- [openwrt-guide-developer-feeds.md](/openwrt-wiki-docs/openwrt-guide-developer-feeds.md): OpenWrt Feeds (modified: unknown) -- https://openwrt.org/docs/guide-developer/feeds
+- [openwrt-guide-developer-frequent-pr-mistakes.md](/openwrt-wiki-docs/openwrt-guide-developer-frequent-pr-mistakes.md): Frequent PR mistakes or "How to prevent my PR from getting delayed for sure" (modified: unknown) -- https://openwrt.org/docs/guide-developer/frequent-pr-mistakes
+- [openwrt-guide-developer-gdb.md](/openwrt-wiki-docs/openwrt-guide-developer-gdb.md): GNU Debugger (modified: unknown) -- https://openwrt.org/docs/guide-developer/gdb
+- [openwrt-guide-developer-hw-hacking-first-steps.md](/openwrt-wiki-docs/openwrt-guide-developer-hw-hacking-first-steps.md): Hardware Hacking First Steps (modified: unknown) -- https://openwrt.org/docs/guide-developer/hw.hacking.first.steps
+- [openwrt-guide-developer-imagebuilder-frontends.md](/openwrt-wiki-docs/openwrt-guide-developer-imagebuilder-frontends.md): Image Builder frontends (modified: unknown) -- https://openwrt.org/docs/guide-developer/imagebuilder_frontends
+- [openwrt-guide-developer-jshn.md](/openwrt-wiki-docs/openwrt-guide-developer-jshn.md): jshn: a JSON parsing and generation library in for shell scripts (modified: unknown) -- https://openwrt.org/docs/guide-developer/jshn
+- [openwrt-guide-developer-links-software-libraries.md](/openwrt-wiki-docs/openwrt-guide-developer-links-software-libraries.md): Links to Libraries (modified: unknown) -- https://openwrt.org/docs/guide-developer/links.software.libraries
+- [openwrt-guide-developer-luci.md](/openwrt-wiki-docs/openwrt-guide-developer-luci.md): Adding new elements to LuCI (modified: unknown) -- https://openwrt.org/docs/guide-developer/luci
+- [openwrt-guide-developer-mac-address.md](/openwrt-wiki-docs/openwrt-guide-developer-mac-address.md): Device Support: MAC address setup (modified: unknown) -- https://openwrt.org/docs/guide-developer/mac.address
+- [openwrt-guide-developer-mdns.md](/openwrt-wiki-docs/openwrt-guide-developer-mdns.md): umdns for Local Device Discovery (modified: unknown) -- https://openwrt.org/docs/guide-developer/mdns
+- [openwrt-guide-developer-network-scripting.md](/openwrt-wiki-docs/openwrt-guide-developer-network-scripting.md): Network scripts (modified: unknown) -- https://openwrt.org/docs/guide-developer/network-scripting
+- [openwrt-guide-developer-obtain-firmware-sdk.md](/openwrt-wiki-docs/openwrt-guide-developer-obtain-firmware-sdk.md): Using the SDK (modified: unknown) -- https://openwrt.org/docs/guide-developer/obtain.firmware.sdk
+- [openwrt-guide-developer-overview.md](/openwrt-wiki-docs/openwrt-guide-developer-overview.md): Overview (modified: unknown) -- https://openwrt.org/docs/guide-developer/overview
+- [openwrt-guide-developer-package-policies.md](/openwrt-wiki-docs/openwrt-guide-developer-package-policies.md): OpenWrt packages (modified: unknown) -- https://openwrt.org/docs/guide-developer/package-policies
+- [openwrt-guide-developer-packages-flags.md](/openwrt-wiki-docs/openwrt-guide-developer-packages-flags.md): Overriding Build Options (modified: unknown) -- https://openwrt.org/docs/guide-developer/packages.flags
+- [openwrt-guide-developer-packages.md](/openwrt-wiki-docs/openwrt-guide-developer-packages.md): Creating packages (modified: unknown) -- https://openwrt.org/docs/guide-developer/packages
+- [openwrt-guide-developer-procd-init-script-example.md](/openwrt-wiki-docs/openwrt-guide-developer-procd-init-script-example.md): Create a sample procd init script (modified: unknown) -- https://openwrt.org/docs/guide-developer/procd-init-script-example
+- [openwrt-guide-developer-procd-init-scripts.md](/openwrt-wiki-docs/openwrt-guide-developer-procd-init-scripts.md): Procd Init Scripts (modified: unknown) -- https://openwrt.org/docs/guide-developer/procd-init-scripts
+- [openwrt-guide-developer-rpcd.md](/openwrt-wiki-docs/openwrt-guide-developer-rpcd.md): RPC daemon (modified: unknown) -- https://openwrt.org/docs/guide-developer/rpcd
+- [openwrt-guide-developer-security-incidents-response.md](/openwrt-wiki-docs/openwrt-guide-developer-security-incidents-response.md): High-level security incident response handling process (modified: unknown) -- https://openwrt.org/docs/guide-developer/security_incidents_response
+- [openwrt-guide-developer-security.md](/openwrt-wiki-docs/openwrt-guide-developer-security.md): Security (modified: unknown) -- https://openwrt.org/docs/guide-developer/security
+- [openwrt-guide-developer-selinux-policy-development.md](/openwrt-wiki-docs/openwrt-guide-developer-selinux-policy-development.md): OpenWrt SELinux policy development, customization, and testing (modified: unknown) -- https://openwrt.org/docs/guide-developer/selinux_policy_development
+- [openwrt-guide-developer-ubus.md](/openwrt-wiki-docs/openwrt-guide-developer-ubus.md): uBus IPC/RPC System (modified: unknown) -- https://openwrt.org/docs/guide-developer/ubus
+- [openwrt-guide-developer-uci-defaults.md](/openwrt-wiki-docs/openwrt-guide-developer-uci-defaults.md): UCI defaults (modified: unknown) -- https://openwrt.org/docs/guide-developer/uci-defaults
+- [openwrt-guide-developer-uefi-bootable-image.md](/openwrt-wiki-docs/openwrt-guide-developer-uefi-bootable-image.md): OpenWrt on UEFI based x86 systems (modified: unknown) -- https://openwrt.org/docs/guide-developer/uefi-bootable-image
+- [openwrt-guide-developer-working-with-git-email.md](/openwrt-wiki-docs/openwrt-guide-developer-working-with-git-email.md): Sending patches by git send-email (modified: unknown) -- https://openwrt.org/docs/guide-developer/working-with-git-email
+- [openwrt-guide-developer-working-with-github-pr.md](/openwrt-wiki-docs/openwrt-guide-developer-working-with-github-pr.md): Working with GitHub (modified: unknown) -- https://openwrt.org/docs/guide-developer/working-with-github-pr
+- [openwrt-guide-developer-write-shell-script.md](/openwrt-wiki-docs/openwrt-guide-developer-write-shell-script.md): Write shell scripts in OpenWrt (modified: unknown) -- https://openwrt.org/docs/guide-developer/write-shell-script
+- [openwrt-techref-architecture.md](/openwrt-wiki-docs/openwrt-techref-architecture.md): OpenWrt – operating system architecture (modified: unknown) -- https://openwrt.org/docs/techref/architecture
+- [openwrt-techref-block-mount.md](/openwrt-wiki-docs/openwrt-techref-block-mount.md): Mounting Block Devices (modified: unknown) -- https://openwrt.org/docs/techref/block_mount
+- [openwrt-techref-bootloader.md](/openwrt-wiki-docs/openwrt-techref-bootloader.md): The Bootloader (modified: unknown) -- https://openwrt.org/docs/techref/bootloader
+- [openwrt-techref-buildroot.md](/openwrt-wiki-docs/openwrt-techref-buildroot.md): OpenWrt Buildroot – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/buildroot
+- [openwrt-techref-busybox.md](/openwrt-wiki-docs/openwrt-techref-busybox.md): BusyBox (modified: unknown) -- https://openwrt.org/docs/techref/busybox
+- [openwrt-techref-dfs.md](/openwrt-wiki-docs/openwrt-techref-dfs.md): DFS (modified: unknown) -- https://openwrt.org/docs/techref/dfs
+- [openwrt-techref-externaldocumentation.md](/openwrt-wiki-docs/openwrt-techref-externaldocumentation.md): External Documentation (modified: unknown) -- https://openwrt.org/docs/techref/externaldocumentation
+- [openwrt-techref-file-system.md](/openwrt-wiki-docs/openwrt-techref-file-system.md): OpenWrt File System Hierarchy / Memory Usage (modified: unknown) -- https://openwrt.org/docs/techref/file_system
+- [openwrt-techref-filesystems-network.md](/openwrt-wiki-docs/openwrt-techref-filesystems-network.md): Network Filesystems (modified: unknown) -- https://openwrt.org/docs/techref/filesystems.network
+- [openwrt-techref-filesystems.md](/openwrt-wiki-docs/openwrt-techref-filesystems.md): Filesystems (modified: unknown) -- https://openwrt.org/docs/techref/filesystems
+- [openwrt-techref-flash-layout.md](/openwrt-wiki-docs/openwrt-techref-flash-layout.md): The OpenWrt Flash Layout (modified: unknown) -- https://openwrt.org/docs/techref/flash.layout
+- [openwrt-techref-flash.md](/openwrt-wiki-docs/openwrt-techref-flash.md): Flash memory (modified: unknown) -- https://openwrt.org/docs/techref/flash
+- [openwrt-techref-headers.md](/openwrt-wiki-docs/openwrt-techref-headers.md): TRX vs. TRX2 vs. BIN (modified: unknown) -- https://openwrt.org/docs/techref/headers
+- [openwrt-techref-hotplug-legacy.md](/openwrt-wiki-docs/openwrt-techref-hotplug-legacy.md): Hotplug -- Legacy (modified: unknown) -- https://openwrt.org/docs/techref/hotplug_legacy
+- [openwrt-techref-image-format.md](/openwrt-wiki-docs/openwrt-techref-image-format.md): Image formats (modified: unknown) -- https://openwrt.org/docs/techref/image.format
+- [openwrt-techref-image-makefile.md](/openwrt-wiki-docs/openwrt-techref-image-makefile.md): image/Makefile Details (modified: unknown) -- https://openwrt.org/docs/techref/image.makefile
+- [openwrt-techref-init-detail-cc.md](/openwrt-wiki-docs/openwrt-techref-init-detail-cc.md): Init (User space boot) reference for Chaos Calmer: procd (modified: unknown) -- https://openwrt.org/docs/techref/init.detail.cc
+- [openwrt-techref-internal-layout.md](/openwrt-wiki-docs/openwrt-techref-internal-layout.md): Internal Layout D-Link DIR-825 (modified: unknown) -- https://openwrt.org/docs/techref/internal.layout
+- [openwrt-techref-libnl.md](/openwrt-wiki-docs/openwrt-techref-libnl.md): libnl and libnl-tiny – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/libnl
+- [openwrt-techref-libubox.md](/openwrt-wiki-docs/openwrt-techref-libubox.md): libubox (modified: unknown) -- https://openwrt.org/docs/techref/libubox
+- [openwrt-techref-lldpd.md](/openwrt-wiki-docs/openwrt-techref-lldpd.md): lldpd (modified: unknown) -- https://openwrt.org/docs/techref/lldpd
+- [openwrt-techref-luci.md](/openwrt-wiki-docs/openwrt-techref-luci.md): LuCI – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/luci
+- [openwrt-techref-luci2.md](/openwrt-wiki-docs/openwrt-techref-luci2.md): LuCI2 (OpenWrt web user interface) (modified: unknown) -- https://openwrt.org/docs/techref/luci2
+- [openwrt-techref-mountd.md](/openwrt-wiki-docs/openwrt-techref-mountd.md): mountd – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/mountd
+- [openwrt-techref-mtd.md](/openwrt-wiki-docs/openwrt-techref-mtd.md): MTD (modified: unknown) -- https://openwrt.org/docs/techref/mtd
+- [openwrt-techref-netifd.md](/openwrt-wiki-docs/openwrt-techref-netifd.md): netifd (Network Interface Daemon) – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/netifd
+- [openwrt-techref-odhcpd.md](/openwrt-wiki-docs/openwrt-techref-odhcpd.md): odhcpd (modified: unknown) -- https://openwrt.org/docs/techref/odhcpd
+- [openwrt-techref-preinit-mount.md](/openwrt-wiki-docs/openwrt-techref-preinit-mount.md): Abstract (modified: unknown) -- https://openwrt.org/docs/techref/preinit_mount
+- [openwrt-techref-procd.md](/openwrt-wiki-docs/openwrt-techref-procd.md): Procd system init and daemon management (modified: unknown) -- https://openwrt.org/docs/techref/procd
+- [openwrt-techref-process-boot.md](/openwrt-wiki-docs/openwrt-techref-process-boot.md): The Boot Process (modified: unknown) -- https://openwrt.org/docs/techref/process.boot
+- [openwrt-techref-requirements-boot-process.md](/openwrt-wiki-docs/openwrt-techref-requirements-boot-process.md): Boot/Init Requirements (modified: unknown) -- https://openwrt.org/docs/techref/requirements.boot.process
+- [openwrt-techref-rpcd.md](/openwrt-wiki-docs/openwrt-techref-rpcd.md): rpcd: OpenWrt ubus RPC daemon for backend server (modified: unknown) -- https://openwrt.org/docs/techref/rpcd
+- [openwrt-techref-swconfig.md](/openwrt-wiki-docs/openwrt-techref-swconfig.md): swconfig (modified: unknown) -- https://openwrt.org/docs/techref/swconfig
+- [openwrt-techref-sysupgrade.md](/openwrt-wiki-docs/openwrt-techref-sysupgrade.md): Sysupgrade – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/sysupgrade
+- [openwrt-techref-ubox.md](/openwrt-wiki-docs/openwrt-techref-ubox.md): ubox (modified: unknown) -- https://openwrt.org/docs/techref/ubox
+- [openwrt-techref-ubus.md](/openwrt-wiki-docs/openwrt-techref-ubus.md): ubus (OpenWrt micro bus architecture) (modified: unknown) -- https://openwrt.org/docs/techref/ubus
+- [openwrt-techref-uci.md](/openwrt-wiki-docs/openwrt-techref-uci.md): UCI (Unified Configuration Interface) – Technical Reference (modified: unknown) -- https://openwrt.org/docs/techref/uci
+- [openwrt-techref-ucwmp.md](/openwrt-wiki-docs/openwrt-techref-ucwmp.md): EasyCwmp (CPE WAN Management Protocol daemon) (modified: unknown) -- https://openwrt.org/docs/techref/ucwmp
+- [openwrt-techref-unetd.md](/openwrt-wiki-docs/openwrt-techref-unetd.md): unetd (modified: unknown) -- https://openwrt.org/docs/techref/unetd
+- [openwrt-techref-wireless-modes.md](/openwrt-wiki-docs/openwrt-techref-wireless-modes.md): Wireless Modes (modified: unknown) -- https://openwrt.org/docs/techref/wireless.modes
+- [openwrt-techref-wireless-standards.md](/openwrt-wiki-docs/openwrt-techref-wireless-standards.md): Wireless Standards (modified: unknown) -- https://openwrt.org/docs/techref/wireless.standards
+- [openwrt-techref-xenomai.md](/openwrt-wiki-docs/openwrt-techref-xenomai.md): Xenomai - real-time framework inside OpenWrt (modified: unknown) -- https://openwrt.org/docs/techref/xenomai

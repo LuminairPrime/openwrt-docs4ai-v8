@@ -1,0 +1,23 @@
+# LuCI JS API Documentation Index
+# Source: https://github.com/openwrt/luci (commit: ec79910)
+# Live docs: https://openwrt.github.io/luci/jsapi/
+# Generated: 2026-03-05 15:58 UTC
+#
+# LuCI is the OpenWrt web configuration interface.
+# This index covers its complete client-side JavaScript API.
+#
+# Standalone use: each .md file in this folder is self-contained with full
+# metadata headers. This llms.txt provides the navigational index.
+#
+## Files in this directory
+
+- [luci-api-cbi.md](/luci-docs/luci-api-cbi.md): LuCI `cbi` JS API — 25 documented members
+- [luci-api-firewall.md](/luci-docs/luci-api-firewall.md): LuCI `firewall` JS API — 5 documented members
+- [luci-api-form.md](/luci-docs/luci-api-form.md): LuCI `form` JS API — 2 documented members
+- [luci-api-fs.md](/luci-docs/luci-api-fs.md): LuCI `fs` JS API — 2 documented members
+- [luci-api-luci.md](/luci-docs/luci-api-luci.md): LuCI `luci` JS API — 131 documented members
+- [luci-api-static.md](/luci-docs/luci-api-static.md): LuCI `static` JS API — 3 documented members
+- [luci-api-prng.md](/luci-docs/luci-api-prng.md): LuCI `prng` JS API — 7 documented members
+- [luci-api-widgets.md](/luci-docs/luci-api-widgets.md): LuCI `widgets` JS API — 3 documented members
+- [luci-api-uci.md](/luci-docs/luci-api-uci.md): LuCI `uci` JS API — 1 documented members
+- [luci-api-ui.md](/luci-docs/luci-api-ui.md): LuCI `ui` JS API — 1 documented members
