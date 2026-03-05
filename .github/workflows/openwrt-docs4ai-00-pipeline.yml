@@ -1,0 +1,117 @@
+name: Generate docs4ai Pipeline (Parallel)
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+    inputs:
+      skip_wiki:
+        description: 'Skip OpenWrt wiki scraping (faster run)'
+        type: choice
+        options: ['false', 'true']
+        default: 'false'
+      skip_buildroot:
+        description: 'Skip buildroot source extraction (faster run)'
+        type: choice
+        options: ['false', 'true']
+        default: 'false'
+      skip_ai:
+        description: 'Skip AI summarization (saves GitHub Models quota)'
+        type: choice
+        options: ['false', 'true']
+        default: 'false'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: generate-llm-docs
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install tools and dependencies
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y pandoc
+          npm install -g jsdoc-to-markdown
+          pip install -r .github/scripts/requirements.txt
+
+      - name: "Phase 1: Clone sources"
+        run: ./.github/scripts/openwrt-docs4ai-01-clone-repos.sh
+
+      - name: "Phase 2: Parallel Scrapers"
+        env:
+          SKIP_WIKI: ${{ inputs.skip_wiki }}
+          SKIP_BUILDROOT: ${{ inputs.skip_buildroot }}
+        run: |
+          # Start all scraping jobs in the background
+          if [ "$SKIP_WIKI" != "true" ]; then
+            python .github/scripts/openwrt-docs4ai-02a-scrape-wiki.py &
+          fi
+          
+          python .github/scripts/openwrt-docs4ai-02b-scrape-ucode.py &
+          python .github/scripts/openwrt-docs4ai-02c-scrape-jsdoc.py &
+          
+          if [ "$SKIP_BUILDROOT" != "true" ]; then
+            ./.github/scripts/openwrt-docs4ai-02d-scrape-core-packages.sh &
+            ./.github/scripts/openwrt-docs4ai-02e-scrape-example-packages.sh &
+          fi
+          
+          # Wait for all background jobs to finish before proceeding to Phase 3
+          wait
+
+      - name: "Phase 3: Enrichment (Add Links)"
+        run: python .github/scripts/openwrt-docs4ai-03-add-links.py
+
+      - name: "Phase 3: Enrichment (AI Summaries)"
+        if: ${{ inputs.skip_ai != 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/openwrt-docs4ai-04-generate-summaries.py
+
+      - name: "Phase 4: Finalization and Publish"
+        env:
+          SKIP_WIKI: ${{ inputs.skip_wiki }}
+          SKIP_BUILDROOT: ${{ inputs.skip_buildroot }}
+        run: ./.github/scripts/openwrt-docs4ai-05-finalize-publish.sh
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+  deploy-pages:
+    needs: generate-docs
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
