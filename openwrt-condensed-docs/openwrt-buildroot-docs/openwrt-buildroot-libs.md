@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: `libs` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/libs
-> **Generated:** 2026-03-05 18:43 UTC from commit `6c7dd69`
+> **Generated:** 2026-03-05 18:50 UTC from commit `6c7dd69`
 
 ---
 

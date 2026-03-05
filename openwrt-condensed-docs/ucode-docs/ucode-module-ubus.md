@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/ubus.c`](https://github.com/jow-/ucode/blob/master/lib/ubus.c)
 > **Live docs:** https://ucode.mein.io/module-ubus.html
-> **Generated:** 2026-03-05 18:43 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:50 UTC from commit `e87be9d`
 
 ---
 

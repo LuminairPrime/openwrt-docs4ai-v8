@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/netifd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:46 UTC
+> **Fetched:** 2026-03-05 18:53 UTC
 
 ---
 

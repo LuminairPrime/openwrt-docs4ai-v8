@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/busybox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:45 UTC
+> **Fetched:** 2026-03-05 18:52 UTC
 
 ---
 

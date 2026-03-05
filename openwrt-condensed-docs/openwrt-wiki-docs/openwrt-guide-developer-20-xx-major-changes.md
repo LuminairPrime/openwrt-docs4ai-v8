@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/20.xx.major.changes
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:43 UTC
+> **Fetched:** 2026-03-05 18:51 UTC
 
 ---
 
