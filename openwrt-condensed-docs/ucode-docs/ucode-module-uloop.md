@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/uloop.c`](https://github.com/jow-/ucode/blob/master/lib/uloop.c)
 > **Live docs:** https://ucode.mein.io/module-uloop.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 

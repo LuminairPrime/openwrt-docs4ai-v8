@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-03-05 16:01 UTC
+> **Generated:** 2026-03-05 16:20 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 
@@ -10,7 +10,7 @@
 
 > **Source:** [`lib/debug.c`](https://github.com/jow-/ucode/blob/master/lib/debug.c)
 > **Live docs:** https://ucode.mein.io/module-debug.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -1581,7 +1581,7 @@ index numbers following the source code declaration order.</p>
 
 > **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
 > **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -3340,7 +3340,7 @@ index is invalid.</p>
 
 > **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
 > **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -5002,7 +5002,7 @@ const dirInfo = lstat('path/to/directory');
 
 > **Source:** [`lib/io.c`](https://github.com/jow-/ucode/blob/master/lib/io.c)
 > **Live docs:** https://ucode.mein.io/module-io.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -6704,7 +6704,7 @@ handle.write('Hello World\n');
 
 > **Source:** [`lib/log.c`](https://github.com/jow-/ucode/blob/master/lib/log.c)
 > **Live docs:** https://ucode.mein.io/module-log.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -8541,7 +8541,7 @@ portability to non-OpenWrt environments.</p>
 
 > **Source:** [`lib/math.c`](https://github.com/jow-/ucode/blob/master/lib/math.c)
 > **Live docs:** https://ucode.mein.io/module-math.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -10191,7 +10191,7 @@ infinity, the result is positive infinity.</li>
 
 > **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
 > **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -11763,7 +11763,7 @@ the <code>ucode</code> interpreter with the <code>-lnl80211</code> switch.</p>
 
 > **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
 > **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -13654,7 +13654,7 @@ environment variable to <code>0</code> when starting the process. The memory dum
 
 > **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
 > **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -15382,7 +15382,7 @@ listener.close();
 
 > **Source:** [`lib/socket.c`](https://github.com/jow-/ucode/blob/master/lib/socket.c)
 > **Live docs:** https://ucode.mein.io/module-socket.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -16911,7 +16911,7 @@ const ipv6Addresses = socket.addrinfo
 
 > **Source:** [`lib/struct.c`](https://github.com/jow-/ucode/blob/master/lib/struct.c)
 > **Live docs:** https://ucode.mein.io/module-struct.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -18822,7 +18822,7 @@ dependent.</p>
 
 > **Source:** [`lib/ubus.c`](https://github.com/jow-/ucode/blob/master/lib/ubus.c)
 > **Live docs:** https://ucode.mein.io/module-ubus.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -20373,7 +20373,7 @@ sha1(123);               // Returns null
 
 > **Source:** [`lib/uci.c`](https://github.com/jow-/ucode/blob/master/lib/uci.c)
 > **Live docs:** https://ucode.mein.io/module-uci.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -21842,7 +21842,7 @@ the cursor.</p>
 
 > **Source:** [`lib/uloop.c`](https://github.com/jow-/ucode/blob/master/lib/uloop.c)
 > **Live docs:** https://ucode.mein.io/module-uloop.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 
@@ -23466,7 +23466,7 @@ const myTask = uloop.task(
 
 > **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
 > **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 16:17 UTC from commit `e87be9d`
 
 ---
 

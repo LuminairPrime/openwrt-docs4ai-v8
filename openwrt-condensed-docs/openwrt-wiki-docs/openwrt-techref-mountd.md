@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/mountd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 16:01 UTC
+> **Fetched:** 2026-03-05 16:20 UTC
 
 ---
 

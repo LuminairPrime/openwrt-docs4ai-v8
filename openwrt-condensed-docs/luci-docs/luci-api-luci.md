@@ -2,7 +2,7 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/luci.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/luci.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.html
-> **Generated:** 2026-03-05 15:58 UTC from commit `ec79910`
+> **Generated:** 2026-03-05 16:17 UTC from commit `ec79910`
 
 ---
 
@@ -1361,3 +1361,527 @@ if either the `node` argument was no valid DOM `node` or if the
 | --- | --- | --- |
 | node | <code>\*</code> | The `Node` argument to replace the children of. |
 | [children] | <code>\*</code> | The children to replace into the given node. When `children` is an array, then each item of the array will be either appended as a child element or text node, depending on whether the item is a DOM `Node` instance or some other non-`null` value. Non-`Node`, non-`null` values will be converted to strings first before being passed as argument to `createTextNode()`. When `children` is a function, it will be invoked with the passed `node` argument as the sole parameter and the `append` function will be invoked again, with the given `node` argument as first and the return value of the `children` function as the second parameter. When `children` is a DOM `Node` instance, it will be appended to the given `node`. When `children` is any other non-`null` value, it will be converted to a string and appended to the `innerHTML` property of the given `node`. |
+
+<a name="LuCI.dom+attr"></a>
+
+#### dom.attr(node, key, [val]) ⇒ <code>null</code>
+Sets attributes or registers event listeners on element nodes.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>\*</code> | The `Node` argument to set the attributes or add the event listeners for. When the given `node` value is not a valid DOM `Node`, the function returns and does nothing. |
+| key | <code>string</code> \| <code>Object.&lt;string, \*&gt;</code> | Specifies either the attribute or event handler name to use, or an object containing multiple key, value pairs which are each added to the node as either attribute or event handler, depending on the respective value. |
+| [val] | <code>\*</code> | Specifies the attribute value or event handler function to add. If the `key` parameter is an `Object`, this parameter will be ignored. When `val` is of type function, it will be registered as an event handler on the given `node` with the `key` parameter being the event name. When `val` is of type object, it will be serialized as JSON and added as an attribute to the given `node`, using the given `key` as an attribute name. When `val` is of any other type, it will be added as an attribute to the given `node` as-is, with the underlying `setAttribute()` call implicitly turning it into a string. |
+
+<a name="LuCI.dom+create"></a>
+
+#### dom.create(html, [attr], [data]) ⇒ <code>Node</code>
+Creates a new DOM `Node` from the given `html`, `attr` and
+`data` parameters.
+
+This function has multiple signatures, it can be either invoked
+in the form `create(html[, attr[, data]])` or in the form
+`create(html[, data])`. The used variant is determined from the
+type of the second argument.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>Node</code> - Returns the newly created `Node`.  
+**Throws**:
+
+- <code>InvalidCharacterError</code> Throws an `InvalidCharacterError` when the given `html`
+argument contained malformed markup (such as not escaped
+`&` characters in XHTML mode) or when the given node name
+in `html` contains characters which are not legal in DOM
+element names, such as spaces.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| html | <code>string</code> | Describes the node to create. When the value of `html` is of type array, a `DocumentFragment` node is created and each item of the array is first converted to a DOM `Node` by passing it through `create()` and then added as a child to the fragment. When the value of `html` is a DOM `Node` instance, no new element will be created, but the node will be used as-is. When the value of `html` is a string starting with `<`, it will be passed to `dom.parse()` and the resulting value is used. When the value of `html` is any other string, it will be passed to `document.createElement()` for creating a new DOM `Node` of the given name. |
+| [attr] | <code>Object.&lt;string, \*&gt;</code> | Specifies an Object of key, value pairs to set as attributes or event handlers on the created node. Refer to [dom.attr()](#LuCI.dom+attr) for details. |
+| [data] | <code>\*</code> | Specifies children to append to the newly created element. Refer to [dom.append()](#LuCI.dom+append) for details. |
+
+<a name="LuCI.dom+data"></a>
+
+#### dom.data(node, [key], [val]) ⇒ <code>\*</code>
+Attaches or detaches arbitrary data to and from a DOM `Node`.
+
+This function is useful to attach non-string values or runtime
+data that is not serializable to DOM nodes. To decouple data
+from the DOM, values are not added directly to nodes, but
+inserted into a registry instead which is then referenced by a
+string key stored as `data-idref` attribute in the node.
+
+This function has multiple signatures and is sensitive to the
+number of arguments passed to it.
+
+ - `dom.data(node)` -
+	 Fetches all data associated with the given node.
+ - `dom.data(node, key)` -
+	 Fetches a specific key associated with the given node.
+ - `dom.data(node, key, val)` -
+	 Sets a specific key to the given value associated with the
+	 given node.
+ - `dom.data(node, null)` -
+	 Clears any data associated with the node.
+ - `dom.data(node, key, null)` -
+	 Clears the given key associated with the node.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>\*</code> - Returns the get or set value, or `null` when no value could
+be found.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The DOM `Node` instance to set or retrieve the data for. |
+| [key] | <code>string</code> \| <code>null</code> | This is either a string specifying the key to retrieve, or `null` to unset the entire node data. |
+| [val] | <code>\*</code> \| <code>null</code> | This is either a non-`null` value to set for a given key or `null` to remove the given `key` from the specified node. |
+
+<a name="LuCI.dom+bindClassInstance"></a>
+
+#### dom.bindClassInstance(node, inst) ⇒ <code>Class</code>
+Binds the given class instance to the specified DOM `Node`.
+
+This function uses the `dom.data()` facility to attach the
+passed instance of a Class to a node. This is needed for
+complex widget elements or similar where the corresponding
+class instance responsible for the element must be retrieved
+from DOM nodes obtained by `querySelector()` or similar means.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>Class</code> - Returns the bound class instance.  
+**Throws**:
+
+- <code>TypeError</code> Throws a `TypeError` when the given instance argument isn't
+a valid Class instance.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The DOM `Node` instance to bind the class to. |
+| inst | <code>Class</code> | The Class instance to bind to the node. |
+
+<a name="LuCI.dom+findClassInstance"></a>
+
+#### dom.findClassInstance(node) ⇒ <code>Class</code> \| <code>null</code>
+Finds a bound class instance on the given node itself or the
+first bound instance on its closest parent node.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>Class</code> \| <code>null</code> - Returns the founds class instance if any or `null` if no bound
+class could be found on the node itself or any of its parents.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The DOM `Node` instance to start from. |
+
+<a name="LuCI.dom+callClassMethod"></a>
+
+#### dom.callClassMethod(node, method, ...args) ⇒ <code>\*</code> \| <code>null</code>
+Finds a bound class instance on the given node itself or the
+first bound instance on its closest parent node and invokes
+the specified method name on the found class instance.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>\*</code> \| <code>null</code> - Returns the return value of the invoked method if a class
+instance and method has been found. Returns `null` if either
+no bound class instance could be found, or if the found
+instance didn't have the requested `method`.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The DOM `Node` instance to start from. |
+| method | <code>string</code> | The name of the method to invoke on the found class instance. |
+| ...args | <code>\*</code> | Additional arguments to pass to the invoked method as-is. |
+
+<a name="LuCI.dom+[isEmpty](/luci-docs/luci-api-uci.md)"></a>
+
+#### dom.isEmpty(node, [ignoreFn]) ⇒ <code>boolean</code>
+Tests whether a given DOM `Node` instance is empty or appears
+empty.
+
+Any element child nodes which have the CSS class `hidden` set
+or for which the optionally passed `ignoreFn` callback function
+returns `false` are ignored.
+
+**Kind**: instance method of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>boolean</code> - Returns `true` if the node does not have any children or if
+any children node either has a `hidden` CSS class or a `false`
+result when testing it using the given `ignoreFn`.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The DOM `Node` instance to test. |
+| [ignoreFn] | <code>LuCI.dom.ignoreCallbackFn</code> | Specifies an optional function which is invoked for each child node to decide whether the child node should be ignored or not. |
+
+<a name="LuCI.dom..ignoreCallbackFn"></a>
+
+#### dom~ignoreCallbackFn ⇒ <code>boolean</code>
+The ignore callback function is invoked by `isEmpty()` for each
+child node to decide whether to ignore a child node or not.
+
+When this function returns `false`, the node passed to it is
+ignored, else not.
+
+**Kind**: inner typedef of [<code>dom</code>](#LuCI.dom)  
+**Returns**: <code>boolean</code> - Boolean indicating whether to ignore the node or not.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| node | <code>Node</code> | The child node to test. |
+
+<a name="LuCI.session"></a>
+
+### LuCI.session
+The `session` class provides various session related functionality.
+
+**Kind**: static class of [<code>LuCI</code>](#LuCI)  
+
+* [.session](#LuCI.session)
+    * [.getID()](#LuCI.session+getID) ⇒ <code>string</code>
+    * [.getToken()](#LuCI.session+getToken) ⇒ <code>string</code> \| <code>null</code>
+    * [.getLocalData([key])](#LuCI.session+getLocalData) ⇒ <code>\*</code>
+    * [.setLocalData(key, value)](#LuCI.session+setLocalData) ⇒ <code>boolean</code>
+
+<a name="LuCI.session+getID"></a>
+
+#### session.getID() ⇒ <code>string</code>
+Retrieve the current session ID.
+
+**Kind**: instance method of [<code>session</code>](#LuCI.session)  
+**Returns**: <code>string</code> - Returns the current session ID.  
+<a name="LuCI.session+getToken"></a>
+
+#### session.getToken() ⇒ <code>string</code> \| <code>null</code>
+Retrieve the current session token.
+
+**Kind**: instance method of [<code>session</code>](#LuCI.session)  
+**Returns**: <code>string</code> \| <code>null</code> - Returns the current session token or `null` if not logged in.  
+<a name="LuCI.session+getLocalData"></a>
+
+#### session.getLocalData([key]) ⇒ <code>\*</code>
+Retrieve data from the local session storage.
+
+**Kind**: instance method of [<code>session</code>](#LuCI.session)  
+**Returns**: <code>\*</code> - Returns the stored session data or `null` if the given key wasn't
+found.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [key] | <code>string</code> | The key to retrieve from the session data store. If omitted, all session data will be returned. |
+
+<a name="LuCI.session+setLocalData"></a>
+
+#### session.setLocalData(key, value) ⇒ <code>boolean</code>
+Set data in the local session storage.
+
+**Kind**: instance method of [<code>session</code>](#LuCI.session)  
+**Returns**: <code>boolean</code> - Returns `true` if the data could be stored or `false` on error.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| key | <code>string</code> | The key to set in the session data store. |
+| value | <code>\*</code> | The value to store. It will be internally converted to JSON before being put in the session store. |
+
+<a name="LuCI.view"></a>
+
+### LuCI.view
+The `view` class forms the basis of views and provides a standard
+set of methods to inherit from.
+
+**Kind**: static class of [<code>LuCI</code>](#LuCI)  
+
+* [.view](#LuCI.view)
+    * *[.load()](#LuCI.view+load) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>*
+    * *[.render(load_results)](#LuCI.view+render) ⇒ <code>Node</code> \| <code>Promise.&lt;Node&gt;</code>*
+    * [.handleSave(ev)](#LuCI.view+handleSave) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+    * [.handleSaveApply(ev, mode)](#LuCI.view+handleSaveApply) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+    * [.handleReset(ev)](#LuCI.view+handleReset) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+    * [.addFooter()](#LuCI.view+addFooter) ⇒ <code>DocumentFragment</code>
+
+<a name="LuCI.view+load"></a>
+
+#### *view.load() ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>*
+The load function is invoked before the view is rendered.
+
+The invocation of this function is wrapped by
+`Promise.resolve()` so it may return Promises if needed.
+
+The return value of the function (or the resolved values
+of the promise returned by it) will be passed as the first
+argument to `render()`.
+
+This function is supposed to be overwritten by subclasses,
+the default implementation does nothing.
+
+**Kind**: instance abstract method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>\*</code> \| <code>Promise.&lt;\*&gt;</code> - May return any value or a Promise resolving to any value.  
+<a name="LuCI.view+render"></a>
+
+#### *view.render(load_results) ⇒ <code>Node</code> \| <code>Promise.&lt;Node&gt;</code>*
+The render function is invoked after the
+[load()](#LuCI.view+load) function and responsible
+for setting up the view contents. It must return a DOM
+`Node` or `DocumentFragment` holding the contents to
+insert into the view area.
+
+The invocation of this function is wrapped by
+`Promise.resolve()` so it may return Promises if needed.
+
+The return value of the function (or the resolved values
+of the promise returned by it) will be inserted into the
+main content area using
+[dom.append()](#LuCI.dom+append).
+
+This function is supposed to be overwritten by subclasses,
+the default implementation does nothing.
+
+**Kind**: instance abstract method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>Node</code> \| <code>Promise.&lt;Node&gt;</code> - Should return a DOM `Node` value or a `Promise` resolving
+to a `Node` value.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| load_results | <code>\*</code> \| <code>null</code> | This function will receive the return value of the [view.load()](#LuCI.view+load) function as first argument. |
+
+<a name="LuCI.view+handleSave"></a>
+
+#### view.handleSave(ev) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+The handleSave function is invoked when the user clicks
+the `Save` button in the page action footer.
+
+The default implementation should be sufficient for most
+views using [form.Map()](form#Map) based forms - it
+will iterate all forms present in the view and invoke
+the [Map.save()](form#Map#save) method on each form.
+
+Views not using `Map` instances or requiring other special
+logic should overwrite `handleSave()` with a custom
+implementation.
+
+To disable the `Save` page footer button, views extending
+this base class should overwrite the `handleSave` function
+with `null`.
+
+The invocation of this function is wrapped by
+`Promise.resolve()` so it may return Promises if needed.
+
+**Kind**: instance method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>\*</code> \| <code>Promise.&lt;\*&gt;</code> - Any return values of this function are discarded, but
+passed through `Promise.resolve()` to ensure that any
+returned promise runs to completion before the button
+is re-enabled.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ev | <code>Event</code> | The DOM event that triggered the function. |
+
+<a name="LuCI.view+handleSaveApply"></a>
+
+#### view.handleSaveApply(ev, mode) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+The handleSaveApply function is invoked when the user clicks
+the `Save & Apply` button in the page action footer.
+
+The default implementation should be sufficient for most
+views using [form.Map()](form#Map) based forms - it
+will first invoke
+[view.handleSave()](LuCI.view.handleSave) and then
+call [ui.changes.apply()](ui#changes#apply) to start the
+modal config apply and page reload flow.
+
+Views not using `Map` instances or requiring other special
+logic should overwrite `handleSaveApply()` with a custom
+implementation.
+
+To disable the `Save & Apply` page footer button, views
+extending this base class should overwrite the
+`handleSaveApply` function with `null`.
+
+The invocation of this function is wrapped by
+`Promise.resolve()` so it may return Promises if needed.
+
+**Kind**: instance method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>\*</code> \| <code>Promise.&lt;\*&gt;</code> - Any return values of this function are discarded, but
+passed through `Promise.resolve()` to ensure that any
+returned promise runs to completion before the button
+is re-enabled.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ev | <code>Event</code> | The DOM event that triggered the function. |
+| mode | <code>number</code> | Whether to apply the changes checked. |
+
+<a name="LuCI.view+handleReset"></a>
+
+#### view.handleReset(ev) ⇒ <code>\*</code> \| <code>Promise.&lt;\*&gt;</code>
+The handleReset function is invoked when the user clicks
+the `Reset` button in the page action footer.
+
+The default implementation should be sufficient for most
+views using [form.Map()](form#Map) based forms - it
+will iterate all forms present in the view and invoke
+the [Map.reset()](form#Map#save) method on each form.
+
+Views not using `Map` instances or requiring other special
+logic should overwrite `handleReset()` with a custom
+implementation.
+
+To disable the `Reset` page footer button, views extending
+this base class should overwrite the `handleReset` function
+with `null`.
+
+The invocation of this function is wrapped by
+`Promise.resolve()` so it may return Promises if needed.
+
+**Kind**: instance method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>\*</code> \| <code>Promise.&lt;\*&gt;</code> - Any return values of this function are discarded, but
+passed through `Promise.resolve()` to ensure that any
+returned promise runs to completion before the button
+is re-enabled.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ev | <code>Event</code> | The DOM event that triggered the function. |
+
+<a name="LuCI.view+addFooter"></a>
+
+#### view.addFooter() ⇒ <code>DocumentFragment</code>
+Renders a standard page action footer if any of the
+`handleSave()`, `handleSaveApply()` or `handleReset()`
+functions are defined.
+
+The default implementation should be sufficient for most
+views - it will render a standard page footer with action
+buttons labeled `Save`, `Save & Apply` and `Reset`
+triggering the `handleSave()`, `handleSaveApply()` and
+`handleReset()` functions respectively.
+
+When any of these `handle*()` functions is overwritten
+with `null` by a view extending this class, the
+corresponding button will not be rendered.
+
+**Kind**: instance method of [<code>view</code>](#LuCI.view)  
+**Returns**: <code>DocumentFragment</code> - Returns a `DocumentFragment` containing the footer bar
+with buttons for each corresponding `handle*()` action
+or an empty `DocumentFragment` if all three `handle*()`
+methods are overwritten with `null`.  
+<a name="LuCI.xhr"></a>
+
+### ~~LuCI.xhr~~
+***Deprecated***
+
+The `LuCI.xhr` class is a legacy compatibility shim for the
+functionality formerly provided by `xhr.js`. It is registered as a global
+`window.XHR` symbol for compatibility with legacy code.
+
+New code should use [request](#LuCI.request) instead to implement HTTP
+request handling.
+
+**Kind**: static class of [<code>LuCI</code>](#LuCI)  
+
+* ~~[.xhr](#LuCI.xhr)~~
+    * ~~[.get(url, [data], [callback], [timeout])](#LuCI.xhr+get) ⇒ <code>Promise.&lt;null&gt;</code>~~
+    * ~~[.post(url, [data], [callback], [timeout])](#LuCI.xhr+post) ⇒ <code>Promise.&lt;null&gt;</code>~~
+    * ~~[.cancel()](#LuCI.xhr+cancel)~~
+    * ~~[.busy()](#LuCI.xhr+busy) ⇒ <code>boolean</code>~~
+    * ~~[.abort()](#LuCI.xhr+abort)~~
+    * ~~[.send_form()](#LuCI.xhr+send_form)~~
+
+<a name="LuCI.xhr+get"></a>
+
+#### ~~xhr.get(url, [data], [callback], [timeout]) ⇒ <code>Promise.&lt;null&gt;</code>~~
+***Deprecated***
+
+This function is a legacy wrapper around
+[LuCI.get()](#LuCI+get).
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| url | <code>string</code> | The URL to request |
+| [data] | <code>Object</code> | Additional query string data |
+| [callback] | [<code>requestCallbackFn</code>](#LuCI.requestCallbackFn) | Callback function to invoke on completion |
+| [timeout] | <code>number</code> | Request timeout to use |
+
+<a name="LuCI.xhr+post"></a>
+
+#### ~~xhr.post(url, [data], [callback], [timeout]) ⇒ <code>Promise.&lt;null&gt;</code>~~
+***Deprecated***
+
+This function is a legacy wrapper around
+[LuCI.post()](#LuCI+post).
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| url | <code>string</code> | The URL to request |
+| [data] | <code>Object</code> | Additional data to append to the request body. |
+| [callback] | [<code>requestCallbackFn</code>](#LuCI.requestCallbackFn) | Callback function to invoke on completion |
+| [timeout] | <code>number</code> | Request timeout to use |
+
+<a name="LuCI.xhr+cancel"></a>
+
+#### ~~xhr.cancel()~~
+***Deprecated***
+
+Cancels a running request.
+
+This function does not actually cancel the underlying
+`XMLHTTPRequest` request but it sets a flag which prevents the
+invocation of the callback function when the request eventually
+finishes or timed out.
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+<a name="LuCI.xhr+busy"></a>
+
+#### ~~xhr.busy() ⇒ <code>boolean</code>~~
+***Deprecated***
+
+Checks the running state of the request.
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+**Returns**: <code>boolean</code> - Returns `true` if the request is still running or `false` if it
+already completed.  
+<a name="LuCI.xhr+abort"></a>
+
+#### ~~xhr.abort()~~
+***Deprecated***
+
+Ignored for backwards compatibility.
+
+This function does nothing.
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+<a name="LuCI.xhr+send_form"></a>
+
+#### ~~xhr.send\_form()~~
+***Deprecated***
+
+Existing for backwards compatibility.
+
+This function simply throws an `InternalError` when invoked.
+
+**Kind**: instance method of [<code>xhr</code>](#LuCI.xhr)  
+**Throws**:
+
+- <code>InternalError</code> Throws an `InternalError` with the message `Not implemented`
+when invoked.
+
+<a name="LuCI.requestCallbackFn"></a>
+
+### LuCI.requestCallbackFn : <code>function</code>
+The request callback function is invoked whenever an HTTP
+reply to a request made using the `L.get()`, `L.post()` or
+`L.poll()` function is timed out or received successfully.
+
+**Kind**: static typedef of [<code>LuCI</code>](#LuCI)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| xhr | <code>XMLHTTPRequest</code> | The XMLHTTPRequest instance used to make the request. |
+| data | <code>\*</code> | The response JSON if the response could be parsed as such, else `null`. |
+| duration | <code>number</code> | The total duration of the request in milliseconds. |

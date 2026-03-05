@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/defining-firmware-partitions
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 15:59 UTC
+> **Fetched:** 2026-03-05 16:18 UTC
 
 ---
 

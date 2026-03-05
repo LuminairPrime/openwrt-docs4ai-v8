@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/libubox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 16:00 UTC
+> **Fetched:** 2026-03-05 16:20 UTC
 
 ---
 

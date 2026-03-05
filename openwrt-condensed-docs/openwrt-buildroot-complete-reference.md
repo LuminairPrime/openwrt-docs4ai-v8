@@ -1,6 +1,6 @@
 # OpenWrt Buildroot Package Documentation Complete Reference
 
-> **Generated:** 2026-03-05 16:01 UTC
+> **Generated:** 2026-03-05 16:20 UTC
 > **Source:** https://github.com/openwrt/openwrt
 > **Contains:** 7 documents concatenated
 
@@ -9,7 +9,7 @@
 # OpenWrt Buildroot: `boot` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/boot
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
@@ -522,7 +522,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 # OpenWrt Buildroot: `firmware` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/firmware
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
@@ -678,7 +678,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 # OpenWrt Buildroot: Build System Include Files
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/include
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 Core build system Makefile fragments.
 
@@ -1047,7 +1047,7 @@ Copyright (C) 2016 LEDE Project
 # OpenWrt Buildroot: `kernel` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/kernel
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
@@ -1372,7 +1372,7 @@ Copyright (C) 2016 LEDE Project
 # OpenWrt Buildroot: `libs` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/libs
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
@@ -1960,7 +1960,7 @@ Copyright (C) 2016 LEDE Project
 # OpenWrt Buildroot: `system` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/system
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
@@ -2191,7 +2191,7 @@ Copyright (C) 2016 LEDE Project
 # OpenWrt Buildroot: `utils` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/utils
-> **Generated:** 2026-03-05 15:58 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
 
 ---
 
