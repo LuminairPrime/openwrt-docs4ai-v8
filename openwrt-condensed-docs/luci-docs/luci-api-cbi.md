@@ -2,11 +2,11 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/cbi.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/cbi.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.cbi.html
-> **Generated:** 2026-03-05 18:50 UTC from commit `6959675`
+> **Generated:** 2026-03-05 19:53 UTC from commit `6959675`
 
 ---
 
-<a name="LuCI.module_cbi"></a>
+
 
 ## cbi
 CBI (Configuration Bindings Interface) helper utilities and DOM helpers.
@@ -15,318 +15,272 @@ Provides initialization for CBI UI elements, dependency handling,
 validation wiring and miscellaneous helpers used by LuCI forms. Functions
 defined here are registered as global `window.*` symbols.
 
-
 * [cbi](#LuCI.module_cbi)
-    * [~s8(bytes, off)](#LuCI.module_cbi..s8) ⇒ <code>number</code>
-    * [~u16(bytes, off)](#LuCI.module_cbi..u16) ⇒ <code>number</code>
-    * [~sfh(s)](#LuCI.module_cbi..sfh) ⇒ <code>string</code> \| <code>null</code>
-    * [~trimws(s)](#LuCI.module_cbi..trimws) ⇒ <code>string</code>
-    * [~_(s, [c])](#LuCI.module_cbi.._) ⇒ <code>string</code>
-    * [~N_(n, s, p, [c])](#LuCI.module_cbi..N_) ⇒ <code>string</code>
+    * [~s8(bytes, off)](#LuCI.module_cbi..s8) ⇒ `number`
+    * [~u16(bytes, off)](#LuCI.module_cbi..u16) ⇒ `number`
+    * [~sfh(s)](#LuCI.module_cbi..sfh) ⇒ `string` \| `null`
+    * [~trimws(s)](#LuCI.module_cbi..trimws) ⇒ `string`
+    * [~_(s, [c])](#LuCI.module_cbi.._) ⇒ `string`
+    * [~N_(n, s, p, [c])](#LuCI.module_cbi..N_) ⇒ `string`
     * [~cbi_d_add(field, dep, index)](#LuCI.module_cbi..cbi_d_add)
-    * [~cbi_d_checkvalue(target, ref)](#LuCI.module_cbi..cbi_d_checkvalue) ⇒ <code>boolean</code>
-    * [~cbi_d_check(deps)](#LuCI.module_cbi..cbi_d_check) ⇒ <code>boolean</code>
+    * [~cbi_d_checkvalue(target, ref)](#LuCI.module_cbi..cbi_d_checkvalue) ⇒ `boolean`
+    * [~cbi_d_check(deps)](#LuCI.module_cbi..cbi_d_check) ⇒ `boolean`
     * [~cbi_d_update()](#LuCI.module_cbi..cbi_d_update)
     * [~cbi_init()](#LuCI.module_cbi..cbi_init)
-    * [~cbi_validate_form(form, [errmsg])](#LuCI.module_cbi..cbi_validate_form) ⇒ <code>boolean</code>
+    * [~cbi_validate_form(form, [errmsg])](#LuCI.module_cbi..cbi_validate_form) ⇒ `boolean`
     * [~cbi_validate_named_section_add(input)](#LuCI.module_cbi..cbi_validate_named_section_add)
-    * [~cbi_validate_reset(form)](#LuCI.module_cbi..cbi_validate_reset) ⇒ <code>boolean</code>
+    * [~cbi_validate_reset(form)](#LuCI.module_cbi..cbi_validate_reset) ⇒ `boolean`
     * [~cbi_validate_field(cbid, optional, type)](#LuCI.module_cbi..cbi_validate_field)
-    * [~cbi_row_swap(elem, up, store)](#LuCI.module_cbi..cbi_row_swap) ⇒ <code>boolean</code>
+    * [~cbi_row_swap(elem, up, store)](#LuCI.module_cbi..cbi_row_swap) ⇒ `boolean`
     * [~cbi_tag_last(container)](#LuCI.module_cbi..cbi_tag_last)
-    * [~cbi_submit(elem, [name], [value], [action])](#LuCI.module_cbi..cbi_submit) ⇒ <code>boolean</code>
-    * [~isElem(e)](#LuCI.module_cbi..isElem) ⇒ <code>HTMLElement</code> \| <code>null</code>
-    * [~matchesElem(node, selector)](#LuCI.module_cbi..matchesElem) ⇒ <code>boolean</code>
-    * [~findParent(node, selector)](#LuCI.module_cbi..findParent) ⇒ <code>HTMLElement</code> \| <code>null</code>
-    * [~E()](#LuCI.module_cbi..E) ⇒ <code>HTMLElement</code>
-    * [~cbi_dropdown_init(sb)](#LuCI.module_cbi..cbi_dropdown_init) ⇒ <code>L.ui.Dropdown</code> \| <code>undefined</code>
+    * [~cbi_submit(elem, [name], [value], [action])](#LuCI.module_cbi..cbi_submit) ⇒ `boolean`
+    * [~isElem(e)](#LuCI.module_cbi..isElem) ⇒ `HTMLElement` \| `null`
+    * [~matchesElem(node, selector)](#LuCI.module_cbi..matchesElem) ⇒ `boolean`
+    * [~findParent(node, selector)](#LuCI.module_cbi..findParent) ⇒ `HTMLElement` \| `null`
+    * [~E()](#LuCI.module_cbi..E) ⇒ `HTMLElement`
+    * [~cbi_dropdown_init(sb)](#LuCI.module_cbi..cbi_dropdown_init) ⇒ `L.ui.Dropdown` \| `undefined`
     * [~cbi_update_table(table, ...data, [placeholder])](#LuCI.module_cbi..cbi_update_table)
 
-<a name="LuCI.module_cbi..s8"></a>
-
-### cbi~s8(bytes, off) ⇒ <code>number</code>
+### cbi~s8(bytes, off) ⇒ `number`
 Read signed 8-bit integer from a byte array at the given offset.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>number</code> - Signed 8-bit value (returned as unsigned number).  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `number` - Signed 8-bit value (returned as unsigned number).  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| bytes | <code>Array.&lt;number&gt;</code> | Byte array. |
-| off | <code>number</code> | Offset into the array. |
+| bytes | `Array.<number>` | Byte array. |
+| off | `number` | Offset into the array. |
 
-<a name="LuCI.module_cbi..u16"></a>
-
-### cbi~u16(bytes, off) ⇒ <code>number</code>
+### cbi~u16(bytes, off) ⇒ `number`
 Read unsigned 16-bit little-endian integer from a byte array at offset.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>number</code> - Unsigned 16-bit integer.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `number` - Unsigned 16-bit integer.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| bytes | <code>Array.&lt;number&gt;</code> | Byte array. |
-| off | <code>number</code> | Offset into the array. |
+| bytes | `Array.<number>` | Byte array. |
+| off | `number` | Offset into the array. |
 
-<a name="LuCI.module_cbi..sfh"></a>
-
-### cbi~sfh(s) ⇒ <code>string</code> \| <code>null</code>
+### cbi~sfh(s) ⇒ `string` \| `null`
 Compute a stable 32-bit-ish string hash used for translation keys.
 Encodes UTF-8 surrogate pairs and mixes bytes into a hex hash string.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>string</code> \| <code>null</code> - Hex hash string or null for empty input.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `string` \| `null` - Hex hash string or null for empty input.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| s | <code>string</code> \| <code>null</code> | Input string. |
+| s | `string` \| `null` | Input string. |
 
-<a name="LuCI.module_cbi..trimws"></a>
-
-### cbi~trimws(s) ⇒ <code>string</code>
+### cbi~trimws(s) ⇒ `string`
 Trim whitespace and normalise internal whitespace sequences to single spaces.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>string</code> - Trimmed and normalised string.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `string` - Trimmed and normalised string.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| s | <code>\*</code> | Value to convert to string and trim. |
+| s | `\*` | Value to convert to string and trim. |
 
-<a name="LuCI.module_cbi.._"></a>
-
-### cbi~\_(s, [c]) ⇒ <code>string</code>
+### cbi~\_(s, [c]) ⇒ `string`
 Lookup a translated string for the given message and optional context.
 Falls back to the source string when no translation found.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>string</code> - Translated string or original.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `string` - Translated string or original.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| s | <code>string</code> | Source string. |
-| [c] | <code>string</code> | Optional translation context. |
+| s | `string` | Source string. |
+| [c] | `string` | Optional translation context. |
 
-<a name="LuCI.module_cbi..N_"></a>
-
-### cbi~N\_(n, s, p, [c]) ⇒ <code>string</code>
+### cbi~N\_(n, s, p, [c]) ⇒ `string`
 Plural-aware translation lookup.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>string</code> - Translated plural form or source string.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `string` - Translated plural form or source string.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| n | <code>number</code> | Quantity to evaluate plural form. |
-| s | <code>string</code> | Singular string. |
-| p | <code>string</code> | Plural string. |
-| [c] | <code>string</code> | Optional context. |
-
-<a name="LuCI.module_cbi..cbi_d_add"></a>
+| n | `number` | Quantity to evaluate plural form. |
+| s | `string` | Singular string. |
+| p | `string` | Plural string. |
+| [c] | `string` | Optional context. |
 
 ### cbi~cbi\_d\_add(field, dep, index)
 Register a dependency entry for a field.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| field | <code>HTMLElement</code> \| <code>string</code> | Field element or its id. |
-| dep | <code>Object</code> | Dependency specification object. |
-| index | <code>number</code> | Order index of the dependent node. |
+| field | `HTMLElement` \| `string` | Field element or its id. |
+| dep | `Object` | Dependency specification object. |
+| index | `number` | Order index of the dependent node. |
 
-<a name="LuCI.module_cbi..cbi_d_checkvalue"></a>
-
-### cbi~cbi\_d\_checkvalue(target, ref) ⇒ <code>boolean</code>
+### cbi~cbi\_d\_checkvalue(target, ref) ⇒ `boolean`
 Check whether an input/select identified by target matches the given reference value.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - True if the current value matches ref.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - True if the current value matches ref.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| target | <code>string</code> | Element id or name to query. |
-| ref | <code>string</code> | Reference value to compare with. |
+| target | `string` | Element id or name to query. |
+| ref | `string` | Reference value to compare with. |
 
-<a name="LuCI.module_cbi..cbi_d_check"></a>
-
-### cbi~cbi\_d\_check(deps) ⇒ <code>boolean</code>
+### cbi~cbi\_d\_check(deps) ⇒ `boolean`
 Evaluate a list of dependency descriptors and return whether any match.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - True when dependencies indicate the element should be shown.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - True when dependencies indicate the element should be shown.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| deps | <code>Array.&lt;Object&gt;</code> | Array of dependency objects to evaluate. |
-
-<a name="LuCI.module_cbi..cbi_d_update"></a>
+| deps | `Array.<Object>` | Array of dependency objects to evaluate. |
 
 ### cbi~cbi\_d\_update()
 Update DOM nodes based on registered dependencies, showing or hiding
 nodes and restoring their order when dependency state changes.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-<a name="LuCI.module_cbi..cbi_init"></a>
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 ### cbi~cbi\_init()
 Initialize CBI widgets and wire up dependency and validation handlers.
 Walks the DOM looking for CBI-specific data attributes and replaces
 placeholders with interactive widgets.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-<a name="LuCI.module_cbi..cbi_validate_form"></a>
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
-### cbi~cbi\_validate\_form(form, [errmsg]) ⇒ <code>boolean</code>
+### cbi~cbi\_validate\_form(form, [errmsg]) ⇒ `boolean`
 Run all validators associated with a form and optionally show an error.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - True when form is valid.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - True when form is valid.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| form | <code>HTMLFormElement</code> | Form element containing validators. |
-| [errmsg] | <code>string</code> | Message to show when validation fails. |
-
-<a name="LuCI.module_cbi..cbi_validate_named_section_add"></a>
+| form | `HTMLFormElement` | Form element containing validators. |
+| [errmsg] | `string` | Message to show when validation fails. |
 
 ### cbi~cbi\_validate\_named\_section\_add(input)
 Enable/disable a named-section add button depending on input value.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| input | <code>HTMLInputElement</code> | Input that contains the new section name. |
+| input | `HTMLInputElement` | Input that contains the new section name. |
 
-<a name="LuCI.module_cbi..cbi_validate_reset"></a>
-
-### cbi~cbi\_validate\_reset(form) ⇒ <code>boolean</code>
+### cbi~cbi\_validate\_reset(form) ⇒ `boolean`
 Trigger a delayed form validation (used to allow UI state to settle).
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - Always returns true.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - Always returns true.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| form | <code>HTMLFormElement</code> | Form to validate after a short delay. |
-
-<a name="LuCI.module_cbi..cbi_validate_field"></a>
+| form | `HTMLFormElement` | Form to validate after a short delay. |
 
 ### cbi~cbi\_validate\_field(cbid, optional, type)
 Attach a validator to a field and wire validation events.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| cbid | <code>HTMLElement</code> \| <code>string</code> | Element or element id to validate. |
-| optional | <code>boolean</code> | Whether an empty value is allowed. |
-| type | <code>string</code> | Validator type expression (passed to L.validation). |
+| cbid | `HTMLElement` \| `string` | Element or element id to validate. |
+| optional | `boolean` | Whether an empty value is allowed. |
+| type | `string` | Validator type expression (passed to L.validation). |
 
-<a name="LuCI.module_cbi..cbi_row_swap"></a>
-
-### cbi~cbi\_row\_swap(elem, up, store) ⇒ <code>boolean</code>
+### cbi~cbi\_row\_swap(elem, up, store) ⇒ `boolean`
 Move a table row up or down within a section and update the storage field.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - Always returns false to cancel default action.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - Always returns false to cancel default action.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elem | <code>HTMLElement</code> | Element inside the row that triggers the swap. |
-| up | <code>boolean</code> | If true, move the row up; otherwise move down. |
-| store | <code>string</code> | ID of the hidden input used to store the order. |
-
-<a name="LuCI.module_cbi..cbi_tag_last"></a>
+| elem | `HTMLElement` | Element inside the row that triggers the swap. |
+| up | `boolean` | If true, move the row up; otherwise move down. |
+| store | `string` | ID of the hidden input used to store the order. |
 
 ### cbi~cbi\_tag\_last(container)
 Mark the last visible value container child with class `cbi-value-last`.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| container | <code>HTMLElement</code> | Parent container element. |
+| container | `HTMLElement` | Parent container element. |
 
-<a name="LuCI.module_cbi..cbi_submit"></a>
-
-### cbi~cbi\_submit(elem, [name], [value], [action]) ⇒ <code>boolean</code>
+### cbi~cbi\_submit(elem, [name], [value], [action]) ⇒ `boolean`
 Submit a form, optionally adding a hidden input to pass a name/value pair.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>boolean</code> - True on successful submit, false when no form found.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `boolean` - True on successful submit, false when no form found.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elem | <code>HTMLElement</code> | Element inside the form or an element with a form. |
-| [name] | <code>string</code> | Name of hidden input to include, if any. |
-| [value] | <code>string</code> | Value for the hidden input (defaults to '1'). |
-| [action] | <code>string</code> | Optional form action URL override. |
+| elem | `HTMLElement` | Element inside the form or an element with a form. |
+| [name] | `string` | Name of hidden input to include, if any. |
+| [value] | `string` | Value for the hidden input (defaults to '1'). |
+| [action] | `string` | Optional form action URL override. |
 
-<a name="LuCI.module_cbi..isElem"></a>
-
-### cbi~isElem(e) ⇒ <code>HTMLElement</code> \| <code>null</code>
+### cbi~isElem(e) ⇒ `HTMLElement` \| `null`
 Return the element for input which may be an element or an id.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| e | <code>Element</code> \| <code>string</code> | Element or id. |
+| e | `Element` \| `string` | Element or id. |
 
-<a name="LuCI.module_cbi..matchesElem"></a>
-
-### cbi~matchesElem(node, selector) ⇒ <code>boolean</code>
+### cbi~matchesElem(node, selector) ⇒ `boolean`
 Test whether node matches a CSS selector.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| node | <code>Node</code> | Node to test. |
-| selector | <code>string</code> | CSS selector. |
+| node | `Node` | Node to test. |
+| selector | `string` | CSS selector. |
 
-<a name="LuCI.module_cbi..findParent"></a>
-
-### cbi~findParent(node, selector) ⇒ <code>HTMLElement</code> \| <code>null</code>
+### cbi~findParent(node, selector) ⇒ `HTMLElement` \| `null`
 Find the parent matching selector from node upwards.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| node | <code>Node</code> | Starting node. |
-| selector | <code>string</code> | CSS selector to match ancestor. |
+| node | `Node` | Starting node. |
+| selector | `string` | CSS selector to match ancestor. |
 
-<a name="LuCI.module_cbi..E"></a>
-
-### cbi~E() ⇒ <code>HTMLElement</code>
+### cbi~E() ⇒ `HTMLElement`
 Create DOM elements using [L.dom.create](L.dom.create) helper (convenience wrapper).
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-<a name="LuCI.module_cbi..cbi_dropdown_init"></a>
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
-### cbi~cbi\_dropdown\_init(sb) ⇒ <code>L.ui.Dropdown</code> \| <code>undefined</code>
+### cbi~cbi\_dropdown\_init(sb) ⇒ `L.ui.Dropdown` \| `undefined`
 Initialize a dropdown element into an [L.ui.Dropdown](L.ui.Dropdown) instance and bind it.
 If already bound, this is a no-op.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
-**Returns**: <code>L.ui.Dropdown</code> \| <code>undefined</code> - Dropdown instance or undefined when already bound.  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
+**Returns**: `L.ui.Dropdown` \| `undefined` - Dropdown instance or undefined when already bound.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| sb | <code>HTMLElement</code> | The select element to convert. |
-
-<a name="LuCI.module_cbi..cbi_update_table"></a>
+| sb | `HTMLElement` | The select element to convert. |
 
 ### cbi~cbi\_update\_table(table, ...data, [placeholder])
 Update or initialize a table UI widget with new data.
 
-**Kind**: inner method of [<code>cbi</code>](#LuCI.module_cbi)  
+**Kind**: inner method of [`cbi`](#LuCI.module_cbi)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| table | <code>HTMLElement</code> \| <code>string</code> | Table element or selector. |
-| ...data | <code>Array.&lt;Node&gt;</code> | Data to update the table with. |
-| [placeholder] | <code>string</code> | Placeholder text when empty. |
+| table | `HTMLElement` \| `string` | Table element or selector. |
+| ...data | `Array.<Node>` | Data to update the table with. |
+| [placeholder] | `string` | Placeholder text when empty. |

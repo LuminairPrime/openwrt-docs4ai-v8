@@ -2,75 +2,271 @@
 
 > **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
 > **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-05 18:50 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
 
 ---
 
-jsdoc-to-markdown
+<a name="module_zlib"></a>
 
-  Generates markdown documentation from jsdoc-annotated source code. 
+## zlib
+# Zlib bindings
 
-Synopsis
+The `zlib` module provides single-call and stream-oriented functions for interacting with zlib data.
 
-  $ jsdoc2md <jsdoc-options> [<dmd-options>] 
-  $ jsdoc2md <jsdoc-options> --jsdoc         
-  $ jsdoc2md <jsdoc-options> --json          
-  $ jsdoc2md <jsdoc-options> --namepaths     
-  $ jsdoc2md --help                          
-  $ jsdoc2md --config                        
+* [zlib](#module_zlib)
+    * _instance_
+        * [.deflate(str_or_resource, [gzip], [level])](#module_zlib+deflate) ⇒ `string`
+        * [.inflate(str_or_resource)](#module_zlib+inflate) ⇒ `string`
+        * [.deflater([gzip], [level])](#module_zlib+deflater) ⇒ [`deflate`](#module_zlib.deflate)
+        * [.inflater()](#module_zlib+inflater) ⇒ [`inflate`](#module_zlib.inflate)
+    * _static_
+        * [.deflate](#module_zlib.deflate)
+            * [.write(src, [flush])](#module_zlib.deflate+write) ⇒ `boolean`
+            * [.read()](#module_zlib.deflate+read) ⇒ `string`
+            * [.error()](#module_zlib.deflate+error) ⇒ `string`
+        * [.inflate](#module_zlib.inflate)
+            * [.write(src, [flush])](#module_zlib.inflate+write) ⇒ `boolean`
+            * [.read()](#module_zlib.inflate+read) ⇒ `string`
+            * [.error()](#module_zlib.inflate+error) ⇒ `string`
+    * _inner_
+        * [~Compression levels](#module_zlib..Compression levels)
+        * [~flush options](#module_zlib..flush options)
 
-General options
+<a name="module_zlib+deflate"></a>
 
-  Main options affecting mode. If none of the following are supplied, the tool  
-  will generate markdown docs.                                                  
+### zlib.deflate(str_or_resource, [gzip], [level]) ⇒ `string`
+Compresses data in Zlib or gzip format.
 
-  -h, --help    Print usage information                                         
-  --config      Print all options supplied (from command line, `.jsdoc2md.json` 
-                or `package.json` under the `jsdoc2md` property) and exit.      
-                Useful for checking the tool is receiving the correct config.   
-  --json        Prints the data (jsdoc-parse output) supplied to the template   
-                (dmd).                                                          
-  --jsdoc       Prints the raw jsdoc data.                                      
-  --version                                                                     
-  --no-cache    By default, repeat invocations against the same input with the  
-                same options returns from cache. This option disables that.     
-  --clear       Clears the cache.                                               
+If the input argument is a plain string, it is directly compressed.
 
-jsdoc options
+If an array, object or resource value is given, this function will attempt to
+invoke a `read()` method on it to read chunks of input text to incrementally
+compress. Reading will stop if the object's `read()` method returns
+either `null` or an empty string.
 
-  Options regarding the input source code, passed directly to jsdoc. 
+Throws an exception on errors.
 
-  -f, --files file ...   A list of jsdoc explain files (or glob expressions) to 
-                         parse for documentation. Either this or --source must  
-                         be supplied.                                           
-  --source string        A string containing source code to parse for           
-                         documentation. Either this or --files must be          
-                         supplied.                                              
-  -c, --configure file   Path to a jsdoc configuration file, passed directly to 
-                         `jsdoc -c`.                                            
-  --namepaths            Print namepaths.                                       
+Returns the compressed data.
 
-dmd
+**Kind**: instance method of [`zlib`](#module_zlib)  
 
-  These options affect how the markdown output looks. 
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| str_or_resource | `string` |  | The string or resource object to be compressed. |
+| [gzip] | `boolean` | `false` | Add a gzip header if true (creates a gzip-compliant output, otherwise defaults to Zlib) |
+| [level] | `number` | `Z_DEFAULT_COMPRESSION` | The compression level (0-9). |
 
- -t, --template <file>              A custom handlebars template file to insert documentation into. The default template is `{{>main}}`.                                                                                                                                                                                                                                                                                                                                                                          
- --private                          Include identifiers marked @private in the output                                                                                                                                                                                                                                                                                                                                                                                                                             
- -d, --heading-depth number         Root markdown heading depth, defaults to 2 (##).                                                                                                                                                                                                                                                                                                                                                                                                                              
- --plugin module ...                Use an installed package containing helper and/or partial overrides.                                                                                                                                                                                                                                                                                                                                                                                                          
- --helper module ...                Handlebars helper modules to override or extend the default set.                                                                                                                                                                                                                                                                                                                                                                                                              
- --partial file ...                 Handlebars partial files to override or extend the default set.                                                                                                                                                                                                                                                                                                                                                                                                               
- -l, --example-lang string          Specifies the default language used in @example blocks (for syntax-highlighting purposes). In the default gfm mode, each @example is wrapped in a fenced-code block. Example usage: --example-lang js. Use the special value none for no specific language. While using this option, you can override the supplied language for any @example by specifying the @lang subtag, e.g @example @lang hbs. Specifying @example @lang off will disable code blocks for that example. 
- --name-format                      Format identifier names as code (i.e. wrap function/property/class etc names in backticks).                                                                                                                                                                                                                                                                                                                                                                                   
- --no-gfm                           By default, dmd generates github-flavoured markdown. Not all markdown parsers render gfm correctly. If your generated docs look incorrect on sites other than Github (e.g. npmjs.org) try enabling this option to disable Github-specific syntax.                                                                                                                                                                                                                             
- --separators                       Put <hr> breaks between identifiers. Improves readability on bulky docs.                                                                                                                                                                                                                                                                                                                                                                                                      
- -m, --module-index-format string   When muliple modules are found in the input source code, an index is generated. It can be styled by one of the following options: none, grouped, table or dl.                                                                                                                                                                                                                                                                                                                 
- -g, --global-index-format string   When muliple global-scope identifiers are found in the input source code, an index is generated. It can be styled by one of the following options: none, grouped, table or dl.                                                                                                                                                                                                                                                                                                
- -p, --param-list-format string     Two options to render @param lists: list or table (default). Table format works well in most cases but switch to list if things begin to look crowded.                                                                                                                                                                                                                                                                                                                        
- -r, --property-list-format string  Two options to render @property lists: list or table (default).                                                                                                                                                                                                                                                                                                                                                                                                               
- --member-index-format string       Two options to render member lists: list or grouped (default). The list view is loosely-based on the nodejs docs.                                                                                                                                                                                                                                                                                                                                                             
- --clever-links                     By default, all {@link} tags are rendered in plain text. If `--clever-links` is set, URL {@link} tags are rendered in plain text, otherwise monospace.                                                                                                                                                                                                                                                                                                                        
- --monospace-links                  By default, all {@link} tags are rendered in plain text. If `--monospace-links` is set, all links are rendered in monospace format. This setting is ignored if `--clever-links` is set.                                                                                                                                                                                                                                                                                       
- --EOL string                       Specify ether `posix` or `win32`. Forces all line endings in the dmd output to use the specified EOL character.                                                                                                                                                                                                                                                                                                                                                               
+**Example**  
+```js
+// deflate content using default compression
+const deflated = deflate(content);
 
-  Project repository:   https://github.com/jsdoc2md/jsdoc-to-markdown
+// deflate content using fastest compression
+const deflated = deflate(content, Z_BEST_SPEED);
+```
+<a name="module_zlib+inflate"></a>
+
+### zlib.inflate(str_or_resource) ⇒ `string`
+Decompresses data in Zlib or gzip format.
+
+If the input argument is a plain string, it is directly decompressed.
+
+If an array, object or resource value is given, this function will attempt to
+invoke a `read()` method on it to read chunks of input text to incrementally
+decompress. Reading will stop if the object's `read()` method returns
+either `null` or an empty string.
+
+Throws an exception on errors.
+
+Returns the decompressed data.
+
+**Kind**: instance method of [`zlib`](#module_zlib)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str_or_resource | `string` | The string or resource object to be parsed as JSON. |
+
+<a name="module_zlib+deflater"></a>
+
+### zlib.deflater([gzip], [level]) ⇒ [`deflate`](#module_zlib.deflate)
+Initializes a deflate stream.
+
+Returns a stream handle on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`zlib`](#module_zlib)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [gzip] | `boolean` | `false` | Add a gzip header if true (creates a gzip-compliant output, otherwise defaults to Zlib) |
+| [level] | `number` | `Z_DEFAULT_COMPRESSION` | The compression level (0-9). |
+
+**Example**  
+```js
+// initialize a Zlib deflate stream using default compression
+const zstrmd = deflater();
+
+// initialize a gzip deflate stream using fastest compression
+const zstrmd = deflater(true, Z_BEST_SPEED);
+```
+<a name="module_zlib+inflater"></a>
+
+### zlib.inflater() ⇒ [`inflate`](#module_zlib.inflate)
+Initializes an inflate stream. Can process either Zlib or gzip data.
+
+Returns a stream handle on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`zlib`](#module_zlib)  
+**Example**  
+```js
+// initialize an inflate stream
+const zstrmi = inflater();
+```
+<a name="module_zlib.deflate"></a>
+
+### zlib.deflate
+**Kind**: static class of [`zlib`](#module_zlib)  
+**See**: [module:zlib#deflater()](module:zlib#deflater())  
+
+* [.deflate](#module_zlib.deflate)
+    * [.write(src, [flush])](#module_zlib.deflate+write) ⇒ `boolean`
+    * [.read()](#module_zlib.deflate+read) ⇒ `string`
+    * [.error()](#module_zlib.deflate+error) ⇒ `string`
+
+<a name="module_zlib.deflate+write"></a>
+
+#### deflate.write(src, [flush]) ⇒ `boolean`
+Writes a chunk of data to the deflate stream.
+
+Input data must be a string, it is internally compressed by the zlib `deflate()` routine,
+the end result is buffered according to the requested `flush` mode until read via
+[module:zlib.zstrmd#read](module:zlib.zstrmd#read).
+Valid `flush`values are `Z_NO_FLUSH` (the default),
+`Z_SYNC_FLUSH, Z_PARTIAL_FLUSH, Z_FULL_FLUSH, Z_FINISH`.
+If `flush` is `Z_FINISH` then no more data can be written to the stream.
+Refer to the [Zlib manual](https://zlib.net/manual.html) for details
+on each flush mode.
+
+Returns `true` on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`deflate`](#module_zlib.deflate)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| src | `string` |  | The string of data to deflate. |
+| [flush] | `number` | `Z_NO_FLUSH` | The zlib flush mode. |
+
+<a name="module_zlib.deflate+read"></a>
+
+#### deflate.read() ⇒ `string`
+Reads a chunk of compressed data from the deflate stream.
+
+Returns the current content of the deflate buffer, fed through
+[write](#module_zlib.deflate+write).
+
+Returns compressed chunk on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`deflate`](#module_zlib.deflate)  
+<a name="module_zlib.deflate+error"></a>
+
+#### deflate.error() ⇒ `string`
+Queries error information.
+
+Returns a string containing a description of the last occurred error or
+`null` if there is no error information.
+
+**Kind**: instance method of [`deflate`](#module_zlib.deflate)  
+<a name="module_zlib.inflate"></a>
+
+### zlib.inflate
+**Kind**: static class of [`zlib`](#module_zlib)  
+**See**: [module:zlib#inflater()](module:zlib#inflater())  
+
+* [.inflate](#module_zlib.inflate)
+    * [.write(src, [flush])](#module_zlib.inflate+write) ⇒ `boolean`
+    * [.read()](#module_zlib.inflate+read) ⇒ `string`
+    * [.error()](#module_zlib.inflate+error) ⇒ `string`
+
+<a name="module_zlib.inflate+write"></a>
+
+#### inflate.write(src, [flush]) ⇒ `boolean`
+Writes a chunk of data to the inflate stream.
+
+Input data must be a string, it is internally decompressed by the zlib `inflate()` routine,
+the end result is buffered according to the requested `flush` mode until read via
+[read](#module_zlib.inflate+read).
+Valid `flush` values are `Z_NO_FLUSH` (the default), `Z_SYNC_FLUSH, Z_FINISH`.
+If `flush` is `Z_FINISH` then no more data can be written to the stream.
+Refer to the [Zlib manual](https://zlib.net/manual.html) for details
+on each flush mode.
+
+Returns `true` on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`inflate`](#module_zlib.inflate)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| src | `string` |  | The string of data to inflate. |
+| [flush] | `number` | `Z_NO_FLUSH` | The zlib flush mode. |
+
+<a name="module_zlib.inflate+read"></a>
+
+#### inflate.read() ⇒ `string`
+Reads a chunk of decompressed data from the inflate stream.
+
+Returns the current content of the inflate buffer, fed through
+[write](#module_zlib.inflate+write).
+
+Returns decompressed chunk on success.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`inflate`](#module_zlib.inflate)  
+<a name="module_zlib.inflate+error"></a>
+
+#### inflate.error() ⇒ `string`
+Queries error information.
+
+Returns a string containing a description of the last occurred error or
+`null` if there is no error information.
+
+**Kind**: instance method of [`inflate`](#module_zlib.inflate)  
+<a name="module_zlib..Compression levels"></a>
+
+### zlib~Compression levels
+Constants representing predefined compression levels.
+
+**Kind**: inner typedef of [`zlib`](#module_zlib)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Z_NO_COMPRESSION. | `number` |  |
+| Z_BEST_SPEED. | `number` |  |
+| Z_BEST_COMPRESSION. | `number` |  |
+| Z_DEFAULT_COMPRESSION | `number` | default compromise between speed and compression (currently equivalent to level 6). |
+
+<a name="module_zlib..flush options"></a>
+
+### zlib~flush options
+Constants representing flush options.
+
+**Kind**: inner typedef of [`zlib`](#module_zlib)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Z_NO_FLUSH. | `number` | 
+| Z_PARTIAL_FLUSH. | `number` | 
+| Z_SYNC_FLUSH. | `number` | 
+| Z_FULL_FLUSH. | `number` | 
+| Z_FINISH. | `number` |

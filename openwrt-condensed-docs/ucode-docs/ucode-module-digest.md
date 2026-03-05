@@ -2,75 +2,246 @@
 
 > **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
 > **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-05 18:50 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
 
 ---
 
-jsdoc-to-markdown
+<a name="module_digest"></a>
 
-  Generates markdown documentation from jsdoc-annotated source code. 
+## digest
+# Digest Functions
 
-Synopsis
+The `digest` module bundles various digest functions.
 
-  $ jsdoc2md <jsdoc-options> [<dmd-options>] 
-  $ jsdoc2md <jsdoc-options> --jsdoc         
-  $ jsdoc2md <jsdoc-options> --json          
-  $ jsdoc2md <jsdoc-options> --namepaths     
-  $ jsdoc2md --help                          
-  $ jsdoc2md --config                        
+* [digest](#module_digest)
+    * [.md5(str)](#module_digest+md5) ⇒ `string`
+    * [.sha1(str)](#module_digest+sha1) ⇒ `string`
+    * [.sha256(str)](#module_digest+sha256) ⇒ `string`
+    * [.md2(str)](#module_digest+md2) ⇒ `string`
+    * [.md4(str)](#module_digest+md4) ⇒ `string`
+    * [.sha384(str)](#module_digest+sha384) ⇒ `string`
+    * [.sha512(str)](#module_digest+sha512) ⇒ `string`
+    * [.md5_file(path)](#module_digest+md5_file) ⇒ `string`
+    * [.sha1_file(path)](#module_digest+sha1_file) ⇒ `string`
+    * [.sha256_file(path)](#module_digest+sha256_file) ⇒ `string`
+    * [.md2_file(path)](#module_digest+md2_file) ⇒ `string`
+    * [.md4_file(path)](#module_digest+md4_file) ⇒ `string`
+    * [.sha384_file(path)](#module_digest+sha384_file) ⇒ `string`
+    * [.sha512_file(path)](#module_digest+sha512_file) ⇒ `string`
 
-General options
+<a name="module_digest+md5"></a>
 
-  Main options affecting mode. If none of the following are supplied, the tool  
-  will generate markdown docs.                                                  
+### digest.md5(str) ⇒ `string`
+Calculates the MD5 hash of string and returns that hash.
 
-  -h, --help    Print usage information                                         
-  --config      Print all options supplied (from command line, `.jsdoc2md.json` 
-                or `package.json` under the `jsdoc2md` property) and exit.      
-                Useful for checking the tool is receiving the correct config.   
-  --json        Prints the data (jsdoc-parse output) supplied to the template   
-                (dmd).                                                          
-  --jsdoc       Prints the raw jsdoc data.                                      
-  --version                                                                     
-  --no-cache    By default, repeat invocations against the same input with the  
-                same options returns from cache. This option disables that.     
-  --clear       Clears the cache.                                               
+Returns `null` if a non-string argument is given.
 
-jsdoc options
+**Kind**: instance method of [`digest`](#module_digest)  
 
-  Options regarding the input source code, passed directly to jsdoc. 
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
 
-  -f, --files file ...   A list of jsdoc explain files (or glob expressions) to 
-                         parse for documentation. Either this or --source must  
-                         be supplied.                                           
-  --source string        A string containing source code to parse for           
-                         documentation. Either this or --files must be          
-                         supplied.                                              
-  -c, --configure file   Path to a jsdoc configuration file, passed directly to 
-                         `jsdoc -c`.                                            
-  --namepaths            Print namepaths.                                       
+**Example**  
+```js
+md5("This is a test");  // Returns "ce114e4501d2f4e2dcea3e17b546f339"
+md5(123);               // Returns null
+```
+<a name="module_digest+sha1"></a>
 
-dmd
+### digest.sha1(str) ⇒ `string`
+Calculates the SHA1 hash of string and returns that hash.
 
-  These options affect how the markdown output looks. 
+Returns `null` if a non-string argument is given.
 
- -t, --template <file>              A custom handlebars template file to insert documentation into. The default template is `{{>main}}`.                                                                                                                                                                                                                                                                                                                                                                          
- --private                          Include identifiers marked @private in the output                                                                                                                                                                                                                                                                                                                                                                                                                             
- -d, --heading-depth number         Root markdown heading depth, defaults to 2 (##).                                                                                                                                                                                                                                                                                                                                                                                                                              
- --plugin module ...                Use an installed package containing helper and/or partial overrides.                                                                                                                                                                                                                                                                                                                                                                                                          
- --helper module ...                Handlebars helper modules to override or extend the default set.                                                                                                                                                                                                                                                                                                                                                                                                              
- --partial file ...                 Handlebars partial files to override or extend the default set.                                                                                                                                                                                                                                                                                                                                                                                                               
- -l, --example-lang string          Specifies the default language used in @example blocks (for syntax-highlighting purposes). In the default gfm mode, each @example is wrapped in a fenced-code block. Example usage: --example-lang js. Use the special value none for no specific language. While using this option, you can override the supplied language for any @example by specifying the @lang subtag, e.g @example @lang hbs. Specifying @example @lang off will disable code blocks for that example. 
- --name-format                      Format identifier names as code (i.e. wrap function/property/class etc names in backticks).                                                                                                                                                                                                                                                                                                                                                                                   
- --no-gfm                           By default, dmd generates github-flavoured markdown. Not all markdown parsers render gfm correctly. If your generated docs look incorrect on sites other than Github (e.g. npmjs.org) try enabling this option to disable Github-specific syntax.                                                                                                                                                                                                                             
- --separators                       Put <hr> breaks between identifiers. Improves readability on bulky docs.                                                                                                                                                                                                                                                                                                                                                                                                      
- -m, --module-index-format string   When muliple modules are found in the input source code, an index is generated. It can be styled by one of the following options: none, grouped, table or dl.                                                                                                                                                                                                                                                                                                                 
- -g, --global-index-format string   When muliple global-scope identifiers are found in the input source code, an index is generated. It can be styled by one of the following options: none, grouped, table or dl.                                                                                                                                                                                                                                                                                                
- -p, --param-list-format string     Two options to render @param lists: list or table (default). Table format works well in most cases but switch to list if things begin to look crowded.                                                                                                                                                                                                                                                                                                                        
- -r, --property-list-format string  Two options to render @property lists: list or table (default).                                                                                                                                                                                                                                                                                                                                                                                                               
- --member-index-format string       Two options to render member lists: list or grouped (default). The list view is loosely-based on the nodejs docs.                                                                                                                                                                                                                                                                                                                                                             
- --clever-links                     By default, all {@link} tags are rendered in plain text. If `--clever-links` is set, URL {@link} tags are rendered in plain text, otherwise monospace.                                                                                                                                                                                                                                                                                                                        
- --monospace-links                  By default, all {@link} tags are rendered in plain text. If `--monospace-links` is set, all links are rendered in monospace format. This setting is ignored if `--clever-links` is set.                                                                                                                                                                                                                                                                                       
- --EOL string                       Specify ether `posix` or `win32`. Forces all line endings in the dmd output to use the specified EOL character.                                                                                                                                                                                                                                                                                                                                                               
+**Kind**: instance method of [`digest`](#module_digest)  
 
-  Project repository:   https://github.com/jsdoc2md/jsdoc-to-markdown
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+sha1("This is a test");  // Returns "a54d88e06612d820bc3be72877c74f257b561b19"
+sha1(123);               // Returns null
+```
+<a name="module_digest+sha256"></a>
+
+### digest.sha256(str) ⇒ `string`
+Calculates the SHA256 hash of string and returns that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+sha256("This is a test");  // Returns "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
+sha256(123);               // Returns null
+```
+<a name="module_digest+md2"></a>
+
+### digest.md2(str) ⇒ `string`
+Calculates the MD2 hash of string and returns that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+md2("This is a test");  // Returns "dc378580fd0722e56b82666a6994c718"
+md2(123);               // Returns null
+```
+<a name="module_digest+md4"></a>
+
+### digest.md4(str) ⇒ `string`
+Calculates the MD4 hash of string and returns that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+md4("This is a test");  // Returns "3b487cf6856af7e330bc4b1b7d977ef8"
+md4(123);               // Returns null
+```
+<a name="module_digest+sha384"></a>
+
+### digest.sha384(str) ⇒ `string`
+Calculates the SHA384 hash of string and returns that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+sha384("This is a test");  // Returns "a27c7667e58200d4c0688ea136968404a0da366b1a9fc19bb38a0c7a609a1eef2bcc82837f4f4d92031a66051494b38c"
+sha384(123);               // Returns null
+```
+<a name="module_digest+sha512"></a>
+
+### digest.sha512(str) ⇒ `string`
+Calculates the SHA512 hash of string and returns that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+sha512("This is a test");  // Returns "a028d4f74b602ba45eb0a93c9a4677240dcf281a1a9322f183bd32f0bed82ec72de9c3957b2f4c9a1ccf7ed14f85d73498df38017e703d47ebb9f0b3bf116f69"
+sha512(123);               // Returns null
+```
+<a name="module_digest+md5_file"></a>
+
+### digest.md5\_file(path) ⇒ `string`
+Calculates the MD5 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+sha1_file"></a>
+
+### digest.sha1\_file(path) ⇒ `string`
+Calculates the SHA1 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+sha256_file"></a>
+
+### digest.sha256\_file(path) ⇒ `string`
+Calculates the SHA256 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+md2_file"></a>
+
+### digest.md2\_file(path) ⇒ `string`
+Calculates the MD2 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+md4_file"></a>
+
+### digest.md4\_file(path) ⇒ `string`
+Calculates the MD4 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+sha384_file"></a>
+
+### digest.sha384\_file(path) ⇒ `string`
+Calculates the SHA384 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
+<a name="module_digest+sha512_file"></a>
+
+### digest.sha512\_file(path) ⇒ `string`
+Calculates the SHA512 hash of a given file and returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |

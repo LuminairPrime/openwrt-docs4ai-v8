@@ -1,7 +1,7 @@
 # ucode Documentation Index
 # Source: https://github.com/jow-/ucode (commit: e87be9d)
 # Live docs: https://ucode.mein.io/
-# Generated: 2026-03-05 18:50 UTC
+# Generated: 2026-03-05 19:53 UTC
 #
 # ucode is a tiny ECMAScript-like scripting language for OpenWrt.
 # Provides bindings for ubus, uci, uloop, netlink, and other OpenWrt APIs.
@@ -12,18 +12,17 @@
 #
 ## Files in this directory
 
-- [ucode-module-debug.md](/ucode-docs/ucode-module-debug.md): ucode `debug` module — 1 documented member
-- [ucode-module-digest.md](/ucode-docs/ucode-module-digest.md): ucode `digest` module — 1 documented member
-- [ucode-module-fs.md](/ucode-docs/ucode-module-fs.md): ucode `fs` module — 1 documented member
-- [ucode-module-io.md](/ucode-docs/ucode-module-io.md): ucode `io` module — 1 documented member
-- [ucode-module-log.md](/ucode-docs/ucode-module-log.md): ucode `log` module — 1 documented member
-- [ucode-module-math.md](/ucode-docs/ucode-module-math.md): ucode `math` module — 1 documented member
-- [ucode-module-nl80211.md](/ucode-docs/ucode-module-nl80211.md): ucode `nl80211` module — 1 documented member
-- [ucode-module-resolv.md](/ucode-docs/ucode-module-resolv.md): ucode `resolv` module — 1 documented member
-- [ucode-module-rtnl.md](/ucode-docs/ucode-module-rtnl.md): ucode `rtnl` module — 1 documented member
-- [ucode-module-socket.md](/ucode-docs/ucode-module-socket.md): ucode `socket` module — 1 documented member
-- [ucode-module-struct.md](/ucode-docs/ucode-module-struct.md): ucode `struct` module — 1 documented member
-- [ucode-module-ubus.md](/ucode-docs/ucode-module-ubus.md): ucode `ubus` module — 1 documented member
-- [ucode-module-uci.md](/ucode-docs/ucode-module-uci.md): ucode `uci` module — 1 documented member
-- [ucode-module-uloop.md](/ucode-docs/ucode-module-uloop.md): ucode `uloop` module — 1 documented member
-- [ucode-module-zlib.md](/ucode-docs/ucode-module-zlib.md): ucode `zlib` module — 1 documented member
+- [ucode-module-debug.md](/ucode-docs/ucode-module-debug.md): ucode `debug` module — 15 documented members
+- [ucode-module-digest.md](/ucode-docs/ucode-module-digest.md): ucode `digest` module — 15 documented members
+- [ucode-module-fs.md](/ucode-docs/ucode-module-fs.md): ucode `fs` module — 81 documented members
+- [ucode-module-io.md](/ucode-docs/ucode-module-io.md): ucode `io` module — 41 documented members
+- [ucode-module-log.md](/ucode-docs/ucode-module-log.md): ucode `log` module — 21 documented members
+- [ucode-module-math.md](/ucode-docs/ucode-module-math.md): ucode `math` module — 12 documented members
+- [ucode-module-nl80211.md](/ucode-docs/ucode-module-nl80211.md): ucode `nl80211` module — 9 documented members
+- [ucode-module-resolv.md](/ucode-docs/ucode-module-resolv.md): ucode `resolv` module — 8 documented members
+- [ucode-module-rtnl.md](/ucode-docs/ucode-module-rtnl.md): ucode `rtnl` module — 50 documented members
+- [ucode-module-socket.md](/ucode-docs/ucode-module-socket.md): ucode `socket` module — 63 documented members
+- [ucode-module-struct.md](/ucode-docs/ucode-module-struct.md): ucode `struct` module — 35 documented members
+- [ucode-module-uci.md](/ucode-docs/ucode-module-uci.md): ucode `uci` module — 50 documented members
+- [ucode-module-uloop.md](/ucode-docs/ucode-module-uloop.md): ucode `uloop` module — 64 documented members
+- [ucode-module-zlib.md](/ucode-docs/ucode-module-zlib.md): ucode `zlib` module — 21 documented members

@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/dependencies
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 18:51 UTC
+> **Fetched:** 2026-03-05 19:54 UTC
 
 ---
 

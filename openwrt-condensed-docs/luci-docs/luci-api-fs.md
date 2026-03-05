@@ -2,37 +2,33 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/fs.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/fs.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.fs.html
-> **Generated:** 2026-03-05 18:50 UTC from commit `6959675`
+> **Generated:** 2026-03-05 19:53 UTC from commit `6959675`
 
 ---
 
-<a name="handleRpcReply"></a>
 
-## handleRpcReply(expect, rc) ⇒ <code>number</code>
+
+## handleRpcReply(expect, rc) ⇒ `number`
 Handle an RPC reply.
 
 **Kind**: global function  
 **Throws**:
 
-- <code>Error</code> 
-
+- `Error` 
 
 | Param | Type |
 | --- | --- |
-| expect | <code>object</code> | 
-| rc | <code>number</code> | 
+| expect | `object` | 
+| rc | `number` | 
 
-<a name="handleCgiIoReply"></a>
-
-## handleCgiIoReply(res) ⇒ <code>string</code>
+## handleCgiIoReply(res) ⇒ `string`
 Handle a CGI-IO reply.
 
 **Kind**: global function  
 **Throws**:
 
-- <code>Error</code> 
-
+- `Error` 
 
 | Param | Type |
 | --- | --- |
-| res | <code>object</code> |
+| res | `object` |
