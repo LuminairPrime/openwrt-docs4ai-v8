@@ -40,8 +40,8 @@ jobs:
     steps:
       - name: Set dynamic environment variables
         run: |
-          echo "OUTDIR=${{ runner.temp }}/staging" >> $GITHUB_ENV
-          echo "WORKDIR=${{ runner.temp }}/work" >> $GITHUB_ENV
+          echo "OUTDIR=${{ github.workspace }}/staging" >> $GITHUB_ENV
+          echo "WORKDIR=${{ github.workspace }}/tmp" >> $GITHUB_ENV
 
       # ── Setup ──────────────────────────────────────────
       - name: Checkout repository
@@ -139,7 +139,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: failed-staging-output
-          path: ${{ runner.temp }}/staging
+          path: ${{ github.workspace }}/staging
           retention-days: 7
 
   # ── GitHub Pages deployment ──────────────────────────
