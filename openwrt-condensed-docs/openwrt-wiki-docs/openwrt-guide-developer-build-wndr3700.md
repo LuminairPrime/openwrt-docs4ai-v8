@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/build.wndr3700
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 16:17 UTC
+> **Fetched:** 2026-03-05 17:33 UTC
 
 ---
 
