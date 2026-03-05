@@ -107,10 +107,11 @@ for src in srcs:
     mod = os.path.splitext(os.path.basename(src))[0]
 
     # Build jsdoc2md command — run from repo dir so plugins resolve correctly
-    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none"]
-    if ucode_conf:
-        rel_conf = os.path.relpath(ucode_conf, repo_ucode)
-        cmd.extend(["--configure", rel_conf])
+    # NOTE: Do NOT pass --configure because the config's source.include:["."] 
+    # overrides the CLI file and processes ALL .c files, causing duplication.
+    # Instead, pass only the plugin needed for C source parsing.
+    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none",
+           "--plugin", "jsdoc/c-transpiler"]
 
     rel_src = os.path.relpath(src, repo_ucode)
     cmd.append(rel_src)
@@ -129,6 +130,17 @@ for src in srcs:
         print(f"[02b] SKIP: {mod} (too short, {word_count} words)")
         continue
 
+    # Post-process: convert common HTML tags to markdown for LLM readability
+    output = re.sub(r'<pre class="prettyprint[^"]*"><code>', '```\n', output)
+    output = output.replace('</code></pre>', '\n```')
+    output = re.sub(r'</?code>', '`', output)
+    output = re.sub(r'</?p>', '', output)
+    output = re.sub(r'</?(?:dl|dt|dd|ul|li|table|thead|tbody|tr|th|td|h[1-6])[^>]*>', '', output)
+    output = output.replace('&amp;', '&').replace('&#39;', "'").replace('&quot;', '"')
+    output = output.replace('&lt;', '<').replace('&gt;', '>')
+    # Clean up excessive blank lines from tag removal
+    output = re.sub(r'\n{3,}', '\n\n', output)
+
     outfile = os.path.join(out_dir, f"ucode-module-{mod}.md")
     member_count = output.count("##")
 
@@ -140,8 +152,9 @@ for src in srcs:
         fw.write(f"> **Generated:** {TS} from commit `{ucode_commit}`\n\n---\n\n")
         fw.write(output)
 
+    member_word = "member" if member_count == 1 else "members"
     with open(os.path.join(out_dir, "llms.txt"), "a", encoding="utf-8", newline="\n") as f:
-        f.write(f"- [ucode-module-{mod}.md](/ucode-docs/ucode-module-{mod}.md): ucode `{mod}` module — {member_count} documented members\n")
+        f.write(f"- [ucode-module-{mod}.md](/ucode-docs/ucode-module-{mod}.md): ucode `{mod}` module — {member_count} documented {member_word}\n")
 
     print(f"[02b] OK: ucode-module-{mod}.md ({member_count} members)")
 
