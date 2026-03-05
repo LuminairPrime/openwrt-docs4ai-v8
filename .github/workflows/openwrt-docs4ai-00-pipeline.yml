@@ -130,6 +130,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "docs: auto-update $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
             git push
           fi
 
