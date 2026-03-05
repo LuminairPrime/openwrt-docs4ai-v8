@@ -1,6 +1,6 @@
 # OpenWrt Wiki Developer Documentation Complete Reference
 
-> **Generated:** 2026-03-05 17:36 UTC
+> **Generated:** 2026-03-05 18:11 UTC
 > **Source:** https://openwrt.org/docs/
 > **Contains:** 90 documents concatenated
 
@@ -10,7 +10,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/20.xx.major.changes
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:07 UTC
 
 ---
 
@@ -198,7 +198,7 @@ With the commit [d0f295837a03f7f52000ae6d395827bdde7996a4](commit>d0f295837a03f7
 
 > **Source:** https://openwrt.org/docs/guide-developer/add.new.device
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -443,7 +443,7 @@ If you have added a device profile, and it isn't showing up in "make menuconfig"
 
 > **Source:** https://openwrt.org/docs/guide-developer/add.new.platform
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -808,7 +808,7 @@ You can then write the kernel driver itself, by creating a `linux/drivers/mtd/ma
 
 > **Source:** https://openwrt.org/docs/guide-developer/adding_new_device
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1134,7 +1134,7 @@ xxd -r -p
 
 > **Source:** https://openwrt.org/docs/guide-developer/build-image-with-3g-dongle-support
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1294,7 +1294,7 @@ If your hardware-specific image name could not be found, it's possible that you 
 
 > **Source:** https://openwrt.org/docs/guide-developer/build.mpd-full.pulse
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1343,7 +1343,7 @@ Maybe the path has to be adapted to \$(STAGING_DIR)/opt/lib/pulseaudio.
 
 > **Source:** https://openwrt.org/docs/guide-developer/build.mpd-full
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1389,7 +1389,7 @@ Now if you start `make menuconfig`, you'll have the choice to build the full or 
 
 > **Source:** https://openwrt.org/docs/guide-developer/build.wndr3700
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1467,7 +1467,7 @@ Please see [WNDR3700 - Installation](toh/netgear/wndr3700#installation) or [Open
 
 > **Source:** https://openwrt.org/docs/guide-developer/building_kernels_for_debian_binaries
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1507,7 +1507,7 @@ The OpenWrt system messes with the kernel .config so you might not end up with t
 
 > **Source:** https://openwrt.org/docs/guide-developer/buildserver_virtualbox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1619,7 +1619,7 @@ Your virtual Debian machine should now be set up correctly for following the res
 
 > **Source:** https://openwrt.org/docs/guide-developer/config-scripting
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -1964,7 +1964,7 @@ Of course, it is possible to mix the two styles of parsing, for instance parsing
 
 > **Source:** https://openwrt.org/docs/guide-developer/creating-a-cmake-package-in-openwrt
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2055,7 +2055,7 @@ hellocmake_0.1-1_arm_cortex-a7_neon-vfpv4.ipk
 
 > **Source:** https://openwrt.org/docs/guide-developer/creating_a_meson_based_package
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2203,7 +2203,7 @@ If everything goes smoothly, the package that is built will be located in ''\<BI
 
 > **Source:** https://openwrt.org/docs/guide-developer/debugging
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2364,7 +2364,7 @@ Additional tips:
 
 > **Source:** https://openwrt.org/docs/guide-developer/defining-firmware-partitions
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2457,7 +2457,7 @@ Rafał
 
 > **Source:** https://openwrt.org/docs/guide-developer/dependencies
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2576,7 +2576,7 @@ There may be bugs in the OpenWrt build system wrt to dependencies. If you can co
 
 > **Source:** https://openwrt.org/docs/guide-developer/device-support-policies
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2773,7 +2773,7 @@ Of course, despite everything said in this paragraph, every committer is free to
 
 > **Source:** https://openwrt.org/docs/guide-developer/drivers
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2807,7 +2807,7 @@ You can also contact the developers. You can often reach them on one or more **m
 
 > **Source:** https://openwrt.org/docs/guide-developer/embedding-files-in-image
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2859,7 +2859,7 @@ HTH, Jo
 
 > **Source:** https://openwrt.org/docs/guide-developer/external_toolchain
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -2896,7 +2896,7 @@ If you want to update a .config to use an external toolchain you can use the `--
 
 > **Source:** https://openwrt.org/docs/guide-developer/feeds
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3092,7 +3092,7 @@ The downloaded sources (referenced in package Makefiles) are not there... The do
 
 > **Source:** https://openwrt.org/docs/guide-developer/frequent-pr-mistakes
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3177,7 +3177,7 @@ Don't do that. It will waste the reviewer's life-time (since they have to come b
 
 > **Source:** https://openwrt.org/docs/guide-developer/gdb
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3244,7 +3244,7 @@ If you want to restart the program, you'll need to set the remote path and argum
 
 > **Source:** https://openwrt.org/docs/guide-developer/hw.hacking.first.steps
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3326,7 +3326,7 @@ The homepage needs no cookies, no javascript, no nothing enabled. It simply work
 
 > **Source:** https://openwrt.org/docs/guide-developer/imagebuilder_frontends
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3454,7 +3454,7 @@ Relevant links:
 
 > **Source:** https://openwrt.org/docs/guide-developer/jshn
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3932,7 +3932,7 @@ The first jsonfilter call will output one radio JSON structure object per line, 
 
 > **Source:** https://openwrt.org/docs/guide-developer/links.software.libraries
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:33 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -3986,7 +3986,7 @@ Here we could place links to light-build libraries you could link against:
 
 > **Source:** https://openwrt.org/docs/guide-developer/luci
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -4085,7 +4085,7 @@ Here are the contents of the file:
 
 > **Source:** https://openwrt.org/docs/guide-developer/mac.address
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -4294,7 +4294,7 @@ ramips: For ramips, typical locations for ethernet addresses are as follows:
 
 > **Source:** https://openwrt.org/docs/guide-developer/mdns
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -4498,7 +4498,7 @@ To see that service was advertised you may use `avahi-discover` GUI application.
 
 > **Source:** https://openwrt.org/docs/guide-developer/network-scripting
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -4967,7 +4967,7 @@ ubus call network.interface dump \
 
 > **Source:** https://openwrt.org/docs/guide-developer/obtain.firmware.sdk
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:08 UTC
 
 ---
 
@@ -5112,7 +5112,7 @@ Bug: BB SDK for BRCM2708: static compilation broken
 
 > **Source:** https://openwrt.org/docs/guide-developer/overview
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -5187,7 +5187,7 @@ This server index may be browsed here: <https://sources.openwrt.org/>
 
 > **Source:** https://openwrt.org/docs/guide-developer/package-policies
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -5496,7 +5496,7 @@ A typical `InstallDev` recipe usually copies all library symlinks (including the
 
 > **Source:** https://openwrt.org/docs/guide-developer/packages.flags
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -5588,7 +5588,7 @@ scons is only used by a few packages: [iotivity](https://github.com/openwrt/pack
 
 > **Source:** https://openwrt.org/docs/guide-developer/packages
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -6477,7 +6477,7 @@ See [the original announcement](https://web.archive.org/web/20170629071358/https
 
 > **Source:** https://openwrt.org/docs/guide-developer/procd-init-script-example
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -6753,7 +6753,7 @@ There are a couple of more options that can be configured in a procd scripts ‘
 
 > **Source:** https://openwrt.org/docs/guide-developer/procd-init-scripts
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7067,7 +7067,7 @@ The following table contains a listing of the possible values to `procd_set_para
 
 > **Source:** https://openwrt.org/docs/guide-developer/rpcd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7089,7 +7089,7 @@ See details here: [rpcd: OpenWrt ubus RPC daemon for backend server](/docs/techr
 
 > **Source:** https://openwrt.org/docs/guide-developer/security_incidents_response
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7134,7 +7134,7 @@ The goal of this high-level process is to identify what needs to be done for a s
 
 > **Source:** https://openwrt.org/docs/guide-developer/security
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7301,7 +7301,7 @@ PIE is activated for some binaries, mostly network exposed applications</td>
 
 > **Source:** https://openwrt.org/docs/guide-developer/selinux_policy_development
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7768,7 +7768,7 @@ This wraps up the exercise. Remember that this is meant to illustrate the SELinu
 
 > **Source:** https://openwrt.org/docs/guide-developer/ubus
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7802,7 +7802,7 @@ See [uBus Technical Reference](/docs/techref/ubus)
 
 > **Source:** https://openwrt.org/docs/guide-developer/uci-defaults
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7887,7 +7887,7 @@ This will make sure, when the key has the correct value set, that the script exi
 
 > **Source:** https://openwrt.org/docs/guide-developer/uefi-bootable-image
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7976,7 +7976,7 @@ Remember to import `db.crt` (which may needs to be converted into DER or other f
 
 > **Source:** https://openwrt.org/docs/guide-developer/working-with-git-email
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -7994,7 +7994,7 @@ Using [git send-email](https://git-scm.com/docs/git-send-email) is warmly recomm
 
 > **Source:** https://openwrt.org/docs/guide-developer/working-with-github-pr
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8185,7 +8185,7 @@ git push -f origin testbranch
 
 > **Source:** https://openwrt.org/docs/guide-developer/write-shell-script
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8256,7 +8256,7 @@ See also: [Configuration in scripts](config-scripting)
 
 > **Source:** https://openwrt.org/docs/techref/architecture
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8498,7 +8498,7 @@ min <strong>&lt;color red&gt;340 MiB&lt;/color&gt;</strong> for Android 4.0</td>
 
 > **Source:** https://openwrt.org/docs/techref/block_mount
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8613,7 +8613,7 @@ Block hotplug consists of three scripts, `10-swap`, `20-fsck`, and `40-mount`. W
 
 > **Source:** https://openwrt.org/docs/techref/bootloader
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8717,7 +8717,7 @@ An embedded bootloader fulfills the same functionality as the [BIOS](https://en.
 
 > **Source:** https://openwrt.org/docs/techref/buildroot
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8843,7 +8843,7 @@ Examples:
 
 > **Source:** https://openwrt.org/docs/techref/busybox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8895,7 +8895,7 @@ This can be used to estimate which OpenWrt version is running on a router if you
 
 > **Source:** https://openwrt.org/docs/techref/dfs
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -8942,7 +8942,7 @@ Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_chann
 
 > **Source:** https://openwrt.org/docs/techref/externaldocumentation
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -9039,7 +9039,7 @@ Currently used by the X-Wrt project. [lighttpd](http://www.lighttpd.net/) (insta
 
 > **Source:** https://openwrt.org/docs/techref/file_system
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -9092,7 +9092,7 @@ Currently used by the X-Wrt project. [lighttpd](http://www.lighttpd.net/) (insta
 
 > **Source:** https://openwrt.org/docs/techref/filesystems.network
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -9133,7 +9133,7 @@ The Filesystems mentioned, support varying security. Accessible via TCP often me
 
 > **Source:** https://openwrt.org/docs/techref/filesystems
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -9301,7 +9301,7 @@ Example pictures: on formatted partition / how data is stored (and addressed on 
 
 > **Source:** https://openwrt.org/docs/techref/flash.layout
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -9963,7 +9963,7 @@ The difference is, that OpenWrt-Image-File are not created that way ;-) They are
 
 > **Source:** https://openwrt.org/docs/techref/flash
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -10116,7 +10116,7 @@ Tools like **dd** and **pv** can only be used on block devices. SSDs, SDcards, H
 
 > **Source:** https://openwrt.org/docs/techref/headers
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -10250,7 +10250,7 @@ source: [openwrt/tools/firmware-utils/src/mktplinkfw.c](http://git.openwrt.org/?
 
 > **Source:** https://openwrt.org/docs/techref/hotplug_legacy
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -10530,7 +10530,7 @@ So my using some (maybe flawed) logic we can deduce that match bluetooth is poss
 
 > **Source:** https://openwrt.org/docs/techref/image.format
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
@@ -10845,7 +10845,7 @@ by extension:
 
 > **Source:** https://openwrt.org/docs/techref/image.makefile
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11029,7 +11029,7 @@ Board core firmware.
 
 > **Source:** https://openwrt.org/docs/techref/init.detail.cc
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11188,7 +11188,7 @@ This is the source code path followed in logical order of execution by the proce
 
 > **Source:** https://openwrt.org/docs/techref/internal.layout
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11261,7 +11261,7 @@ Going through the configuration, step by step, provides the following informatio
 
 > **Source:** https://openwrt.org/docs/techref/libnl
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11306,7 +11306,7 @@ However, mixing `libnl`-based libraries with `libnl-tiny` does not work.
 
 > **Source:** https://openwrt.org/docs/techref/libubox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11368,7 +11368,7 @@ kvlist.h implementation uses avl.h.
 
 > **Source:** https://openwrt.org/docs/techref/lldpd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11423,7 +11423,7 @@ lldpcli show statistics
 
 > **Source:** https://openwrt.org/docs/techref/luci
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11493,7 +11493,7 @@ In case you want to use a different web server than [uhttpd](/docs/guide-user/se
 
 > **Source:** https://openwrt.org/docs/techref/luci2
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11644,7 +11644,7 @@ Accessing result of the call requires using a simple `.then` function:
 
 > **Source:** https://openwrt.org/docs/techref/mountd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11681,7 +11681,7 @@ There was no daemon for the above mentioned purposes suited for embedded devices
 
 > **Source:** https://openwrt.org/docs/techref/mtd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11785,7 +11785,7 @@ This patches the mtd source to include the "-static" option when building the bi
 
 > **Source:** https://openwrt.org/docs/techref/netifd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -11884,7 +11884,7 @@ The following is a brief conversation from IRC regarding hints on how netifd is 
 
 > **Source:** https://openwrt.org/docs/techref/odhcpd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -12344,7 +12344,7 @@ make package
 
 > **Source:** https://openwrt.org/docs/techref/preinit_mount
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13014,7 +13014,7 @@ Some architectures have additional files and functions (or overrides of the abov
 
 > **Source:** https://openwrt.org/docs/techref/procd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13146,7 +13146,7 @@ Package history is available at:
 
 > **Source:** https://openwrt.org/docs/techref/process.boot
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13337,7 +13337,7 @@ After the last startup script is executed, you should have a fully operational O
 
 > **Source:** https://openwrt.org/docs/techref/requirements.boot.process
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13463,7 +13463,7 @@ Preinit looks to linux like the final boot stage to init on the rootfs. Preinit 
 
 > **Source:** https://openwrt.org/docs/techref/rpcd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13564,7 +13564,7 @@ It is enough to issue `service rpcd reload` to make it pick up new plugin execut
 
 > **Source:** https://openwrt.org/docs/techref/swconfig
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13780,7 +13780,7 @@ The "struct switch_attr" directly maps to a Generic Netlink type of command and 
 
 > **Source:** https://openwrt.org/docs/techref/sysupgrade
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13916,7 +13916,7 @@ TODO: Explain how this process works during failsafe mode.
 
 > **Source:** https://openwrt.org/docs/techref/ubox
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -13947,7 +13947,7 @@ to get a sample UCI configuration file. If target is / then it will be used as e
 
 > **Source:** https://openwrt.org/docs/techref/ubus
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -14548,7 +14548,7 @@ echo "${VERSION}"
 
 > **Source:** https://openwrt.org/docs/techref/uci
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -15010,7 +15010,7 @@ And examples on how to use UCI in C can be found in this thread: <https://forum.
 
 > **Source:** https://openwrt.org/docs/techref/ucwmp
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -15124,7 +15124,7 @@ If you got any problem related to libmicroxml when building EasyCwmp in OpenWRT,
 
 > **Source:** https://openwrt.org/docs/techref/unetd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -15431,7 +15431,7 @@ For DHT peer discovery, the unet-dht package needs to be installed, and dht enab
 
 > **Source:** https://openwrt.org/docs/techref/wireless.modes
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -15494,7 +15494,7 @@ Alternative name: managed mode Mode when connected to an AP.
 
 > **Source:** https://openwrt.org/docs/techref/wireless.standards
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 
@@ -15596,7 +15596,7 @@ Normally radios operate in Single Band Single Concurrent (SBSC) (OpenWrt: 802.11
 
 > **Source:** https://openwrt.org/docs/techref/xenomai
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 

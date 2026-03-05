@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/file_system
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:35 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
 > **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-05 17:33 UTC from commit `e87be9d`
+> **Generated:** 2026-03-05 18:07 UTC from commit `e87be9d`
 
 ---
 

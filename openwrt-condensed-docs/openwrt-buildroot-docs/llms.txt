@@ -1,6 +1,6 @@
 # OpenWrt Buildroot Documentation Index
-# Source: https://github.com/openwrt/openwrt (commit: ba3c6ff)
-# Generated: 2026-03-05 17:33 UTC
+# Source: https://github.com/openwrt/openwrt (commit: 6c7dd69)
+# Generated: 2026-03-05 18:07 UTC
 #
 # Package metadata and README files from the OpenWrt buildroot.
 #

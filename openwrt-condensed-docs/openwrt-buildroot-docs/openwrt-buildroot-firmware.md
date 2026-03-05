@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: `firmware` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/firmware
-> **Generated:** 2026-03-05 17:33 UTC from commit `ba3c6ff`
+> **Generated:** 2026-03-05 18:07 UTC from commit `6c7dd69`
 
 ---
 

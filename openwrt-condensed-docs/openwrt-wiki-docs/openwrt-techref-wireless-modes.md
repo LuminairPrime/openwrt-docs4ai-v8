@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/wireless.modes
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:36 UTC
+> **Fetched:** 2026-03-05 18:10 UTC
 
 ---
 

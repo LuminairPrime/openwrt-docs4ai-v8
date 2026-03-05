@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/block_mount
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 17:34 UTC
+> **Fetched:** 2026-03-05 18:09 UTC
 
 ---
 
