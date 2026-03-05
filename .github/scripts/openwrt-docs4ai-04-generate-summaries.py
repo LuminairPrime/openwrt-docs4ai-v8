@@ -1,116 +1,146 @@
+"""
+openwrt-docs4ai-04-generate-summaries.py
+
+Purpose  : Generate AI summaries for API documentation files using GitHub Models API.
+Env Vars : OUTDIR (default: ./openwrt-condensed-docs) — where generated docs live
+           SKIP_AI ("true" to skip entirely)
+           GITHUB_TOKEN — API token for GitHub Models (CI)
+           LOCAL_DEV_TOKEN — alternative token for local development
+           MAX_AI_FILES (default: 40) — cap on files to summarize per run
+Outputs  : Mutates .md files in $OUTDIR — prepends AI summary section
+Deps     : requests
+Notes    : Only processes module docs (ucode-module-*.md, luci-api-*.md).
+           Rate-limited with retry-after-backoff to stay within free tier.
+           Files already containing "## AI Summary" are skipped.
+"""
+
 import os
-import time
+import re
 import glob
-import requests
+import time
 import sys
 
-# Flush output immediately
 sys.stdout.reconfigure(line_buffering=True)
 
-print("Step 10: AI module summaries via GitHub Models (openai/gpt-4o-mini)")
+OUTDIR = os.environ.get("OUTDIR", os.path.join(os.getcwd(), "openwrt-condensed-docs"))
+SKIP_AI = os.environ.get("SKIP_AI", "true").lower() == "true"
+MAX_FILES = int(os.environ.get("MAX_AI_FILES", "40"))
 
-TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("LOCAL_DEV_TOKEN")
-if not TOKEN:
-    print("WARNING: No API token. Skipping AI summarization.")
+if SKIP_AI:
+    print("[04] SKIP: AI summarization disabled (SKIP_AI=true)")
     sys.exit(0)
 
-ENDPOINT  = "https://models.github.ai/inference/chat/completions"
-MODEL     = "openai/gpt-4o-mini"
-MAX_FILES = 40
-DELAY     = 1.5
+print("[04] Generate AI summaries for API documentation")
 
-SYSTEM_PROMPT = (
-    "You are a technical documentation assistant. "
-    "Given an API module reference, write a 2-3 sentence plain-English "
-    "summary of what this module does and when a developer would use it. "
-    "Be concrete and specific. "
-    "Output ONLY the summary text — no headers, no bullets, no markdown. "
-    "Maximum 60 words."
-)
+try:
+    import requests
+except ImportError:
+    print("[04] FAIL: 'requests' package not installed")
+    sys.exit(1)
 
-def summarize(content):
+# Token resolution: prefer GITHUB_TOKEN over LOCAL_DEV_TOKEN
+TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("LOCAL_DEV_TOKEN")
+if not TOKEN:
+    print("[04] SKIP: No API token (GITHUB_TOKEN or LOCAL_DEV_TOKEN not set)")
+    sys.exit(0)
+
+API_URL = "https://models.inference.ai.azure.com/chat/completions"
+MODEL = "gpt-4o-mini"
+
+SYSTEM_PROMPT = """You are a technical documentation assistant for OpenWrt — a Linux-based
+operating system for embedded network devices. You write clear, accurate,
+developer-focused descriptions.
+
+Given an API/module doc as context, produce a 2-4 sentence summary that answers:
+1. What does this module do?
+2. What are its key functions/methods?
+3. When would a developer use it?
+
+Use plain technical language. No filler or marketing phrases. Do not repeat the module name
+in your summary. Start with the verb describing the module's purpose."""
+
+def summarize(content, fname):
+    """Call GitHub Models API to generate a summary. Returns summary text or None."""
+    user_msg = f"Summarize this OpenWrt API module documentation:\n\n{content[:4000]}"
     headers = {
         "Authorization": f"Bearer {TOKEN}",
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
     }
-    body = {
+    payload = {
         "model": MODEL,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user",   "content": content[:4000]},
+            {"role": "user", "content": user_msg}
         ],
-        "max_tokens": 120,
         "temperature": 0.3,
+        "max_tokens": 300
     }
-    try:
-        r = requests.post(ENDPOINT, headers=headers, json=body, timeout=30)
-        if r.status_code == 429:
-            print("  HTTP 429 — rate limit reached. Stopping AI step.")
-            return None
-        r.raise_for_status()
-        resp_json = r.json()
-        choices = resp_json.get("choices") or []
-        if not choices:
-            print("  API returned empty choices — skipping this file")
-            return "SKIP"
-        message = choices[0].get("message", {})
-        text    = message.get("content", "")
-        return text.strip() if text.strip() else "SKIP"
-    except Exception as e:
-        print(f"  API error ({e}) — skipping this file")
-        return "SKIP"
 
-def inject_summary(fpath, summary):
+    for attempt in range(3):
+        try:
+            resp = requests.post(API_URL, json=payload, headers=headers, timeout=30)
+            if resp.status_code == 429:
+                retry_after = int(resp.headers.get("Retry-After", 30))
+                print(f"[04] Rate-limited. Waiting {retry_after}s...")
+                time.sleep(retry_after)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"]["content"].strip()
+        except Exception as e:
+            print(f"[04] WARN: API error for {fname} (attempt {attempt + 1}): {e}")
+            time.sleep(5)
+    return None
+
+
+# --- Collect target files ---
+targets = (
+    sorted(glob.glob(os.path.join(OUTDIR, "ucode-docs", "ucode-module-*.md"))) +
+    sorted(glob.glob(os.path.join(OUTDIR, "luci-docs", "luci-api-*.md")))
+)
+
+# Filter out files that already have summaries
+to_process = []
+for fpath in targets:
     try:
         content = open(fpath, encoding="utf-8").read()
+        if "## AI Summary" in content:
+            continue
+        to_process.append(fpath)
     except Exception:
-        return
-    if "**Summary:**" in content:
-        return
-    block = f"\n**Summary:** {summary}\n"
-    pos = content.find("\n\n---\n\n")
+        continue
+
+print(f"[04] {len(to_process)} files need summaries (cap: {MAX_FILES})")
+
+# --- Process files ---
+summarized = 0
+for fpath in to_process[:MAX_FILES]:
+    fname = os.path.basename(fpath)
+    content = open(fpath, encoding="utf-8").read()
+
+    summary = summarize(content, fname)
+    if not summary:
+        print(f"[04] FAIL: {fname} — no summary generated")
+        continue
+
+    # Inject summary after the metadata header (after first "---\n\n")
+    sep = "---\n\n"
+    pos = content.find(sep)
     if pos != -1:
-        content = content[:pos] + block + content[pos:]
+        insert_pos = pos + len(sep)
+        summaried = (
+            content[:insert_pos] +
+            f"## AI Summary\n\n{summary}\n\n---\n\n" +
+            content[insert_pos:]
+        )
     else:
-        pos = content.find("\n\n")
-        if pos != -1:
-            content = content[:pos + 2] + block + content[pos + 2:]
-    with open(fpath, "w", encoding="utf-8") as f:
-        f.write(content)
+        summaried = content + f"\n\n## AI Summary\n\n{summary}\n"
 
-ucode_files = sorted(glob.glob("ucode-docs/ucode-module-*.md"))
-luci_files  = sorted(glob.glob("luci-docs/luci-api-*.md"))
-queue       = ucode_files + luci_files
+    with open(fpath, "w", encoding="utf-8", newline="\n") as f:
+        f.write(summaried)
 
-print(f"Queue: {len(ucode_files)} ucode + {len(luci_files)} luci = {len(queue)} total")
-print(f"Hard cap: {MAX_FILES} files (free tier daily budget)")
+    summarized += 1
+    print(f"[04] OK: {fname}")
+    time.sleep(2)  # rate limit buffer
 
-processed = 0
-skipped   = 0
-
-for fpath in queue:
-    if processed >= MAX_FILES:
-        print(f"Reached {MAX_FILES}-file cap. Stopping.")
-        break
-
-    try:
-        content = open(fpath, encoding="utf-8").read()
-    except Exception:
-        continue
-
-    if "**Summary:**" in content:
-        skipped += 1
-        continue
-
-    result = summarize(content)
-    if result is None:
-        break
-    if result == "SKIP":
-        continue
-
-    inject_summary(fpath, result)
-    processed += 1
-    print(f"  [{processed}/{MAX_FILES}] {os.path.basename(fpath)}")
-    time.sleep(DELAY)
-
-print(f"\nStep 10 complete: {processed} summarized, {skipped} already done.")
+print(f"[04] Complete: {summarized} summaries generated.")

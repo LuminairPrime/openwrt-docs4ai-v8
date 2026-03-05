@@ -1,159 +1,196 @@
+"""
+openwrt-docs4ai-00-smoke-test.py
+
+Purpose  : Local smoke test runner -- executes the full pipeline in a temp directory.
+Env Vars : None required (creates its own temp environment)
+Flags    : --keep-temp   -- don't delete the temp dir after run (for inspection)
+           --run-ai      -- include AI summarization step (off by default)
+Outputs  : Test log appended to tests/openwrt-docs4ai-00-smoke-test-log.txt
+Deps     : All pipeline dependencies (Python, Node.js, pandoc, git, jsdoc2md)
+Notes    : Runs each script sequentially, reports PASS/FAIL per step.
+           Sets OUTDIR and WORKDIR to temp subdirectories so the repo is untouched.
+           The validate script (07) acts as the real pass/fail gate.
+"""
+
 import os
 import sys
-import shutil
-import tempfile
 import subprocess
-import glob
+import tempfile
+import shutil
 import datetime
-from datetime import timezone
-import argparse
+import time
 
-def main():
-    parser = argparse.ArgumentParser(description="Smoke test runner for openwrt-docs4ai pipeline")
-    parser.add_argument("--run-ai", action="store_true", help="Run AI summarization step. By default this is skipped to save quota.")
-    parser.add_argument("--keep-temp", action="store_true", help="Keep the temporary execution folder for debugging")
-    args = parser.parse_args()
+# --- Configuration ---
+SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          "..", ".github", "scripts")
+SCRIPT_DIR = os.path.normpath(SCRIPT_DIR)
+TEST_DIR   = os.path.dirname(os.path.abspath(__file__))
+LOG_FILE   = os.path.join(TEST_DIR, "openwrt-docs4ai-00-smoke-test-log.txt")
 
-    # Paths setup
-    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    scripts_source = os.path.join(repo_root, ".github", "scripts")
-    log_file_path = os.path.join(repo_root, "tests", "openwrt-docs4ai-00-smoke-test-log.txt")
-    terminal_output_path = os.path.join(repo_root, "tests", "openwrt-docs4ai-00-smoke-test-terminal-output-recent.txt")
+KEEP_TEMP = "--keep-temp" in sys.argv
+RUN_AI    = "--run-ai" in sys.argv
 
-    if not os.path.isdir(scripts_source):
-        print(f"ERROR: Cannot find scripts folder at {scripts_source}")
-        sys.exit(1)
+# Steps to run in order. Format: (label, script_basename, can_skip)
+STEPS = [
+    ("Clone repos",         "openwrt-docs4ai-01-clone-repos.py",             False),
+    ("Scrape wiki",         "openwrt-docs4ai-02a-scrape-wiki.py",            False),
+    ("Scrape ucode",        "openwrt-docs4ai-02b-scrape-ucode.py",           False),
+    ("Scrape LuCI JSDoc",   "openwrt-docs4ai-02c-scrape-jsdoc.py",           False),
+    ("Scrape packages",     "openwrt-docs4ai-02d-scrape-core-packages.py",   False),
+    ("Scrape examples",     "openwrt-docs4ai-02e-scrape-example-packages.py", False),
+    ("Cross-references",    "openwrt-docs4ai-03-add-links.py",               False),
+    ("AI summaries",        "openwrt-docs4ai-04-generate-summaries.py",      True),
+    ("Assemble references", "openwrt-docs4ai-05-assemble-references.py",    False),
+    ("Generate indexes",    "openwrt-docs4ai-06-generate-index.py",         False),
+    ("Validate",            "openwrt-docs4ai-07-validate.py",               False),
+]
 
-    print(f"Starting test runner...")
-    print(f"Log will be appended to: {log_file_path}")
 
-    # The scripts array to test in order
-    steps_to_test = [
-        ("01 Clone Repos", "bash", "openwrt-docs4ai-01-clone-repos.sh"),
-        ("02a Scrape Wiki", "python", "openwrt-docs4ai-02a-scrape-wiki.py"),
-        ("02b Scrape ucode", "python", "openwrt-docs4ai-02b-scrape-ucode.py"),
-        ("02c Scrape jsdoc", "python", "openwrt-docs4ai-02c-scrape-jsdoc.py"),
-        ("02d Core Packages", "bash", "openwrt-docs4ai-02d-scrape-core-packages.sh"),
-        ("02e Example Packages", "bash", "openwrt-docs4ai-02e-scrape-example-packages.sh"),
-        ("03 Add Links", "python", "openwrt-docs4ai-03-add-links.py"),
-        ("04 AI Summaries", "python", "openwrt-docs4ai-04-generate-summaries.py", not args.run_ai),
-        ("05 Finalize Publish", "bash", "openwrt-docs4ai-05-finalize-publish.sh")
-    ]
+def run_step(label, script, env, temp_dir):
+    """Run a single step. Returns (status, duration_seconds)."""
+    script_path = os.path.join(SCRIPT_DIR, script)
+    if not os.path.isfile(script_path):
+        return "MISSING", 0
 
-    results = []
-    ts_start_dt = datetime.datetime.now(timezone.utc)
-    ts_start = ts_start_dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+    start = time.time()
 
-    # We use tempfile.TemporaryDirectory to automatically clean up after the `with` block finishes
-    # Using a local tmp directory in the project root as requested.
-    local_tmp = os.path.join(repo_root, "tmp")
-    os.makedirs(local_tmp, exist_ok=True)
-    
-    temp_context = tempfile.TemporaryDirectory(dir=local_tmp, prefix="openwrt-docs4ai-smoke-test-")
-    temp_dir = temp_context.name if not args.keep_temp else tempfile.mkdtemp(dir=local_tmp, prefix="openwrt-docs4ai-smoke-test-")
-
-    print(f"\nCreated isolated test sandbox at:\n {temp_dir}\n")
-
-    # Capture all terminal output for the recent-output log
-    terminal_log = []
-    def log_term(msg):
-        print(msg)
-        terminal_log.append(msg)
+    # Add --warn-only for validate in smoke test mode
+    cmd = [sys.executable, script_path]
+    if "07-validate" in script:
+        cmd.append("--warn-only")
 
     try:
-        # 1. Setup Phase: Copy scripts into sandbox
-        dest_scripts = os.path.join(temp_dir, ".github", "scripts")
-        os.makedirs(dest_scripts, exist_ok=True)
-        for expected_script in os.listdir(scripts_source):
-            src_path = os.path.join(scripts_source, expected_script)
-            if os.path.isfile(src_path):
-                shutil.copy2(src_path, dest_scripts)
+        result = subprocess.run(
+            cmd,
+            env=env,
+            cwd=temp_dir,
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout per step
+        )
+        duration = time.time() - start
 
-        # 2. Execution phase
-        for step in steps_to_test:
-            name = step[0]
-            runner = step[1]
-            script_file = step[2]
-            skip = len(step) > 3 and step[3]
+        # Print stdout for visibility
+        if result.stdout.strip():
+            for line in result.stdout.strip().split("\n"):
+                print(f"  {line}")
 
-            if skip:
-                print(f"[SKIP] {name}")
-                results.append((name, "SKIPPED"))
-                continue
+        if result.returncode != 0:
+            if result.stderr.strip():
+                print(f"  STDERR: {result.stderr.strip()[:500]}")
+            return "FAIL", duration
 
-            print(f"[RUN]  {name} ...")
-            script_path = f".github/scripts/{script_file}"
-            
-            # Specifically inject SKIP_WIKI=true or similar if you want to speed up certain tests
-            # But for a full smoke test, we let them run.
-            env = os.environ.copy()
-            # If skipping AI, we could also pass it effectively to the shell
-            if skip:
-                env["SKIP_AI"] = "true"
+        return "PASS", duration
 
-            try:
-                # Run the command with cwd set to the safe temp_dir
-                # Explicitly use encoding='utf-8' since OpenWrt data contains UTF-8 characters
-                cmd = [runner, script_path] if runner != "bash" else ["bash", script_path]
-                res = subprocess.run(cmd, cwd=temp_dir, env=env, text=True, capture_output=True, encoding="utf-8")
-                
-                # Append to terminal log
-                terminal_log.append(f"--- STEP: {name} ---")
-                terminal_log.append(f"COMMAND: {' '.join(cmd)}")
-                terminal_log.append(f"STDOUT:\n{res.stdout}")
-                terminal_log.append(f"STDERR:\n{res.stderr}")
-                terminal_log.append(f"EXIT CODE: {res.returncode}\n")
+    except subprocess.TimeoutExpired:
+        duration = time.time() - start
+        return "TIMEOUT", duration
+    except Exception as e:
+        duration = time.time() - start
+        print(f"  ERROR: {e}")
+        return "ERROR", duration
 
-                if res.returncode == 0:
-                    log_term(f"  OK")
-                    results.append((name, "PASS"))
-                else:
-                    log_term(f"  FAILED")
-                    # No need to print stdout/stderr here anymore as it goes to the file
-                    results.append((name, "FAIL"))
-                    log_term(f"Halting test suite due to failure.")
-                    break
-            except Exception as e:
-                log_term(f"  FAILED (Exception: {e})")
-                results.append((name, f"FAIL-EX: {e}"))
-                break
 
-    finally:
-        # 3. Teardown Phase
-        if not args.keep_temp:
-            import time
-            print(f"\nCleaning up sandbox {temp_dir}...")
-            # On Windows, sometimes file locks take a moment to release. 
-            # We try to clean up, but if Windows Explorer is open to the folder, it will stay.
-            try:
-                temp_context.cleanup()
-            except Exception as e:
-                print(f"  WARNING: Could not fully delete {temp_dir}. It may be locked by another process (like Windows Explorer).")
-                print(f"  Details: {e}")
+def main():
+    print("=" * 60)
+    print("openwrt-docs4ai Smoke Test")
+    print("=" * 60)
+
+    ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Time: {ts}")
+    print(f"Keep temp: {KEEP_TEMP}")
+    print(f"Run AI: {RUN_AI}")
+    print()
+
+    # Create temp directory
+    temp_dir = tempfile.mkdtemp(prefix="openwrt-docs4ai-smoke-test-")
+    out_dir  = os.path.join(temp_dir, "openwrt-condensed-docs")
+    work_dir = os.path.join(temp_dir, "tmp")
+    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(work_dir, exist_ok=True)
+    print(f"Temp dir: {temp_dir}")
+    print(f"OUTDIR:   {out_dir}")
+    print(f"WORKDIR:  {work_dir}")
+    print()
+
+    # Build environment for subprocesses
+    env = os.environ.copy()
+    env["OUTDIR"]  = out_dir
+    env["WORKDIR"] = work_dir
+    env["SKIP_AI"] = "true"  # Default: skip AI
+
+    if RUN_AI:
+        env["SKIP_AI"] = "false"
+        if not (env.get("GITHUB_TOKEN") or env.get("LOCAL_DEV_TOKEN")):
+            print("WARNING: --run-ai specified but no API token set.")
+            print("  Set GITHUB_TOKEN or LOCAL_DEV_TOKEN to enable AI summaries.")
+
+    # Run steps
+    results = []
+    total_start = time.time()
+
+    for label, script, can_skip in STEPS:
+        if can_skip and not RUN_AI and "04-generate" in script:
+            print(f"[{len(results)+1:2d}/{len(STEPS)}] {label:25s} ... SKIPPED (use --run-ai)")
+            results.append((label, "SKIPPED", 0))
+            continue
+
+        print(f"[{len(results)+1:2d}/{len(STEPS)}] {label:25s} ... ", end="", flush=True)
+        status, duration = run_step(label, script, env, temp_dir)
+        print(f"{status} ({duration:.1f}s)")
+        results.append((label, status, duration))
+
+        if status in ("FAIL", "ERROR", "TIMEOUT", "MISSING"):
+            print(f"\n  *** Step failed: {label} ***")
+            # Continue running remaining steps for diagnostic purposes
+
+    total_time = time.time() - total_start
+    print()
+    print("=" * 60)
+    print("Results:")
+    print("-" * 60)
+
+    pass_count = 0
+    fail_count = 0
+    skip_count = 0
+
+    for label, status, duration in results:
+        icon = {"PASS": "+", "FAIL": "X", "SKIPPED": "--",
+                "TIMEOUT": "T", "ERROR": "!", "MISSING": "?"}
+        print(f"  {icon.get(status, '?')} {label:25s} {status:8s} ({duration:.1f}s)")
+        if status == "PASS":
+            pass_count += 1
+        elif status == "SKIPPED":
+            skip_count += 1
         else:
-            print(f"\nSkipping cleanup (flag --keep-temp). Sandbox preserved at: {temp_dir}")
+            fail_count += 1
 
-    # 4. Write persistent log
-    ts_end_dt = datetime.datetime.now(timezone.utc)
-    ts_end = ts_end_dt.strftime("%Y-%m-%d %H:%M:%S UTC")
-    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
-    with open(log_file_path, "a", encoding="utf-8") as lf:
-        lf.write(f"=== Test Run [{ts_start} to {ts_end}] ===\n")
-        for r in results:
-            lf.write(f"{r[0]:<25}: {r[1]}\n")
-        if any(r[1].startswith("FAIL") for r in results):
-            lf.write("STATUS: FAILED\n\n")
-        else:
-            lf.write("STATUS: SUCCESS\n\n")
-    
-    # 5. Write terminal output log (Overwrites with most recent)
-    with open(terminal_output_path, "w", encoding="utf-8") as tf:
-        tf.write(f"=== FULL TERMINAL OUTPUT: {ts_start} ===\n\n")
-        tf.write("\n".join(terminal_log))
+    print("-" * 60)
+    overall = "PASS" if fail_count == 0 else "FAIL"
+    print(f"  Overall: {overall} ({pass_count} pass, {fail_count} fail, "
+          f"{skip_count} skip) in {total_time:.1f}s")
+    print("=" * 60)
 
-    print(f"\nTest logging complete!")
-    print(f" - Summary: {os.path.basename(log_file_path)}")
-    print(f" - Details: {os.path.basename(terminal_output_path)}")
+    # Log results
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(f"\n{ts} | {overall} | "
+                f"{pass_count}P/{fail_count}F/{skip_count}S | "
+                f"{total_time:.0f}s")
+        if fail_count > 0:
+            failed = [r[0] for r in results if r[1] not in ("PASS", "SKIPPED")]
+            f.write(f" | FAILED: {', '.join(failed)}")
+        f.write("\n")
+
+    # Cleanup
+    if KEEP_TEMP:
+        print(f"\nTemp directory preserved: {temp_dir}")
+        print(f"  Output: {out_dir}")
+    else:
+        print(f"\nCleaning up temp directory...")
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
+    return 0 if fail_count == 0 else 1
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

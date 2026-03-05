@@ -1,18 +1,36 @@
+"""
+openwrt-docs4ai-03-add-links.py
+
+Purpose  : Inject cross-reference links between documentation files and flag
+           deprecated symbols found in API docs when referenced by wiki pages.
+Env Vars : OUTDIR (default: ./openwrt-condensed-docs) — where generated docs live
+Outputs  : Mutates .md files in $OUTDIR (adds hyperlinks for known symbols)
+Deps     : None (pure Python)
+Notes    : Two-pass process:
+           1. Build a symbol index from ## headings in all .md files
+           2. Inject [symbol](target) links where symbols appear in other files
+           API symbols (ucode/luci) take priority over wiki symbols.
+           Deprecated symbols get warning callouts injected into wiki pages.
+"""
+
 import os
 import re
 import glob
 
-print("Step 8: Cross-reference injection (code-like symbols only)")
+OUTDIR = os.environ.get("OUTDIR", os.path.join(os.getcwd(), "openwrt-condensed-docs"))
+
+print("[03] Cross-reference injection (code-like symbols only)")
 
 all_md = (
-    sorted(glob.glob("ucode-docs/*.md")) +
-    sorted(glob.glob("luci-docs/*.md")) +
-    sorted(glob.glob("openwrt-wiki-docs/*.md")) +
-    sorted(glob.glob("openwrt-buildroot-docs/*.md"))
+    sorted(glob.glob(os.path.join(OUTDIR, "ucode-docs", "*.md"))) +
+    sorted(glob.glob(os.path.join(OUTDIR, "luci-docs", "*.md"))) +
+    sorted(glob.glob(os.path.join(OUTDIR, "openwrt-wiki-docs", "*.md"))) +
+    sorted(glob.glob(os.path.join(OUTDIR, "openwrt-buildroot-docs", "*.md")))
 )
 
-print(f"Building symbol index from {len(all_md)} markdown files...")
+print(f"[03] Building symbol index from {len(all_md)} markdown files...")
 
+# Common words that should not be treated as code symbols
 COMMON_WORDS = {
     "name", "type", "value", "event", "data", "code", "info", "list",
     "item", "node", "text", "form", "page", "time", "date", "user",
@@ -27,24 +45,30 @@ COMMON_WORDS = {
 }
 
 def is_code_symbol(name):
+    """Heuristic: is this heading text a code-like API symbol?"""
     if name.lower() in COMMON_WORDS:
         return False
     if len(name) < 5:
         return False
+    # camelCase
     if re.match(r'^[a-z][a-zA-Z0-9]+$', name) and any(c.isupper() for c in name):
         return True
+    # dotted name (e.g., LuCI.network)
     if "." in name and len(name) >= 6:
         return True
+    # snake_case
     if "_" in name and len(name) >= 7:
         return True
+    # ALL_CAPS abbreviation
     if re.match(r'^[A-Z]{3,6}$', name):
         return True
     return False
 
+# --- Pass 1: Build symbol index ---
 symbol_index = {}
 
 for fpath in all_md:
-    root_url = "/" + fpath.replace(os.sep, "/")
+    root_url = "/" + os.path.relpath(fpath, OUTDIR).replace(os.sep, "/")
     try:
         content = open(fpath, encoding="utf-8").read()
     except Exception:
@@ -65,26 +89,24 @@ for fpath in all_md:
             this_is_api  = "ucode-docs" in fpath or "luci-docs" in fpath
             curr_is_wiki = "wiki" in current or "buildroot" in current
             curr_is_api  = "ucode-docs" in current or "luci-docs" in current
+            # API docs take priority over wiki/buildroot
             if this_is_api and curr_is_wiki:
                 symbol_index[symbol] = root_url
-            elif this_is_api and curr_is_api:
-                print(
-                    f"Warning: API symbol collision '{symbol}': "
-                    f"{current} vs {root_url} (keeping first)"
-                )
 
-print(f"Symbol index: {len(symbol_index)} code-like symbols")
+print(f"[03] Symbol index: {len(symbol_index)} code-like symbols")
 
+# --- Pass 2: Inject cross-references ---
 total_injected = 0
 files_modified = 0
 
 for fpath in all_md:
-    this_root_url = "/" + fpath.replace(os.sep, "/")
+    this_root_url = "/" + os.path.relpath(fpath, OUTDIR).replace(os.sep, "/")
     try:
         original = open(fpath, encoding="utf-8").read()
     except Exception:
         continue
 
+    # Build set of character positions that are inside code/links (protected zones)
     protected = set()
     for fence in re.finditer(r'```.*?```|~~~.*?~~~', original, re.DOTALL):
         protected.update(range(fence.start(), fence.end()))
@@ -101,6 +123,7 @@ for fpath in all_md:
                 return True
         return False
 
+    # Match longer symbols first to avoid partial matches
     for symbol, target_url in sorted(symbol_index.items(), key=lambda x: -len(x[0])):
         if target_url == this_root_url:
             continue
@@ -126,22 +149,22 @@ for fpath in all_md:
     out.append(original[last:])
     modified = "".join(out)
 
-    with open(fpath, "w", encoding="utf-8") as f:
+    with open(fpath, "w", encoding="utf-8", newline="\n") as f:
         f.write(modified)
     files_modified += 1
     total_injected += len(spans)
 
-print(
-    f"Step 8 complete: {total_injected} cross-references "
-    f"injected across {files_modified} files."
-)
+print(f"[03] Cross-references: {total_injected} injected across {files_modified} files.")
 
-print("\nStep 9: Deprecation checker")
+# --- Pass 3: Deprecation checker ---
+print("[03] Deprecation checker...")
 
 deprecated = {}
-
-for fpath in sorted(glob.glob("ucode-docs/*.md") + glob.glob("luci-docs/*.md")):
-    root_url = "/" + fpath.replace(os.sep, "/")
+for fpath in sorted(
+    glob.glob(os.path.join(OUTDIR, "ucode-docs", "*.md")) +
+    glob.glob(os.path.join(OUTDIR, "luci-docs", "*.md"))
+):
+    root_url = "/" + os.path.relpath(fpath, OUTDIR).replace(os.sep, "/")
     try:
         content = open(fpath, encoding="utf-8").read()
     except Exception:
@@ -154,15 +177,15 @@ for fpath in sorted(glob.glob("ucode-docs/*.md") + glob.glob("luci-docs/*.md")):
         window = content[m.end():m.end() + 1500]
         if re.search(r'\*\*Deprecated\*\*', window, re.IGNORECASE):
             deprecated[symbol] = root_url
-            print(f"  Deprecated: {symbol} (in {os.path.basename(fpath)})")
+            print(f"[03] Deprecated: {symbol} (in {os.path.basename(fpath)})")
 
 if not deprecated:
-    print("No deprecated symbols found in API docs.")
+    print("[03] No deprecated symbols found in API docs.")
 else:
-    print(f"Found {len(deprecated)} deprecated symbols.")
+    print(f"[03] Found {len(deprecated)} deprecated symbols.")
 
 injected = 0
-for fpath in sorted(glob.glob("openwrt-wiki-docs/*.md")):
+for fpath in sorted(glob.glob(os.path.join(OUTDIR, "openwrt-wiki-docs", "*.md"))):
     try:
         content = open(fpath, encoding="utf-8").read()
     except Exception:
@@ -193,9 +216,9 @@ for fpath in sorted(glob.glob("openwrt-wiki-docs/*.md")):
         if pos != -1:
             content = content[:pos + 2] + callout_text + content[pos + 2:]
 
-    with open(fpath, "w", encoding="utf-8") as f:
+    with open(fpath, "w", encoding="utf-8", newline="\n") as f:
         f.write(content)
     injected += 1
-    print(f"  Warning injected: {os.path.basename(fpath)}")
 
-print(f"Step 9 complete: {injected} wiki pages received deprecation warnings.")
+print(f"[03] Deprecation warnings: {injected} wiki pages flagged.")
+print("[03] Complete.")
