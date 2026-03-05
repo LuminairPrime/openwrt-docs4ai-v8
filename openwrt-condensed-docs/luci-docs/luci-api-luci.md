@@ -2,7 +2,7 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/luci.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/luci.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.html
-> **Generated:** 2026-03-05 16:17 UTC from commit `ec79910`
+> **Generated:** 2026-03-05 17:33 UTC from commit `ec79910`
 
 ---
 

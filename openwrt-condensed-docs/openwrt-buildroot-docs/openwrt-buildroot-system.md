@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: `system` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/system
-> **Generated:** 2026-03-05 16:17 UTC from commit `5f704e8`
+> **Generated:** 2026-03-05 17:33 UTC from commit `ba3c6ff`
 
 ---
 
