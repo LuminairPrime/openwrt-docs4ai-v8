@@ -31,14 +31,15 @@ permissions:
   id-token: write
 
 env:
-  OUTDIR: ${{ runner.temp }}/staging
-  WORKDIR: ${{ runner.temp }}/work
   PUBLISH_DIR: openwrt-condensed-docs
 
 jobs:
   generate-docs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      OUTDIR: ${{ runner.temp }}/staging
+      WORKDIR: ${{ runner.temp }}/work
 
     steps:
       # ── Setup ──────────────────────────────────────────
