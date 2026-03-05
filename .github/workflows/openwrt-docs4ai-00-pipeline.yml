@@ -130,8 +130,21 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "docs: auto-update $(date -u +%Y-%m-%d)"
-            git pull --rebase origin main
-            git push
+            # Retry push: if remote moved forward during our run, pull and re-commit
+            if ! git push; then
+              echo "Push failed (remote moved forward). Retrying..."
+              git pull --rebase -X theirs origin main || true
+              # If rebase conflicted, abort and re-apply docs on fresh HEAD
+              if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+                git rebase --abort
+                git fetch origin main
+                git reset --hard origin/main
+                rsync -a --delete "$OUTDIR/" "$GITHUB_WORKSPACE/$PUBLISH_DIR/"
+                git add "$PUBLISH_DIR/"
+                git commit -m "docs: auto-update $(date -u +%Y-%m-%d)"
+              fi
+              git push || echo "Push retry failed — next run will commit fresh docs."
+            fi
           fi
 
       # ── Failure: Upload staging for debugging ──────────
