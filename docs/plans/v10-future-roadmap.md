@@ -139,3 +139,15 @@ Feeding this directly via `llms.txt` acts as instant instruction-tuning for any 
 
 ### 33. Pipeline Self-Healing (Resilience Layer)
 If `openwrt.org` changes their DokuWiki HTML theme, `02a-scrape-wiki.py` will break. Instead of immediately failing the CI run, the pipeline hooks into the GitHub Models API, feeds the broken HTML + the Python script to the LLM, asks for a regex/BeautifulSoup patch, and automatically commits the patch to a `fix/scraper-auto-heal` branch for you to review. The pipeline writes its own maintenance code.
+
+### 34. Auto-Generate Project `AGENTS.md` Files
+`AGENTS.md` is an emerging open standard serving as a "README for AI agents" (used by Cursor, Copilot, and Claude Desktop). It teaches agents about project conventions, build commands, and testing protocols. The pipeline could synthesize an `openwrt-condensed-docs/AGENTS.md` file specifically designed to instruct local AI tools on how to write OpenWrt C code or LuCI JS. 
+
+### 35. Dual-Faceted Indexing (`llms-full.txt` standard)
+The formal `llms.txt` web specification proposes two files: `/llms.txt` for a streamlined navigational overview, and `/llms-full.txt` containing the comprehensive, concatenated documentation. We should formalize our `*-complete-reference.md` files by aggregating them into an official `llms-full.txt`. This allows zero-config ingest by external AI aggregation platforms (like Mintlify or Docling) that look for this specific filename.
+
+### 36. Q&A Formatted Synthetic Data (RAG Optimization)
+In the pipeline's Step 04 (AI Summaries), we currently generate paragraph summaries. We should pivot this to generate 5 "Frequently Asked Questions" for every module. Documentation written in Q&A format mathematically improves Retrieval-Augmented Generation (RAG) vector embeddings and chunking relevance compared to standard declarative prose.
+
+### 37. Structured Data / OpenAPI Export for Function Calling
+While Markdown is optimal for LLM reading comprehension, it limits native agentic "Function Calling." The pipeline should extract strict structures (like the LuCI JS API or ubus endpoints) and export them as an OpenAPI `spec.yaml` or JSON-LD file. This allows AI agents to interface programmatically with OpenWrt APIs, not just read about them.
