@@ -95,8 +95,8 @@ jobs:
 
       - name: "Phase 3: AI summaries"
         env:
-          SKIP_AI: ${{ inputs.skip_ai }}
-          MAX_AI_FILES: ${{ inputs.max_ai_files }}
+          SKIP_AI: ${{ inputs.skip_ai || 'true' }}
+          MAX_AI_FILES: ${{ inputs.max_ai_files || '40' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python .github/scripts/openwrt-docs4ai-04-generate-summaries.py
 
