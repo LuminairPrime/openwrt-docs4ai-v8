@@ -19,6 +19,7 @@ import datetime
 import sys
 import re
 import shutil
+import tempfile
 
 sys.stdout.reconfigure(line_buffering=True)
 
@@ -106,17 +107,20 @@ srcs = sorted(glob.glob(os.path.join(repo_ucode, "lib", "*.js")) +
 for src in srcs:
     mod = os.path.splitext(os.path.basename(src))[0]
 
-    # Build jsdoc2md command — run from repo dir so plugins resolve correctly
-    # NOTE: Do NOT pass --configure because the config's source.include:["."] 
-    # overrides the CLI file and processes ALL .c files, causing duplication.
-    # Instead, pass only the plugin needed for C source parsing.
-    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none",
-           "--plugin", "jsdoc/c-transpiler"]
+    plugin_path = os.path.abspath(os.path.join(repo_ucode, "jsdoc", "c-transpiler")).replace('\\', '/')
 
-    rel_src = os.path.relpath(src, repo_ucode)
-    cmd.extend(["--files", rel_src])
+    with tempfile.TemporaryDirectory() as tempd:
+        temp_c = os.path.join(tempd, os.path.basename(src))
+        shutil.copy2(src, temp_c)
+        
+        ephemeral_conf = os.path.join(tempd, "jsdoc-ephemeral.json")
+        with open(ephemeral_conf, "w", encoding="utf-8") as cw:
+            cw.write('{"source": {"includePattern": ".+\\\\.c(pp)?$"}, "plugins": ["' + plugin_path + '"]}')
 
-    res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_ucode, encoding="utf-8")
+        cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none",
+               "--configure", "jsdoc-ephemeral.json", "--files", os.path.basename(temp_c)]
+
+        res = subprocess.run(cmd, capture_output=True, text=True, cwd=tempd, encoding="utf-8")
     stdout = res.stdout or ""
     stderr = res.stderr or ""
 
