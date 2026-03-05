@@ -84,6 +84,10 @@ def summarize(content, fname):
                 print(f"[04] Rate-limited. Waiting {retry_after}s...")
                 time.sleep(retry_after)
                 continue
+            if resp.status_code == 403 or "no quota" in resp.text.lower() or "limit reached" in resp.text.lower():
+                print(f"[04] API quota limit reached. Response: {resp.text}")
+                print("[04] Aborting AI summaries gracefully to continue pipeline.")
+                sys.exit(0)
             resp.raise_for_status()
             data = resp.json()
             return data["choices"][0]["message"]["content"].strip()
