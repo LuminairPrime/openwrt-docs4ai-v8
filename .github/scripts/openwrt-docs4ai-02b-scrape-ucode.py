@@ -114,7 +114,7 @@ for src in srcs:
            "--plugin", "jsdoc/c-transpiler"]
 
     rel_src = os.path.relpath(src, repo_ucode)
-    cmd.append(rel_src)
+    cmd.extend(["--files", rel_src])
 
     res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_ucode, encoding="utf-8")
     stdout = res.stdout or ""

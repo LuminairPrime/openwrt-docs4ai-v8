@@ -73,7 +73,7 @@ for src in luci_srcs:
     mod = os.path.splitext(filename)[0]
     relpath = os.path.relpath(src, repo_luci).replace("\\", "/")
 
-    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none", relpath]
+    cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none", "--files", relpath]
     res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_luci, encoding="utf-8")
     stdout = res.stdout or ""
     stderr = res.stderr or ""
@@ -90,6 +90,17 @@ for src in luci_srcs:
         skip_count += 1
         continue
 
+    # Post-process: convert common HTML tags to markdown for LLM readability
+    output = re.sub(r'<pre class="prettyprint[^"]*"><code>', '```\n', output)
+    output = output.replace('</code></pre>', '\n```')
+    output = re.sub(r'</?code>', '`', output)
+    output = re.sub(r'</?p>', '', output)
+    output = re.sub(r'</?(?:dl|dt|dd|ul|li|table|thead|tbody|tr|th|td|h[1-6]|a(?:\s+[^>]*)?|/a)[^>]*>', '', output)
+    output = output.replace('&amp;', '&').replace('&#39;', "'").replace('&quot;', '"')
+    output = output.replace('&lt;', '<').replace('&gt;', '>')
+    # Clean up excessive blank lines from tag removal
+    output = re.sub(r'\n{3,}', '\n\n', output)
+
     live_url = f"{live_base}/LuCI.html" if mod == "luci" else f"{live_base}/LuCI.{mod}.html"
     outfile = os.path.join(out_dir, f"luci-api-{mod}.md")
     member_count = output.count("##")
@@ -101,8 +112,9 @@ for src in luci_srcs:
         fw.write(f"> **Generated:** {TS} from commit `{luci_commit}`\n\n---\n\n")
         fw.write(output)
 
+    member_word = "member" if member_count == 1 else "members"
     with open(os.path.join(out_dir, "llms.txt"), "a", encoding="utf-8", newline="\n") as f:
-        f.write(f"- [luci-api-{mod}.md](/luci-docs/luci-api-{mod}.md): LuCI `{mod}` JS API — {member_count} documented members\n")
+        f.write(f"- [luci-api-{mod}.md](/luci-docs/luci-api-{mod}.md): LuCI `{mod}` JS API — {member_count} documented {member_word}\n")
 
     file_count += 1
     print(f"[02c] OK: luci-api-{mod}.md ({member_count} members)")
@@ -112,7 +124,7 @@ if file_count == 0 and len(luci_srcs) > 0:
     print("[02c] WARN: 0 files generated individually. Running whole-directory fallback.")
     target_rel = os.path.relpath(target_dir, repo_luci).replace("\\", "/")
     cmd = [jsdoc2md, "--heading-depth", "2", "--global-index-format", "none",
-           f"{target_rel}/**/*.js"]
+           "--files", f"{target_rel}/**/*.js"]
     res = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_luci, encoding="utf-8")
     output = res.stdout.strip()
     if output:
