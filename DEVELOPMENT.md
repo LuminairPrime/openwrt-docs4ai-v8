@@ -52,7 +52,7 @@ Results are logged to `tests/openwrt-docs4ai-00-smoke-test-log.txt`.
 | `WORKDIR` | `./tmp` | 01, 02a–02e | Where source repos are cloned |
 | `SKIP_WIKI` | `false` | 02a, 05 | Skip wiki scraping |
 | `SKIP_BUILDROOT` | `false` | 01, 02d, 02e, 05 | Skip buildroot/examples |
-| `SKIP_AI` | `true` | 04 | Skip AI summarization |
+| `SKIP_AI` | `true` | 04 | Skip AI summarization (default: skipped, see note below) |
 | `WIKI_MAX_PAGES` | `300` | 02a | Cap on wiki pages fetched |
 | `MAX_AI_FILES` | `40` | 04 | Cap on files to send to AI |
 | `GITHUB_TOKEN` | *(none)* | 04 | GitHub Models API auth (CI) |
@@ -65,7 +65,14 @@ WORKDIR/repo-*  →  OUTDIR/  →  validate  →  promote  →  git commit
 (source repos)     (staging)    (07)        (rsync)     (only openwrt-condensed-docs/)
 ```
 
-In CI, `OUTDIR` points to `$RUNNER_TEMP/staging` so nothing touches the repo until validation passes. Locally, `OUTDIR` defaults to `./openwrt-condensed-docs`.
+In CI, `OUTDIR` points to `$GITHUB_WORKSPACE/staging` so nothing touches the repo until validation passes. Locally, `OUTDIR` defaults to `./openwrt-condensed-docs`.
+
+> **Note on AI Summaries (script 04):** GitHub's free account tier provides only ~50 AI model
+> requests per month, making automated summarization impractical for regular pipeline runs.
+> The `SKIP_AI` flag defaults to `true` and the pipeline produces fully valid output without
+> AI summaries. To manually generate summaries, see the copy-paste prompt in
+> `.github/scripts/openwrt-docs4ai-04-generate-summaries.py` — paste it into any AI chatbot
+> along with the `.md` file content you want summarized.
 
 ## Script Reference
 
@@ -112,3 +119,10 @@ All scripts use a standardized prefix for log output:
 - Line endings: `.gitattributes` enforces LF for `.py` files
 - Path handling: all scripts use `os.path.join()`, no hardcoded `/`
 - `jsdoc2md` on Windows: the tool resolves via `shutil.which("jsdoc2md.cmd")`
+
+## Toolchain Gotchas
+
+- **jsdoc underscore exclusion**: The `jsdoc` engine silently excludes any file or directory
+  whose path contains an underscore (e.g., `_temp`, `_build`). This bit the CI pipeline when
+  `WORKDIR` was set to `$RUNNER_TEMP/work` (which resolved to `/home/runner/work/_temp/work`).
+  Always use paths without leading underscores for `OUTDIR` and `WORKDIR`.

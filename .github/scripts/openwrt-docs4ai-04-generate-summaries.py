@@ -2,8 +2,13 @@
 openwrt-docs4ai-04-generate-summaries.py
 
 Purpose  : Generate AI summaries for API documentation files using GitHub Models API.
+Status   : COMPLETELY OPTIONAL — this script is skipped by default (SKIP_AI=true).
+           GitHub free accounts are limited to ~50 AI model requests per month,
+           making automated summarization impractical for regular pipeline runs.
+           The pipeline produces fully valid output without AI summaries.
+
 Env Vars : OUTDIR (default: ./openwrt-condensed-docs) — where generated docs live
-           SKIP_AI ("true" to skip entirely)
+           SKIP_AI ("true" to skip entirely — THIS IS THE DEFAULT)
            GITHUB_TOKEN — API token for GitHub Models (CI)
            LOCAL_DEV_TOKEN — alternative token for local development
            MAX_AI_FILES (default: 40) — cap on files to summarize per run
@@ -12,6 +17,28 @@ Deps     : requests
 Notes    : Only processes module docs (ucode-module-*.md, luci-api-*.md).
            Rate-limited with retry-after-backoff to stay within free tier.
            Files already containing "## AI Summary" are skipped.
+
+Manual Alternative:
+  Instead of running this script, you can manually summarize files by pasting
+  the following prompt into any AI chatbot (ChatGPT, Claude, Gemini, etc.)
+  along with the content of one or more .md files from openwrt-condensed-docs/:
+
+  ┌─────────────────────── COPY-PASTE PROMPT ───────────────────────┐
+  │ You are a technical documentation assistant for OpenWrt — a     │
+  │ Linux-based OS for embedded network devices. For each API/module│
+  │ doc I provide, produce a 2-4 sentence summary that answers:    │
+  │   1. What does this module do?                                 │
+  │   2. What are its key functions/methods?                       │
+  │   3. When would a developer use it?                            │
+  │ Use plain technical language. No filler. Do not repeat the     │
+  │ module name. Start with the verb describing the module's       │
+  │ purpose. Format each summary as:                               │
+  │   ## AI Summary                                                │
+  │   <your summary here>                                          │
+  │   ---                                                          │
+  │ Place the summary block after the metadata header (after the   │
+  │ first "---" separator) in each file.                           │
+  └─────────────────────────────────────────────────────────────────┘
 """
 
 import os
