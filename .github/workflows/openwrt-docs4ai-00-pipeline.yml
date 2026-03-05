@@ -143,9 +143,12 @@ jobs:
           retention-days: 7
 
   # ── GitHub Pages deployment ──────────────────────────
+  # NOTE: Pages must be enabled manually ONCE in repo Settings → Pages →
+  #       Source: "GitHub Actions". This job will silently skip until that's done.
   deploy-pages:
     needs: generate-docs
     runs-on: ubuntu-latest
+    continue-on-error: true  # Don't fail the workflow if Pages isn't configured yet
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -158,8 +161,6 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
