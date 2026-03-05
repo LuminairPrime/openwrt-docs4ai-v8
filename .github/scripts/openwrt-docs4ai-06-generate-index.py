@@ -20,7 +20,7 @@ import sys
 sys.stdout.reconfigure(line_buffering=True)
 
 OUTDIR = os.environ.get("OUTDIR", os.path.join(os.getcwd(), "openwrt-condensed-docs"))
-TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+TS = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 
 print("[06] Generate indexes and change log")
 

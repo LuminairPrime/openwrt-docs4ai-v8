@@ -27,7 +27,7 @@ OUTDIR = os.environ.get("OUTDIR", os.path.join(os.getcwd(), "openwrt-condensed-d
 SKIP_WIKI = os.environ.get("SKIP_WIKI", "false").lower() == "true"
 SKIP_BUILDROOT = os.environ.get("SKIP_BUILDROOT", "false").lower() == "true"
 
-TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+TS = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 
 print("[05] Assemble complete reference files")
 

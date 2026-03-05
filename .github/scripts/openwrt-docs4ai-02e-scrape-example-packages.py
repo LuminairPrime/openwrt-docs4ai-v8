@@ -34,7 +34,7 @@ SRC = os.path.join(WORKDIR, "repo-luci", "applications")
 OUT = os.path.join(OUTDIR, "openwrt-examples")
 os.makedirs(OUT, exist_ok=True)
 
-TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+TS = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 LUCI_URL = "https://github.com/openwrt/luci/tree/master/applications"
 LUCI_COMMIT = os.environ.get("LUCI_COMMIT", "unknown")
 

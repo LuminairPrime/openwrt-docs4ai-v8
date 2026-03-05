@@ -35,7 +35,7 @@ REPO = os.path.join(WORKDIR, "repo-openwrt")
 OUT_DIR = os.path.join(OUTDIR, "openwrt-buildroot-docs")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+TS = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 COMMIT = os.environ.get("OPENWRT_COMMIT", "unknown")
 REPO_URL = "https://github.com/openwrt/openwrt"
 

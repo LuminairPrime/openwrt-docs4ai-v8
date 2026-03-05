@@ -46,7 +46,7 @@ print("[02a] Scrape OpenWrt wiki (crawl namespace indexes, last 2 years)")
 OUT_DIR = os.path.join(OUTDIR, "openwrt-wiki-docs")
 
 DELAY  = 1.5
-CUTOFF = datetime.datetime.utcnow() - datetime.timedelta(days=730)
+CUTOFF = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=730)
 
 # Namespaces to crawl. idx param uses DokuWiki's colon-separated namespace format.
 NAMESPACES = [
@@ -280,7 +280,7 @@ for path in sorted(discovered_pages):
         continue
 
     date_str = last_mod.strftime("%Y-%m-%d") if last_mod else "unknown"
-    fetch_ts = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    fetch_ts = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
     title_m  = re.search(r"^#+ (.+)$", md, re.MULTILINE)
     title    = title_m.group(1).strip() if title_m else path.split("/")[-1]
 
@@ -302,7 +302,7 @@ for path in sorted(discovered_pages):
 # Step 3: Write per-folder index
 # ============================================================
 
-ts = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+ts = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 with open(os.path.join(OUT_DIR, "llms.txt"), "w", encoding="utf-8", newline="\n") as f:
     f.write("# OpenWrt Wiki Developer Documentation Index\n")
     f.write("# Source: https://openwrt.org/docs/\n")

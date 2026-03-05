@@ -24,7 +24,7 @@ sys.stdout.reconfigure(line_buffering=True)
 
 OUTDIR = os.environ.get("OUTDIR", os.path.join(os.getcwd(), "openwrt-condensed-docs"))
 WORKDIR = os.environ.get("WORKDIR", os.path.join(os.getcwd(), "tmp"))
-TS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+TS = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
 
 print("[02b] Generate ucode documentation (JSDoc)")
 
