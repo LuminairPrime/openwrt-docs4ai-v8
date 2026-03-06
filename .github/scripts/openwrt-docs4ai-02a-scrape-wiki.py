@@ -52,6 +52,7 @@ CUTOFF = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=730)
 NAMESPACES = [
     ("/docs/techref/",        "docs%3Atechref"),
     ("/docs/guide-developer/", "docs%3Aguide-developer"),
+    ("/docs/guide-user/base-system/uci/", "docs%3Aguide-user%3Abase-system%3Auci"),
 ]
 
 SKIP_PATTERNS = [

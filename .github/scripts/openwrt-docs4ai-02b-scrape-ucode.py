@@ -20,6 +20,7 @@ import sys
 import re
 import shutil
 import tempfile
+import html
 
 sys.stdout.reconfigure(line_buffering=True)
 
@@ -87,11 +88,15 @@ for src in sorted(glob.glob(os.path.join(repo_ucode, "docs", "tutorial-*.md"))):
             break
 
     with open(os.path.join(out_dir, dest), "w", encoding="utf-8", newline="\n") as fw:
-        fw.write(f"# {title}\n\n")
         rel_src = src.replace(repo_ucode + os.sep, "").replace("\\", "/")
-        fw.write(f"> **Source:** [`{rel_src}`]({repo_url}/blob/master/{rel_src})\n")
-        fw.write(f"> **Live docs:** https://ucode.mein.io/{os.path.basename(src).replace('.md', '')}.html\n")
-        fw.write(f"> **Generated:** {TS} from commit `{ucode_commit}`\n\n---\n\n")
+        fw.write("---\n")
+        fw.write(f"module: {title}\n")
+        fw.write(f"title: ucode Tutorial - {title}\n")
+        fw.write(f"source: {repo_url}/blob/master/{rel_src}\n")
+        fw.write(f"generated: {TS} from commit {ucode_commit}\n")
+        fw.write("---\n\n")
+        fw.write(f"# {title}\n\n")
+        fw.write(f"> **Live docs:** https://ucode.mein.io/{os.path.basename(src).replace('.md', '')}.html\n\n---\n\n")
         fw.writelines(lines[1:] if lines and lines[0].startswith("#") else lines)
 
     with open(os.path.join(out_dir, "llms.txt"), "a", encoding="utf-8", newline="\n") as f:
@@ -148,8 +153,7 @@ for src in srcs:
     output = re.sub(r'</?code>', '`', output)
     output = re.sub(r'</?p>', '', output)
     output = re.sub(r'</?(?:dl|dt|dd|ul|li|table|thead|tbody|tr|th|td|h[1-6])[^>]*>', '', output)
-    output = output.replace('&amp;', '&').replace('&#39;', "'").replace('&quot;', '"')
-    output = output.replace('&lt;', '<').replace('&gt;', '>')
+    output = html.unescape(output)
     # Clean up excessive blank lines from tag removal
     output = re.sub(r'\n{3,}', '\n\n', output)
 
@@ -158,10 +162,14 @@ for src in srcs:
 
     rel_src_fwd = src.replace(repo_ucode + os.sep, "").replace("\\", "/")
     with open(outfile, "w", encoding="utf-8", newline="\n") as fw:
+        fw.write("---\n")
+        fw.write(f"module: {mod}\n")
+        fw.write(f"title: ucode module - {mod}\n")
+        fw.write(f"source: {repo_url}/blob/master/{rel_src_fwd}\n")
+        fw.write(f"generated: {TS} from commit {ucode_commit}\n")
+        fw.write("---\n\n")
         fw.write(f"# ucode module: `{mod}`\n\n")
-        fw.write(f"> **Source:** [`{rel_src_fwd}`]({repo_url}/blob/master/{rel_src_fwd})\n")
-        fw.write(f"> **Live docs:** https://ucode.mein.io/module-{mod}.html\n")
-        fw.write(f"> **Generated:** {TS} from commit `{ucode_commit}`\n\n---\n\n")
+        fw.write(f"> **Live docs:** https://ucode.mein.io/module-{mod}.html\n\n---\n\n")
         fw.write(output)
 
     member_word = "member" if member_count == 1 else "members"

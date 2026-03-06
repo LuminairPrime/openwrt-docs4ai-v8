@@ -66,6 +66,13 @@ with open(llms_path, "w", encoding="utf-8", newline="\n") as f:
             if commit:
                 f.write(f" — commit: {commit}")
             f.write("\n")
+            
+            lite_file = ref_file.replace("-complete-reference", "-lite")
+            lite_path = os.path.join(OUTDIR, lite_file)
+            if os.path.isfile(lite_path):
+                lite_kb = os.path.getsize(lite_path) // 1024
+                lite_lines = sum(1 for _ in open(lite_path, encoding="utf-8"))
+                f.write(f"  - ⚡ [{lite_file}](/{lite_file}) (Lite/Headers Version — {lite_lines} lines, {lite_kb} KB)\n")
 
     f.write("\n## Documentation Directories\n\n")
     for subdir, label, _, source_url, _ in DATASETS:

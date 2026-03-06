@@ -20,6 +20,7 @@ import os
 import glob
 import datetime
 import sys
+import re
 
 sys.stdout.reconfigure(line_buffering=True)
 
@@ -54,9 +55,12 @@ def assemble(label, subdir, out_name, pattern="*.md", header_title=None,
 
     title = header_title or label
     out_path = os.path.join(OUTDIR, out_name)
+    lite_name = out_name.replace("-complete-reference", "-lite")
+    lite_path = os.path.join(OUTDIR, lite_name)
 
     total_lines = 0
-    with open(out_path, "w", encoding="utf-8", newline="\n") as out:
+    with open(out_path, "w", encoding="utf-8", newline="\n") as out, \
+         open(lite_path, "w", encoding="utf-8", newline="\n") as lite:
         out.write(f"# {title}\n\n")
         out.write(f"> **Generated:** {TS}\n")
         if source_desc:
@@ -64,18 +68,35 @@ def assemble(label, subdir, out_name, pattern="*.md", header_title=None,
         out.write(f"> **Contains:** {len(files)} documents concatenated\n\n")
         out.write("---\n\n")
 
+        lite.write(f"# {title} (Lite Semantic Map)\n\n")
+        lite.write(f"> **Contains:** Only headers and function signatures for {len(files)} files.\n\n")
+        lite.write("---\n\n")
+
         for fpath in files:
             try:
                 content = open(fpath, encoding="utf-8").read().strip()
             except Exception as e:
                 print(f"[05] WARN: Could not read {fpath}: {e}")
                 continue
+                
+            # Strip YAML frontmatter
+            content = re.sub(r'(?s)^---.*?---\n+', '', content)
+            # Strip redundant Markdown blockquote metadata
+            content = re.sub(r'^> \*\*.*?\n+', '', content, flags=re.MULTILINE)
+            
+            # Extract lite lines (Headers only)
+            lite_lines = [line for line in content.split("\n") if line.startswith("#")]
+            lite_content = "\n".join(lite_lines)
+            
             lines = content.count("\n") + 1
             total_lines += lines
-            out.write(content)
+            out.write(content.strip())
             out.write("\n\n---\n\n")
+            
+            if lite_content.strip():
+                lite.write(lite_content.strip() + "\n\n")
 
-    print(f"[05] OK: {out_name} ({len(files)} files, {total_lines} lines)")
+    print(f"[05] OK: {out_name} & {lite_name} ({len(files)} files)")
 
 
 # --- Assemble each reference ---

@@ -19,6 +19,7 @@ import datetime
 import sys
 import re
 import shutil
+import html
 
 sys.stdout.reconfigure(line_buffering=True)
 
@@ -96,8 +97,7 @@ for src in luci_srcs:
     output = re.sub(r'</?code>', '`', output)
     output = re.sub(r'</?p>', '', output)
     output = re.sub(r'</?(?:dl|dt|dd|ul|li|table|thead|tbody|tr|th|td|h[1-6]|a(?:\s+[^>]*)?|/a)[^>]*>', '', output)
-    output = output.replace('&amp;', '&').replace('&#39;', "'").replace('&quot;', '"')
-    output = output.replace('&lt;', '<').replace('&gt;', '>')
+    output = html.unescape(output)
     # Clean up excessive blank lines from tag removal
     output = re.sub(r'\n{3,}', '\n\n', output)
 
@@ -106,10 +106,14 @@ for src in luci_srcs:
     member_count = output.count("##")
 
     with open(outfile, "w", encoding="utf-8", newline="\n") as fw:
+        fw.write("---\n")
+        fw.write(f"module: {mod}\n")
+        fw.write(f"title: LuCI API - {mod}\n")
+        fw.write(f"source: {repo_url}/blob/master/{relpath}\n")
+        fw.write(f"generated: {TS} from commit {luci_commit}\n")
+        fw.write("---\n\n")
         fw.write(f"# LuCI API: `{mod}`\n\n")
-        fw.write(f"> **Source:** [`{relpath}`]({repo_url}/blob/master/{relpath})\n")
-        fw.write(f"> **Live docs:** {live_url}\n")
-        fw.write(f"> **Generated:** {TS} from commit `{luci_commit}`\n\n---\n\n")
+        fw.write(f"> **Live docs:** {live_url}\n\n---\n\n")
         fw.write(output)
 
     member_word = "member" if member_count == 1 else "members"

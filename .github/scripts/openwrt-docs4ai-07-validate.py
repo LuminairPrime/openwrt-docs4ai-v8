@@ -137,8 +137,18 @@ html_error_count = 0
 binary_count = 0
 tiny_count = 0
 
+MAX_FILE_SIZE_MB = 2.0
+large_file_count = 0
+
 for fpath in all_md:
     rel = os.path.relpath(fpath, OUTDIR)
+    
+    # Check for maximum file size ceiling
+    size_mb = os.path.getsize(fpath) / (1024 * 1024)
+    if size_mb > MAX_FILE_SIZE_MB:
+        hard_fail(f"File {rel} exceeds maximum permissible size of {MAX_FILE_SIZE_MB}MB ({size_mb:.2f}MB).")
+        large_file_count += 1
+        continue
 
     # Check for binary/encoding issues
     try:
