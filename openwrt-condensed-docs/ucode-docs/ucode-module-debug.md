@@ -2,7 +2,7 @@
 module: debug
 title: ucode module - debug
 source: https://github.com/jow-/ucode/blob/master/lib/debug.c
-generated: 2026-03-06 07:47 UTC from commit e87be9d
+generated: 2026-03-06 08:44 UTC from commit e87be9d
 ---
 
 # ucode module: `debug`

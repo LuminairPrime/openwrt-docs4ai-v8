@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/creating_a_meson_based_package
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 07:48 UTC
+> **Fetched:** 2026-03-06 08:45 UTC
 
 ---
 

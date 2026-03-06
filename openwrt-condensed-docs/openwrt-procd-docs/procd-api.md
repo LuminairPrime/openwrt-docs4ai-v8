@@ -2,7 +2,7 @@
 module: procd
 title: procd init.d API
 source: package/system/procd/files/procd.sh
-generated: 2026-03-06 07:47 UTC
+generated: 2026-03-06 08:44 UTC
 ---
 
 # procd init.d API Reference
