@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/working-with-github-pr
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 07:01 UTC
+> **Fetched:** 2026-03-06 07:49 UTC
 
 ---
 

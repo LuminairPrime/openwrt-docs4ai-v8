@@ -1,6 +1,6 @@
 # OpenWrt Wiki Developer Documentation Index
 # Source: https://openwrt.org/docs/
-# Generated: 2026-03-06 07:02 UTC
+# Generated: 2026-03-06 07:50 UTC
 # Scope: /docs/techref/ + /docs/guide-developer/ -- last 2 years
 # Discovery: DokuWiki namespace index (no sitemap)
 # Incremental: unchanged pages are preserved from previous run.

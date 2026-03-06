@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/requirements.boot.process
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 07:02 UTC
+> **Fetched:** 2026-03-06 07:50 UTC
 
 ---
 

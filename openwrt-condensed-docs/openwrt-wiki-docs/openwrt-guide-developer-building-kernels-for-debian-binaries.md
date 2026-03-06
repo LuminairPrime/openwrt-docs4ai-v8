@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/building_kernels_for_debian_binaries
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 06:59 UTC
+> **Fetched:** 2026-03-06 07:48 UTC
 
 ---
 
