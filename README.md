@@ -15,13 +15,15 @@ A monthly automated pipeline that scrapes OpenWrt project documentation from 5 u
 
 **Entry point:** [`openwrt-condensed-docs/llms.txt`](openwrt-condensed-docs/llms.txt)
 
-| File | What It Contains |
-|------|-----------------|
-| `ucode-complete-reference.md` | ucode scripting language — all modules and tutorials |
-| `luci-jsapi-complete-reference.md` | LuCI web interface JavaScript API |
-| `openwrt-wiki-complete-reference.md` | OpenWrt developer wiki (techref + guide-developer) |
-| `openwrt-buildroot-complete-reference.md` | Package metadata from the buildroot source tree |
-| `openwrt-examples-complete-reference.md` | Curated LuCI application source code examples |
+| File | What It Contains | Lite Version Included? |
+|------|-----------------|------------------------|
+| `ucode-complete-reference.md` | ucode scripting language — all modules and tutorials | ⚡ `ucode-lite.md` (Headers & Signatures only) |
+| `luci-jsapi-complete-reference.md` | LuCI web interface JavaScript API | ⚡ `luci-jsapi-lite.md` |
+| `openwrt-wiki-complete-reference.md` | OpenWrt developer wiki (techref + guide-developer) | ⚡ `openwrt-wiki-lite.md` |
+| `openwrt-buildroot-complete-reference.md` | Package metadata from the buildroot source tree | ⚡ `openwrt-buildroot-lite.md` |
+| `openwrt-examples-complete-reference.md` | Curated LuCI application source code examples | ⚡ *(Inapplicable)* |
+
+For targeted lookups, browse the subdirectories in [`openwrt-condensed-docs/`](openwrt-condensed-docs/). Every markdown file now contains YAML Frontmatter for LLM indexing accuracy.
 
 For targeted lookups, browse the subdirectories in [`openwrt-condensed-docs/`](openwrt-condensed-docs/).
 
@@ -34,6 +36,8 @@ For targeted lookups, browse the subdirectories in [`openwrt-condensed-docs/`](o
 | LuCI JS API | [openwrt/luci](https://github.com/openwrt/luci) | jsdoc2md from source |
 | Buildroot pkgs | [openwrt/openwrt](https://github.com/openwrt/openwrt) | Makefile parsing |
 | Examples | [openwrt/luci](https://github.com/openwrt/luci) | Curated file copy |
+| Procd API | [openwrt/openwrt](https://github.com/openwrt/openwrt) | C-comment Regex Regex Parser (`procd.sh`) |
+| Hotplug | [openwrt/openwrt](https://github.com/openwrt/openwrt) | Source scanning (`hotplug-events`) |
 
 ## How It Works
 
