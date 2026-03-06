@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
 > **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-06 02:57 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 04:22 UTC from commit `e87be9d`
 
 ---
 

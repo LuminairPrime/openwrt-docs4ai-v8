@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/wireless.standards
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 03:00 UTC
+> **Fetched:** 2026-03-06 04:25 UTC
 
 ---
 

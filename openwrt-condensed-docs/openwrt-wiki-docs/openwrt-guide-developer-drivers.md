@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/drivers
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 02:57 UTC
+> **Fetched:** 2026-03-06 04:22 UTC
 
 ---
 
