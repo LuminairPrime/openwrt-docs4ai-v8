@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/mac.address
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 02:56 UTC
+> **Fetched:** 2026-03-06 02:58 UTC
 
 ---
 

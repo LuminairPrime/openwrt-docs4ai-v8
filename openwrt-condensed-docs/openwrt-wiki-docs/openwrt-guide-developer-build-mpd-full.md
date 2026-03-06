@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/build.mpd-full
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 02:55 UTC
+> **Fetched:** 2026-03-06 02:57 UTC
 
 ---
 

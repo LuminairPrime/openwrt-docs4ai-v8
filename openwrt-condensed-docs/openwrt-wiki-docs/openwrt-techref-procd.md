@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/procd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 02:58 UTC
+> **Fetched:** 2026-03-06 02:59 UTC
 
 ---
 

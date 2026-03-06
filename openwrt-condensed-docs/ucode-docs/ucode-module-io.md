@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/io.c`](https://github.com/jow-/ucode/blob/master/lib/io.c)
 > **Live docs:** https://ucode.mein.io/module-io.html
-> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:57 UTC from commit `e87be9d`
 
 ---
 

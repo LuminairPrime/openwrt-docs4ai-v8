@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/procd-init-script-example
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 02:57 UTC
+> **Fetched:** 2026-03-06 02:58 UTC
 
 ---
 
