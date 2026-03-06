@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/hw.hacking.first.steps
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:22 UTC
+> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 

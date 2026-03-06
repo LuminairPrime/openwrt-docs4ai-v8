@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/dfs
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:23 UTC
+> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 

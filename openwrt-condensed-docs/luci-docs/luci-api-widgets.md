@@ -2,7 +2,7 @@
 
 > **Source:** [`modules/luci-base/htdocs/luci-static/resources/tools/widgets.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/widgets.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.widgets.html
-> **Generated:** 2026-03-06 04:22 UTC from commit `de553f3`
+> **Generated:** 2026-03-06 04:40 UTC from commit `de553f3`
 
 ---
 

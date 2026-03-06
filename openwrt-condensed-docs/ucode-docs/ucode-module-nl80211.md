@@ -2,7 +2,7 @@
 
 > **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
 > **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-06 04:22 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
