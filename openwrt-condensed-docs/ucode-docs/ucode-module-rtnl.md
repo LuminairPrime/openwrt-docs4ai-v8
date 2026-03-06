@@ -1,8 +1,13 @@
+---
+module: rtnl
+title: ucode module - rtnl
+source: https://github.com/jow-/ucode/blob/master/lib/rtnl.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `rtnl`
 
-> **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
 > **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

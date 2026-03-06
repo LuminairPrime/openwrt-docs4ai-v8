@@ -1,8 +1,13 @@
+---
+module: zlib
+title: ucode module - zlib
+source: https://github.com/jow-/ucode/blob/master/lib/zlib.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `zlib`
 
-> **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
 > **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

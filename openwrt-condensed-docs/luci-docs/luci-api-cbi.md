@@ -1,8 +1,13 @@
+---
+module: cbi
+title: LuCI API - cbi
+source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/cbi.js
+generated: 2026-03-06 06:36 UTC from commit de553f3
+---
+
 # LuCI API: `cbi`
 
-> **Source:** [`modules/luci-base/htdocs/luci-static/resources/cbi.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/cbi.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.cbi.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `de553f3`
 
 ---
 

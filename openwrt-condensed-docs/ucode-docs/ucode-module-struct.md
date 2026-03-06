@@ -1,8 +1,13 @@
+---
+module: struct
+title: ucode module - struct
+source: https://github.com/jow-/ucode/blob/master/lib/struct.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `struct`
 
-> **Source:** [`lib/struct.c`](https://github.com/jow-/ucode/blob/master/lib/struct.c)
 > **Live docs:** https://ucode.mein.io/module-struct.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

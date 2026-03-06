@@ -1,8 +1,13 @@
+---
+module: math
+title: ucode module - math
+source: https://github.com/jow-/ucode/blob/master/lib/math.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `math`
 
-> **Source:** [`lib/math.c`](https://github.com/jow-/ucode/blob/master/lib/math.c)
 > **Live docs:** https://ucode.mein.io/module-math.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

@@ -1,16 +1,12 @@
 # OpenWrt Wiki Developer Documentation Complete Reference
 
-> **Generated:** 2026-03-06 04:44 UTC
+> **Generated:** 2026-03-06 06:40 UTC
 > **Source:** https://openwrt.org/docs/
 > **Contains:** 90 documents concatenated
 
 ---
 
 # 21.02: Major cosmetic changes
-
-> **Source:** https://openwrt.org/docs/guide-developer/20.xx.major.changes
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -195,10 +191,6 @@ With the commit [d0f295837a03f7f52000ae6d395827bdde7996a4](commit>d0f295837a03f7
 ---
 
 # Adding new device support
-
-> **Source:** https://openwrt.org/docs/guide-developer/add.new.device
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -440,10 +432,6 @@ If you have added a device profile, and it isn't showing up in "make menuconfig"
 ---
 
 # Adding new platform support
-
-> **Source:** https://openwrt.org/docs/guide-developer/add.new.platform
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -806,10 +794,6 @@ You can then write the kernel driver itself, by creating a `linux/drivers/mtd/ma
 
 # Adding a new device
 
-> **Source:** https://openwrt.org/docs/guide-developer/adding_new_device
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 > [!WARNING]
@@ -1132,10 +1116,6 @@ xxd -r -p
 
 # Building image with support for 3g/4g and usb tethering
 
-> **Source:** https://openwrt.org/docs/guide-developer/build-image-with-3g-dongle-support
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 ## Preparing build environment
@@ -1292,10 +1272,6 @@ If your hardware-specific image name could not be found, it's possible that you 
 
 # Building MPD-full with PulseAudio
 
-> **Source:** https://openwrt.org/docs/guide-developer/build.mpd-full.pulse
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 More information about building from source: [OpenWrt Buildroot - Usage](/docs/guide-developer/toolchain/start)
@@ -1341,10 +1317,6 @@ Maybe the path has to be adapted to \$(STAGING_DIR)/opt/lib/pulseaudio.
 
 # MPD-full building from source
 
-> **Source:** https://openwrt.org/docs/guide-developer/build.mpd-full
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 More information about building from source: [OpenWrt Buildroot - Usage](/docs/guide-developer/toolchain/start)
@@ -1386,10 +1358,6 @@ Now if you start `make menuconfig`, you'll have the choice to build the full or 
 ---
 
 # Building OpenWrt for Netgear WNDR3700
-
-> **Source:** https://openwrt.org/docs/guide-developer/build.wndr3700
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -1465,10 +1433,6 @@ Please see [WNDR3700 - Installation](toh/netgear/wndr3700#installation) or [Open
 
 # Building OpenWrt Kernel for Debian System
 
-> **Source:** https://openwrt.org/docs/guide-developer/building_kernels_for_debian_binaries
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 For now this page serves to keep some notes about using OpenWrt kernels with Debian distribution.
@@ -1504,10 +1468,6 @@ The OpenWrt system messes with the kernel .config so you might not end up with t
 ---
 
 # Setting up a build VM in VirtualBox
-
-> **Source:** https://openwrt.org/docs/guide-developer/buildserver_virtualbox
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -1616,10 +1576,6 @@ Your virtual Debian machine should now be set up correctly for following the res
 ---
 
 # Configuration in scripts
-
-> **Source:** https://openwrt.org/docs/guide-developer/config-scripting
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -1962,10 +1918,6 @@ Of course, it is possible to mix the two styles of parsing, for instance parsing
 
 # Create a Cmake package in OpenWrt
 
-> **Source:** https://openwrt.org/docs/guide-developer/creating-a-cmake-package-in-openwrt
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 In the [Meson tutorial](/docs/guide-developer/creating_a_meson_based_package), we learned how to create a Meson package with a detailed guide. Since Cmake and Meson have similar roots, this tutorial will only focus on their differences.
@@ -2052,10 +2004,6 @@ hellocmake_0.1-1_arm_cortex-a7_neon-vfpv4.ipk
 ---
 
 # Create Meson-based packages in OpenWrt
-
-> **Source:** https://openwrt.org/docs/guide-developer/creating_a_meson_based_package
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -2200,10 +2148,6 @@ If everything goes smoothly, the package that is built will be located in ''\<BI
 ---
 
 # Debugging
-
-> **Source:** https://openwrt.org/docs/guide-developer/debugging
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -2362,10 +2306,6 @@ Additional tips:
 
 # Device Tree Usage in OpenWrt (DTS)
 
-> **Source:** https://openwrt.org/docs/guide-developer/defining-firmware-partitions
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 Current development (2019) uses kernel based on Device Tree (DT) files (.dts, .dtsi, .dtb) rather than the older "mach" files.
@@ -2454,10 +2394,6 @@ Rafał
 ---
 
 # Using Dependencies
-
-> **Source:** https://openwrt.org/docs/guide-developer/dependencies
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -2573,10 +2509,6 @@ There may be bugs in the OpenWrt build system wrt to dependencies. If you can co
 ---
 
 # Device support policies / best practices
-
-> **Source:** https://openwrt.org/docs/guide-developer/device-support-policies
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -2771,10 +2703,6 @@ Of course, despite everything said in this paragraph, every committer is free to
 
 # Drivers
 
-> **Source:** https://openwrt.org/docs/guide-developer/drivers
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 Linux is a [monolithic](https://en.wikipedia.org/wiki/Monolithic kernel) [Kernel (computing)](https://en.wikipedia.org/wiki/Kernel (computing)) and thus all drivers belong in the kernel. Drivers can be compiled into the kernel or loaded as Modules.
@@ -2804,10 +2732,6 @@ You can also contact the developers. You can often reach them on one or more **m
 ---
 
 # embedding-files-in-image
-
-> **Source:** https://openwrt.org/docs/guide-developer/embedding-files-in-image
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -2857,10 +2781,6 @@ HTH, Jo
 
 # External Toolchain
 
-> **Source:** https://openwrt.org/docs/guide-developer/external_toolchain
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 ## Use OpenWrt as External Toolchain
@@ -2893,10 +2813,6 @@ If you want to update a .config to use an external toolchain you can use the `--
 ---
 
 # OpenWrt Feeds
-
-> **Source:** https://openwrt.org/docs/guide-developer/feeds
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -3090,10 +3006,6 @@ The downloaded sources (referenced in package Makefiles) are not there... The do
 
 # Frequent PR mistakes or "How to prevent my PR from getting delayed for sure"
 
-> **Source:** https://openwrt.org/docs/guide-developer/frequent-pr-mistakes
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 > [!WARNING]
@@ -3175,10 +3087,6 @@ Don't do that. It will waste the reviewer's life-time (since they have to come b
 
 # GNU Debugger
 
-> **Source:** https://openwrt.org/docs/guide-developer/gdb
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 - **`Note:`** This guide is by no means a Howto, just some short instructions to use GDB on OpenWrt.  
@@ -3241,10 +3149,6 @@ If you want to restart the program, you'll need to set the remote path and argum
 ---
 
 # Hardware Hacking First Steps
-
-> **Source:** https://openwrt.org/docs/guide-developer/hw.hacking.first.steps
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -3323,10 +3227,6 @@ The homepage needs no cookies, no javascript, no nothing enabled. It simply work
 ---
 
 # Image Builder frontends
-
-> **Source:** https://openwrt.org/docs/guide-developer/imagebuilder_frontends
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -3451,10 +3351,6 @@ Relevant links:
 ---
 
 # jshn: a JSON parsing and generation library in for shell scripts
-
-> **Source:** https://openwrt.org/docs/guide-developer/jshn
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -3930,10 +3826,6 @@ The first jsonfilter call will output one radio JSON structure object per line, 
 
 # Links to Libraries
 
-> **Source:** https://openwrt.org/docs/guide-developer/links.software.libraries
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
-
 ---
 
 Here we could place links to light-build libraries you could link against:
@@ -3983,10 +3875,6 @@ Here we could place links to light-build libraries you could link against:
 ---
 
 # Adding new elements to LuCI
-
-> **Source:** https://openwrt.org/docs/guide-developer/luci
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:41 UTC
 
 ---
 
@@ -4082,10 +3970,6 @@ Here are the contents of the file:
 ---
 
 # Device Support: MAC address setup
-
-> **Source:** https://openwrt.org/docs/guide-developer/mac.address
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -4292,10 +4176,6 @@ ramips: For ramips, typical locations for ethernet addresses are as follows:
 
 # umdns for Local Device Discovery
 
-> **Source:** https://openwrt.org/docs/guide-developer/mdns
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 The [umdns](/packages/pkgdata/umdns) package creates a local DNS name for your router. When `umdns` is installed, the router and all its services are available using the name *hostname.local* instead of requiring the router's IP address.
@@ -4495,10 +4375,6 @@ To see that service was advertised you may use `avahi-discover` GUI application.
 ---
 
 # Network scripts
-
-> **Source:** https://openwrt.org/docs/guide-developer/network-scripting
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -4965,10 +4841,6 @@ ubus call network.interface dump \
 
 # Using the SDK
 
-> **Source:** https://openwrt.org/docs/guide-developer/obtain.firmware.sdk
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 \<WRAP center round info 60%\> THIS IS THE *OLD* DOCUMENT :!:  
@@ -5110,10 +4982,6 @@ Bug: BB SDK for BRCM2708: static compilation broken
 
 # Overview
 
-> **Source:** https://openwrt.org/docs/guide-developer/overview
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 If you are familiar with GNU/Linux systems, you should find your way around pretty easily; if you are not, you will need to learn some basic concepts and terminology first.
@@ -5184,10 +5052,6 @@ This server index may be browsed here: <https://sources.openwrt.org/>
 ---
 
 # OpenWrt packages
-
-> **Source:** https://openwrt.org/docs/guide-developer/package-policies
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -5494,10 +5358,6 @@ A typical `InstallDev` recipe usually copies all library symlinks (including the
 
 # Overriding Build Options
 
-> **Source:** https://openwrt.org/docs/guide-developer/packages.flags
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 Some packages might require overriding certain build options because we are cross compiling.
@@ -5585,10 +5445,6 @@ scons is only used by a few packages: [iotivity](https://github.com/openwrt/pack
 ---
 
 # Creating packages
-
-> **Source:** https://openwrt.org/docs/guide-developer/packages
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -6475,10 +6331,6 @@ See [the original announcement](https://web.archive.org/web/20170629071358/https
 
 # Create a sample procd init script
 
-> **Source:** https://openwrt.org/docs/guide-developer/procd-init-script-example
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 > [!WARNING]
@@ -6750,10 +6602,6 @@ There are a couple of more options that can be configured in a procd scripts ‘
 ---
 
 # Procd Init Scripts
-
-> **Source:** https://openwrt.org/docs/guide-developer/procd-init-scripts
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7065,10 +6913,6 @@ The following table contains a listing of the possible values to `procd_set_para
 
 # RPC daemon
 
-> **Source:** https://openwrt.org/docs/guide-developer/rpcd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 In OpenWrt we commonly use [ubus](/docs/techref/ubus) for all kinds of communication. It can provide info from various software as well as request various actions. Nevertheless, not every part of OpenWrt has a daemon that can register itself using `ubus`. For an example `uci` and `opkg` are command-line tools without any background process running all the time.
@@ -7086,10 +6930,6 @@ See details here: [rpcd: OpenWrt ubus RPC daemon for backend server](/docs/techr
 ---
 
 # High-level security incident response handling process
-
-> **Source:** https://openwrt.org/docs/guide-developer/security_incidents_response
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7131,10 +6971,6 @@ The goal of this high-level process is to identify what needs to be done for a s
 ---
 
 # Security
-
-> **Source:** https://openwrt.org/docs/guide-developer/security
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7298,10 +7134,6 @@ PIE is activated for some binaries, mostly network exposed applications</td>
 ---
 
 # OpenWrt SELinux policy development, customization, and testing
-
-> **Source:** https://openwrt.org/docs/guide-developer/selinux_policy_development
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7766,10 +7598,6 @@ This wraps up the exercise. Remember that this is meant to illustrate the SELinu
 
 # uBus IPC/RPC System
 
-> **Source:** https://openwrt.org/docs/guide-developer/ubus
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 ## uBus - IPC/RPC
@@ -7799,10 +7627,6 @@ See [uBus Technical Reference](/docs/techref/ubus)
 ---
 
 # UCI defaults
-
-> **Source:** https://openwrt.org/docs/guide-developer/uci-defaults
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7884,10 +7708,6 @@ This will make sure, when the key has the correct value set, that the script exi
 ---
 
 # OpenWrt on UEFI based x86 systems
-
-> **Source:** https://openwrt.org/docs/guide-developer/uefi-bootable-image
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -7974,10 +7794,6 @@ Remember to import `db.crt` (which may needs to be converted into DER or other f
 
 # Sending patches by git send-email
 
-> **Source:** https://openwrt.org/docs/guide-developer/working-with-git-email
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 Send an email to the [development mailing list](https://lists.openwrt.org/mailman/listinfo/openwrt-devel). All patches need to be sent in the same format as those that are listed on [patchwork](https://patchwork.ozlabs.org/project/openwrt/list/). If the patch does not get listed in patchwork then it won't get processed.
@@ -7991,10 +7807,6 @@ Using [git send-email](https://git-scm.com/docs/git-send-email) is warmly recomm
 ---
 
 # Working with GitHub
-
-> **Source:** https://openwrt.org/docs/guide-developer/working-with-github-pr
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -8183,10 +7995,6 @@ git push -f origin testbranch
 
 # Write shell scripts in OpenWrt
 
-> **Source:** https://openwrt.org/docs/guide-developer/write-shell-script
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 ## The default OpenWrt shell is ash: the Almquist shell
@@ -8253,10 +8061,6 @@ See also: [Configuration in scripts](config-scripting)
 ---
 
 # OpenWrt – operating system architecture
-
-> **Source:** https://openwrt.org/docs/techref/architecture
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -8496,10 +8300,6 @@ min <strong>&lt;color red&gt;340 MiB&lt;/color&gt;</strong> for Android 4.0</td>
 
 # Mounting Block Devices
 
-> **Source:** https://openwrt.org/docs/techref/block_mount
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 > [!WARNING]
@@ -8611,10 +8411,6 @@ Block hotplug consists of three scripts, `10-swap`, `20-fsck`, and `40-mount`. W
 
 # The Bootloader
 
-> **Source:** https://openwrt.org/docs/techref/bootloader
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 > [!WARNING]
@@ -8714,10 +8510,6 @@ An embedded bootloader fulfills the same functionality as the [BIOS](https://en.
 ---
 
 # OpenWrt Buildroot – Technical Reference
-
-> **Source:** https://openwrt.org/docs/techref/buildroot
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -8841,10 +8633,6 @@ Examples:
 
 # BusyBox
 
-> **Source:** https://openwrt.org/docs/techref/busybox
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 [BusyBox](https://en.wikipedia.org/wiki/BusyBox) is used for several system utilities in OpenWrt like `ash` shell, `cp`, `ls`, `echo`, `ping` and many others. It provides tiny replacements with fewer options for most of the utilities from [GNU Core Utilities](https://en.wikipedia.org/wiki/GNU Core Utilities), [GNU Inetutils](https://www.gnu.org/software/inetutils/) and other essential tools like `gzip`.
@@ -8893,10 +8681,6 @@ This can be used to estimate which OpenWrt version is running on a router if you
 
 # DFS
 
-> **Source:** https://openwrt.org/docs/techref/dfs
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
-
 ---
 
 [Dynamic_frequency_selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with weather radar. It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
@@ -8939,10 +8723,6 @@ Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_chann
 ---
 
 # External Documentation
-
-> **Source:** https://openwrt.org/docs/techref/externaldocumentation
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:42 UTC
 
 ---
 
@@ -9037,10 +8817,6 @@ Currently used by the X-Wrt project. [lighttpd](http://www.lighttpd.net/) (insta
 
 # OpenWrt File System Hierarchy / Memory Usage
 
-> **Source:** https://openwrt.org/docs/techref/file_system
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 | OpenWrt File System Hierarchy |                                                                     |                                       |                                                                       |                                                   |                                |                                |                                                   |                                                   |                    |
@@ -9090,10 +8866,6 @@ Currently used by the X-Wrt project. [lighttpd](http://www.lighttpd.net/) (insta
 
 # Network Filesystems
 
-> **Source:** https://openwrt.org/docs/techref/filesystems.network
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 OpenWrt can mount several filesystem that are attached to an IP Network. OpenWrt acts as a client.
@@ -9130,10 +8902,6 @@ The Filesystems mentioned, support varying security. Accessible via TCP often me
 ---
 
 # Filesystems
-
-> **Source:** https://openwrt.org/docs/techref/filesystems
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -9298,10 +9066,6 @@ Example pictures: on formatted partition / how data is stored (and addressed on 
 ---
 
 # The OpenWrt Flash Layout
-
-> **Source:** https://openwrt.org/docs/techref/flash.layout
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -9961,10 +9725,6 @@ The difference is, that OpenWrt-Image-File are not created that way ;-) They are
 
 # Flash memory
 
-> **Source:** https://openwrt.org/docs/techref/flash
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 Flash in embedded devices is a really hot topic – there are quite some questions which should be asked before choosing the “right” flash memory type. Often the wrong decision turns out to backfire – I experienced this in several projects and companies.
@@ -10114,10 +9874,6 @@ Tools like **dd** and **pv** can only be used on block devices. SSDs, SDcards, H
 
 # TRX vs. TRX2 vs. BIN
 
-> **Source:** https://openwrt.org/docs/techref/headers
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 [Broadcom Firmware Format](http://skaya.enix.org/wiki/FirmwareFormat)
@@ -10247,10 +10003,6 @@ source: [openwrt/tools/firmware-utils/src/mktplinkfw.c](http://git.openwrt.org/?
 ---
 
 # Hotplug -- Legacy
-
-> **Source:** https://openwrt.org/docs/techref/hotplug_legacy
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -10527,10 +10279,6 @@ So my using some (maybe flawed) logic we can deduce that match bluetooth is poss
 ---
 
 # Image formats
-
-> **Source:** https://openwrt.org/docs/techref/image.format
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -10843,10 +10591,6 @@ by extension:
 
 # image/Makefile Details
 
-> **Source:** https://openwrt.org/docs/techref/image.makefile
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -11027,10 +10771,6 @@ Board core firmware.
 
 # Init (User space boot) reference for Chaos Calmer: procd
 
-> **Source:** https://openwrt.org/docs/techref/init.detail.cc
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -11186,10 +10926,6 @@ This is the source code path followed in logical order of execution by the proce
 
 # Internal Layout D-Link DIR-825
 
-> **Source:** https://openwrt.org/docs/techref/internal.layout
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 This article describes the internal layout and configuration of the [D-Link DIR-825](/toh/d-link/dir-825). This particular hardware has two physical network interfaces, `eth0` and `eth1`, whereas most emebedded devices have only one: `eth0`. It also has two two wireless network interfaces using the IEEE 802.11 protocol, represented by `wlan0` and `wlan1`.
@@ -11259,10 +10995,6 @@ Going through the configuration, step by step, provides the following informatio
 
 # libnl and libnl-tiny – Technical Reference
 
-> **Source:** https://openwrt.org/docs/techref/libnl
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 `libnl` is a library for applications dealing with netlink sockets, for instance to retrieve or change routing information, interface settings, and is used more generally when communicating with the kernel.
@@ -11303,10 +11035,6 @@ However, mixing `libnl`-based libraries with `libnl-tiny` does not work.
 ---
 
 # libubox
-
-> **Source:** https://openwrt.org/docs/techref/libubox
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -11366,10 +11094,6 @@ kvlist.h implementation uses avl.h.
 
 # lldpd
 
-> **Source:** https://openwrt.org/docs/techref/lldpd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 See also: [lldpd upstream documentation](https://github.com/lldpd/lldpd/blob/master/README.md)
@@ -11420,10 +11144,6 @@ lldpcli show statistics
 ---
 
 # LuCI – Technical Reference
-
-> **Source:** https://openwrt.org/docs/techref/luci
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -11490,10 +11210,6 @@ In case you want to use a different web server than [uhttpd](/docs/guide-user/se
 ---
 
 # LuCI2 (OpenWrt web user interface)
-
-> **Source:** https://openwrt.org/docs/techref/luci2
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -11642,10 +11358,6 @@ Accessing result of the call requires using a simple `.then` function:
 
 # mountd – Technical Reference
 
-> **Source:** https://openwrt.org/docs/techref/mountd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -11678,10 +11390,6 @@ There was no daemon for the above mentioned purposes suited for embedded devices
 ---
 
 # MTD
-
-> **Source:** https://openwrt.org/docs/techref/mtd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -11783,10 +11491,6 @@ This patches the mtd source to include the "-static" option when building the bi
 
 # netifd (Network Interface Daemon) – Technical Reference
 
-> **Source:** https://openwrt.org/docs/techref/netifd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -11881,10 +11585,6 @@ The following is a brief conversation from IRC regarding hints on how netifd is 
 ---
 
 # odhcpd
-
-> **Source:** https://openwrt.org/docs/techref/odhcpd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -12341,10 +12041,6 @@ make package
 ---
 
 # Abstract
-
-> **Source:** https://openwrt.org/docs/techref/preinit_mount
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -13012,10 +12708,6 @@ Some architectures have additional files and functions (or overrides of the abov
 
 # Procd system init and daemon management
 
-> **Source:** https://openwrt.org/docs/techref/procd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -13143,10 +12835,6 @@ Package history is available at:
 ---
 
 # The Boot Process
-
-> **Source:** https://openwrt.org/docs/techref/process.boot
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -13335,10 +13023,6 @@ After the last startup script is executed, you should have a fully operational O
 
 # Boot/Init Requirements
 
-> **Source:** https://openwrt.org/docs/techref/requirements.boot.process
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -13461,10 +13145,6 @@ Preinit looks to linux like the final boot stage to init on the rootfs. Preinit 
 
 # rpcd: OpenWrt ubus RPC daemon for backend server
 
-> **Source:** https://openwrt.org/docs/techref/rpcd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -13561,10 +13241,6 @@ It is enough to issue `service rpcd reload` to make it pick up new plugin execut
 ---
 
 # swconfig
-
-> **Source:** https://openwrt.org/docs/techref/swconfig
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -13778,10 +13454,6 @@ The "struct switch_attr" directly maps to a Generic Netlink type of command and 
 
 # Sysupgrade – Technical Reference
 
-> **Source:** https://openwrt.org/docs/techref/sysupgrade
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 > [!WARNING]
@@ -13914,10 +13586,6 @@ TODO: Explain how this process works during failsafe mode.
 
 # ubox
 
-> **Source:** https://openwrt.org/docs/techref/ubox
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
-
 ---
 
 - [Project's git](http://git.openwrt.org/?p=project/ubox.git;a=summary)
@@ -13944,10 +13612,6 @@ to get a sample UCI configuration file. If target is / then it will be used as e
 ---
 
 # ubus (OpenWrt micro bus architecture)
-
-> **Source:** https://openwrt.org/docs/techref/ubus
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:43 UTC
 
 ---
 
@@ -14546,10 +14210,6 @@ echo "${VERSION}"
 
 # UCI (Unified Configuration Interface) – Technical Reference
 
-> **Source:** https://openwrt.org/docs/techref/uci
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
-
 ---
 
 > [!WARNING]
@@ -15008,10 +14668,6 @@ And examples on how to use UCI in C can be found in this thread: <https://forum.
 
 # EasyCwmp (CPE WAN Management Protocol daemon)
 
-> **Source:** https://openwrt.org/docs/techref/ucwmp
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
-
 ---
 
 > [!WARNING]
@@ -15121,10 +14777,6 @@ If you got any problem related to libmicroxml when building EasyCwmp in OpenWRT,
 ---
 
 # unetd
-
-> **Source:** https://openwrt.org/docs/techref/unetd
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
 
 ---
 
@@ -15429,10 +15081,6 @@ For DHT peer discovery, the unet-dht package needs to be installed, and dht enab
 
 # Wireless Modes
 
-> **Source:** https://openwrt.org/docs/techref/wireless.modes
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
-
 ---
 
 FIXME This needs to indicate the UCI values for `option mode` to have any value
@@ -15491,10 +15139,6 @@ Alternative name: managed mode Mode when connected to an AP.
 ---
 
 # Wireless Standards
-
-> **Source:** https://openwrt.org/docs/techref/wireless.standards
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
 
 ---
 
@@ -15593,10 +15237,6 @@ Normally radios operate in Single Band Single Concurrent (SBSC) (OpenWrt: 802.11
 ---
 
 # Xenomai - real-time framework inside OpenWrt
-
-> **Source:** https://openwrt.org/docs/techref/xenomai
-> **Last modified:** unknown
-> **Fetched:** 2026-03-06 04:44 UTC
 
 ---
 

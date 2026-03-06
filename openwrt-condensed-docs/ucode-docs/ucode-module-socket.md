@@ -1,8 +1,13 @@
+---
+module: socket
+title: ucode module - socket
+source: https://github.com/jow-/ucode/blob/master/lib/socket.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `socket`
 
-> **Source:** [`lib/socket.c`](https://github.com/jow-/ucode/blob/master/lib/socket.c)
 > **Live docs:** https://ucode.mein.io/module-socket.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

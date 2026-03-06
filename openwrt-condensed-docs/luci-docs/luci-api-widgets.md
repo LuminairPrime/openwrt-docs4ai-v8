@@ -1,8 +1,13 @@
+---
+module: widgets
+title: LuCI API - widgets
+source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/widgets.js
+generated: 2026-03-06 06:36 UTC from commit de553f3
+---
+
 # LuCI API: `widgets`
 
-> **Source:** [`modules/luci-base/htdocs/luci-static/resources/tools/widgets.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/widgets.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.widgets.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `de553f3`
 
 ---
 

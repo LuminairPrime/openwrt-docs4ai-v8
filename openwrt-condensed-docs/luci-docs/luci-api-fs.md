@@ -1,8 +1,13 @@
+---
+module: fs
+title: LuCI API - fs
+source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/fs.js
+generated: 2026-03-06 06:36 UTC from commit de553f3
+---
+
 # LuCI API: `fs`
 
-> **Source:** [`modules/luci-base/htdocs/luci-static/resources/fs.js`](https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/fs.js)
 > **Live docs:** https://openwrt.github.io/luci/jsapi/LuCI.fs.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `de553f3`
 
 ---
 

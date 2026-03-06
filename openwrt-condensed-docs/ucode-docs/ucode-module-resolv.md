@@ -1,8 +1,13 @@
+---
+module: resolv
+title: ucode module - resolv
+source: https://github.com/jow-/ucode/blob/master/lib/resolv.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `resolv`
 
-> **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
 > **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

@@ -1,8 +1,13 @@
+---
+module: fs
+title: ucode module - fs
+source: https://github.com/jow-/ucode/blob/master/lib/fs.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `fs`
 
-> **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
 > **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

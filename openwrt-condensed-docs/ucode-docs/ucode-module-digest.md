@@ -1,8 +1,13 @@
+---
+module: digest
+title: ucode module - digest
+source: https://github.com/jow-/ucode/blob/master/lib/digest.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `digest`
 
-> **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
 > **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

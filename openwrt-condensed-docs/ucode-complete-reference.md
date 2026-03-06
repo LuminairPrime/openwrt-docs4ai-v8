@@ -1,16 +1,12 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-03-06 04:44 UTC
+> **Generated:** 2026-03-06 06:40 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 14 documents concatenated
 
 ---
 
 # ucode module: `debug`
-
-> **Source:** [`lib/debug.c`](https://github.com/jow-/ucode/blob/master/lib/debug.c)
-> **Live docs:** https://ucode.mein.io/module-debug.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -394,10 +390,6 @@ index is invalid.
 
 # ucode module: `digest`
 
-> **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
-> **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_digest"></a>
@@ -643,10 +635,6 @@ Returns `null` if an error occurred.
 ---
 
 # ucode module: `fs`
-
-> **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
-> **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -2047,10 +2035,6 @@ print(error(), "\n");
 
 # ucode module: `io`
 
-> **Source:** [`lib/io.c`](https://github.com/jow-/ucode/blob/master/lib/io.c)
-> **Live docs:** https://ucode.mein.io/module-io.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_io"></a>
@@ -2639,10 +2623,6 @@ print(io.error(), "\n");
 
 # ucode module: `log`
 
-> **Source:** [`lib/log.c`](https://github.com/jow-/ucode/blob/master/lib/log.c)
-> **Live docs:** https://ucode.mein.io/module-log.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_log"></a>
@@ -3191,10 +3171,6 @@ The following ulog channel strings are recognized:
 
 # ucode module: `math`
 
-> **Source:** [`lib/math.c`](https://github.com/jow-/ucode/blob/master/lib/math.c)
-> **Live docs:** https://ucode.mein.io/module-math.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_math"></a>
@@ -3513,10 +3489,6 @@ Note that a value can also be checked for `NaN` with the expression
 
 # ucode module: `nl80211`
 
-> **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
-> **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_nl80211"></a>
@@ -3832,10 +3804,6 @@ Constants for BSS use-for and cannot-use-reasons bitmasks.
 ---
 
 # ucode module: `resolv`
-
-> **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
-> **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -4177,10 +4145,6 @@ if (err) {
 ---
 
 # ucode module: `rtnl`
-
-> **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
-> **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -5065,10 +5029,6 @@ listener.close();
 ---
 
 # ucode module: `socket`
-
-> **Source:** [`lib/socket.c`](https://github.com/jow-/ucode/blob/master/lib/socket.c)
-> **Live docs:** https://ucode.mein.io/module-socket.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -6359,10 +6319,6 @@ the socket.
 
 # ucode module: `struct`
 
-> **Source:** [`lib/struct.c`](https://github.com/jow-/ucode/blob/master/lib/struct.c)
-> **Live docs:** https://ucode.mein.io/module-struct.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
-
 ---
 
 <a name="module_struct"></a>
@@ -7141,10 +7097,6 @@ const allData = buf.pull();
 ---
 
 # ucode module: `uci`
-
-> **Source:** [`lib/uci.c`](https://github.com/jow-/ucode/blob/master/lib/uci.c)
-> **Live docs:** https://ucode.mein.io/module-uci.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -8033,10 +7985,6 @@ arguments.
 ---
 
 # ucode module: `uloop`
-
-> **Source:** [`lib/uloop.c`](https://github.com/jow-/ucode/blob/master/lib/uloop.c)
-> **Live docs:** https://ucode.mein.io/module-uloop.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
@@ -8991,10 +8939,6 @@ events that should be monitored on the given handle.
 ---
 
 # ucode module: `zlib`
-
-> **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
-> **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

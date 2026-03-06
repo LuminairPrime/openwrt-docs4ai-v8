@@ -1,8 +1,13 @@
+---
+module: debug
+title: ucode module - debug
+source: https://github.com/jow-/ucode/blob/master/lib/debug.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `debug`
 
-> **Source:** [`lib/debug.c`](https://github.com/jow-/ucode/blob/master/lib/debug.c)
 > **Live docs:** https://ucode.mein.io/module-debug.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 

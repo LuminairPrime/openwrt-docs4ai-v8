@@ -1,8 +1,13 @@
+---
+module: nl80211
+title: ucode module - nl80211
+source: https://github.com/jow-/ucode/blob/master/lib/nl80211.c
+generated: 2026-03-06 06:36 UTC from commit e87be9d
+---
+
 # ucode module: `nl80211`
 
-> **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
 > **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-06 04:40 UTC from commit `e87be9d`
 
 ---
 
