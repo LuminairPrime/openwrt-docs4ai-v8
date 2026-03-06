@@ -644,3 +644,12 @@ Push to a branch and trigger `workflow_dispatch` manually. Verify:
 | Clone directories | Move to `WORKDIR/repo-*/` — tidier, same human-readable names for debugging |
 | Implementation approach | All-at-once with smoke test checkpoints between phases. No phased releases. |
 | Bash → Python | All bash converted to Python. No fundamental capability gap; bash was a coin flip and Python wins on cross-platform. |
+
+---
+
+## 15. Known Architectural Workarounds
+
+### 15.1 `jsdoc2md` C-File Parsing Bug
+**The Problem:** The `jsdoc2md` parser combined with the `c-transpiler` plugin contains a severe logic bug where supplying an `includePattern` for `.c` files causes the underlying engine to recursively scan the entire directory and inject every C file's documentation into every single generated output file. It completely ignores explicit file arrays passed via the `--files` CLI argument.
+**The v9 Workaround:** `02b-scrape-ucode.py` executes `jsdoc2md` by creating a Python `tempfile.TemporaryDirectory()`, copying the single target C file into it, writing an ephemeral configuration file, and executing the binary inside that isolated void. By feeding the buggy recursive directory scanner an empty directory containing only the target file, it successfully outputs clean, concise token-efficient API documentation.
+**Future Remediation:** This workaround is stable and costs zero development overhead. If it breaks in the future due to upstream `ucode` syntax updates that the Javascript transpile plugin cannot understand, DO NOT attempt to rewrite the Javascript plugin. Instead, consult `docs/plans/v10-c-to-md-proposals.md` and upgrade the entire pipeline step to a native C-to-Markdown tool like **Doxide**.
