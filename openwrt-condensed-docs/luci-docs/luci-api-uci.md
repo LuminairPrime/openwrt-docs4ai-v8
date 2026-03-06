@@ -2,7 +2,7 @@
 module: uci
 title: LuCI API - uci
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/uci.js
-generated: 2026-03-06 06:36 UTC from commit de553f3
+generated: 2026-03-06 06:59 UTC from commit de553f3
 ---
 
 # LuCI API: `uci`

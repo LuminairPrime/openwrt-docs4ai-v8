@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/hotplug_legacy
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 06:39 UTC
+> **Fetched:** 2026-03-06 07:01 UTC
 
 ---
 
