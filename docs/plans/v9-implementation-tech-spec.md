@@ -355,6 +355,7 @@ inputs:
 | B11: Step numbering | Renumber consistently in all print statements | All |
 | B12: No docstrings | Add standardized header blocks (see §8) | All |
 | B13: Unused deps | Remove `beautifulsoup4` and `lxml` from requirements.txt | requirements.txt |
+| B14: `jsdoc2md` recursive C polling bug | JSDoc implicitly scans directories for `.c` files, ignoring exact CLI overrides. Isolated the parser by generating ad-hoc `tempfile` directories for each C file processed. (See `v10-c-to-md-proposals.md` for replacement architecture proposals). | 02b |
 
 ---
 

@@ -109,6 +109,14 @@ for src in srcs:
 
     plugin_path = os.path.abspath(os.path.join(repo_ucode, "jsdoc", "c-transpiler")).replace('\\', '/')
 
+    # WORKAROUND: jsdoc2md has a bug where parsing `.c` files via `includePattern` triggers
+    # recursive directory scanning, totally ignoring explicit CLI `--files` arguments. This
+    # results in every module containing the docs for every other module.
+    # We bypass this by executing jsdoc2md inside an isolated temporary directory containing
+    # ONLY the target C file, forcing it to scan emptiness.
+    # NOTE: While this hack is unusual, it guarantees the dense, token-efficient output we
+    # need for LLMs. If this ever breaks, DO NOT try to fix jsdoc. Instead, look at
+    # `docs/plans/v10-c-to-md-proposals.md` and upgrade to a native C tool like Doxide.
     with tempfile.TemporaryDirectory() as tempd:
         temp_c = os.path.join(tempd, os.path.basename(src))
         shutil.copy2(src, temp_c)
