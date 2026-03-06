@@ -88,7 +88,7 @@ In CI, `OUTDIR` points to `$GITHUB_WORKSPACE/staging` so nothing touches the rep
 | `02h-scrape-hotplug-events.py` | 2 | Extract network and subsystem hotplug env variables |
 | `03-add-links.py` | 3 | Inject cross-references between docs |
 | `04-generate-summaries.py` | 3 | AI-generated module summaries |
-| `05-assemble-references.py` | 4 | Build complete reference mega-files & `*-lite.md` maps |
+| `05-assemble-references.py` | 4 | Build complete reference mega-files & `*-skeleton.md` maps |
 | `06-generate-index.py` | 4 | Generate llms.txt, CHANGES.md, index.md |
 | `07-validate.py` | 5 | Validation gate (staging check + 2MB size cap) |
 

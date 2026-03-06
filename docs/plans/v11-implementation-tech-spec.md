@@ -6,7 +6,7 @@
 
 ## 1. Executive Summary
 
-Version 10 successfully hardened the CI/CD deployment pipeline and introduced deep LLM optimizations via `*-lite.md` semantic maps and YAML frontmatter. With the extraction engine natively handling core C daemons (`procd`, `hotplug`, `uci`) and pipeline safeguards active, the architecture is structurally sound.
+Version 10 successfully hardened the CI/CD deployment pipeline and introduced deep LLM optimizations via `*-skeleton.md` semantic maps and YAML frontmatter. With the extraction engine natively handling core C daemons (`procd`, `hotplug`, `uci`) and pipeline safeguards active, the architecture is structurally sound.
 
 **v11** shifts the focus from *extraction reliability* to *Agentic Developer Experience (ADX)*. The goal is no longer just providing data, but structuring it so autonomous Agents (like Cursor, Claude Desktop, and CLI tools) can instantly grok the repository context, chunk relationships recursively using GraphRAG logic, and navigate the API effortlessly.
 

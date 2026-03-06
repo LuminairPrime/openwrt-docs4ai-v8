@@ -55,12 +55,12 @@ def assemble(label, subdir, out_name, pattern="*.md", header_title=None,
 
     title = header_title or label
     out_path = os.path.join(OUTDIR, out_name)
-    lite_name = out_name.replace("-complete-reference", "-lite")
-    lite_path = os.path.join(OUTDIR, lite_name)
+    skeleton_name = out_name.replace("-complete-reference", "-skeleton")
+    skeleton_path = os.path.join(OUTDIR, skeleton_name)
 
     total_lines = 0
     with open(out_path, "w", encoding="utf-8", newline="\n") as out, \
-         open(lite_path, "w", encoding="utf-8", newline="\n") as lite:
+         open(skeleton_path, "w", encoding="utf-8", newline="\n") as skeleton:
         out.write(f"# {title}\n\n")
         out.write(f"> **Generated:** {TS}\n")
         if source_desc:
@@ -68,9 +68,9 @@ def assemble(label, subdir, out_name, pattern="*.md", header_title=None,
         out.write(f"> **Contains:** {len(files)} documents concatenated\n\n")
         out.write("---\n\n")
 
-        lite.write(f"# {title} (Lite Semantic Map)\n\n")
-        lite.write(f"> **Contains:** Only headers and function signatures for {len(files)} files.\n\n")
-        lite.write("---\n\n")
+        skeleton.write(f"# {title} (Skeleton Semantic Map)\n\n")
+        skeleton.write(f"> **Contains:** Only headers and function signatures for {len(files)} files.\n\n")
+        skeleton.write("---\n\n")
 
         for fpath in files:
             try:
@@ -84,19 +84,19 @@ def assemble(label, subdir, out_name, pattern="*.md", header_title=None,
             # Strip redundant Markdown blockquote metadata
             content = re.sub(r'^> \*\*.*?\n+', '', content, flags=re.MULTILINE)
             
-            # Extract lite lines (Headers only)
-            lite_lines = [line for line in content.split("\n") if line.startswith("#")]
-            lite_content = "\n".join(lite_lines)
+            # Extract skeleton lines (Headers only)
+            skeleton_lines = [line for line in content.split("\n") if line.startswith("#")]
+            skeleton_content = "\n".join(skeleton_lines)
             
             lines = content.count("\n") + 1
             total_lines += lines
             out.write(content.strip())
             out.write("\n\n---\n\n")
             
-            if lite_content.strip():
-                lite.write(lite_content.strip() + "\n\n")
+            if skeleton_content.strip():
+                skeleton.write(skeleton_content.strip() + "\n\n")
 
-    print(f"[05] OK: {out_name} & {lite_name} ({len(files)} files)")
+    print(f"[05] OK: {out_name} & {skeleton_name} ({len(files)} files)")
 
 
 # --- Assemble each reference ---

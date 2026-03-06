@@ -45,8 +45,8 @@ Scrape common error strings from OpenWrt source code and map them to explanation
 ### 9. Word/line counts in per-folder indexes
 Add token-budget hints to each `llms.txt` entry to let LLMs/agents decide whether a file fits in their context window before fetching it.
 
-### 10. "Lite" versions of large references
-Generate a `*-lite.md` version of massive references containing only headings, function signatures, and first-sentence summaries. ~80% size reduction while keeping navigability.
+### 10. "Skeleton" versions of large references
+Generate a `*-skeleton.md` version of massive references containing only headings, function signatures, and first-sentence summaries. ~80% size reduction while keeping navigability.
 
 ### 11. Structured metadata headers (YAML frontmatter)
 Add machine-readable frontmatter to every `.md` file so LLM tools like Cursor, Continue, and Copilot can parse this for smart filtering.

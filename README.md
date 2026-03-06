@@ -15,12 +15,12 @@ A monthly automated pipeline that scrapes OpenWrt project documentation from 5 u
 
 **Entry point:** [`openwrt-condensed-docs/llms.txt`](openwrt-condensed-docs/llms.txt)
 
-| File | What It Contains | Lite Version Included? |
+| File | What It Contains | Skeleton Version Included? |
 |------|-----------------|------------------------|
-| `ucode-complete-reference.md` | ucode scripting language — all modules and tutorials | ⚡ `ucode-lite.md` (Headers & Signatures only) |
-| `luci-jsapi-complete-reference.md` | LuCI web interface JavaScript API | ⚡ `luci-jsapi-lite.md` |
-| `openwrt-wiki-complete-reference.md` | OpenWrt developer wiki (techref + guide-developer) | ⚡ `openwrt-wiki-lite.md` |
-| `openwrt-buildroot-complete-reference.md` | Package metadata from the buildroot source tree | ⚡ `openwrt-buildroot-lite.md` |
+| `ucode-complete-reference.md` | ucode scripting language — all modules and tutorials | ⚡ `ucode-skeleton.md` (Headers & Signatures only) |
+| `luci-jsapi-complete-reference.md` | LuCI web interface JavaScript API | ⚡ `luci-jsapi-skeleton.md` |
+| `openwrt-wiki-complete-reference.md` | OpenWrt developer wiki (techref + guide-developer) | ⚡ `openwrt-wiki-skeleton.md` |
+| `openwrt-buildroot-complete-reference.md` | Package metadata from the buildroot source tree | ⚡ `openwrt-buildroot-skeleton.md` |
 | `openwrt-examples-complete-reference.md` | Curated LuCI application source code examples | ⚡ *(Inapplicable)* |
 
 For targeted lookups, browse the subdirectories in [`openwrt-condensed-docs/`](openwrt-condensed-docs/). Every markdown file now contains YAML Frontmatter for LLM indexing accuracy.

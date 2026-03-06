@@ -97,14 +97,14 @@ output = html.unescape(output)
 
 ---
 
-## 4. LLM "Lite" Reference Assembly (`05a-assemble-references.py`)
+## 4. LLM "Skeleton" Reference Assembly (`05-assemble-references.py`)
 
-**Goal:** Large reference files (like the 800KB Wiki doc) blow out smaller LLM context windows. We must generate a matching set of `*-lite.md` files that contain only Titles/Headers and function signatures, giving the LLM an ultra-dense searchable index map of the system.
+**Goal:** Large reference files (like the 800KB Wiki doc) blow out smaller LLM context windows. We must generate a matching set of `*-skeleton.md` files that contain only Titles/Headers and function signatures, giving the LLM an ultra-dense searchable index map of the system.
 **Implementation:**
-Modify the `assemble()` loop in `05a`:
+Modify the `assemble()` loop in `05`:
 1. **Redundant Headers:** Before appending to the *Complete* reference, regex strip the `# title` and `Source` headers specific to that file (since the frontmatter/headers are now redundant in a mega-file).
-2. **Lite Generation:** Create a parallel `out.write()` stream mapped to `*-lite.md`.
-3. **Lite Content Filtering:** Run a regex parsing logic to extract only lines beginning with `#`, `##`, `###`, and potentially lines immediately containing function signature constraints.
+2. **Skeleton Generation:** Create a parallel `out.write()` stream mapped to `*-skeleton.md`.
+3. **Skeleton Content Filtering:** Run a regex parsing logic to extract only lines beginning with `#`, `##`, `###`, and potentially lines immediately containing function signature constraints.
 
 ---
 

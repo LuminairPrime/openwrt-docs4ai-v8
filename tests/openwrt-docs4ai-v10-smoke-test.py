@@ -68,4 +68,4 @@ for script in scripts_to_test:
 
 print("\n" + "="*60)
 print("✅ Local Smoke Test Completed Successfully!")
-print(f"Check {OUTDIR} for the generated output, *-lite.md files, and YAML frontmatter validation.")
+print(f"Check {OUTDIR} for the generated output, *-skeleton.md files, and YAML frontmatter validation.")
