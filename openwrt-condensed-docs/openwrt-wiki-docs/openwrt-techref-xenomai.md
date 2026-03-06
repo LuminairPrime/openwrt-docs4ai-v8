@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/xenomai
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 19:57 UTC
+> **Fetched:** 2026-03-06 02:58 UTC
 
 ---
 

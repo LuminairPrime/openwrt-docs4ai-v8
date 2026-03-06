@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/package-policies
 > **Last modified:** unknown
-> **Fetched:** 2026-03-05 19:55 UTC
+> **Fetched:** 2026-03-06 02:56 UTC
 
 ---
 

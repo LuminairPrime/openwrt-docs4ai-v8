@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-03-05 19:57 UTC
+> **Generated:** 2026-03-06 02:58 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 14 documents concatenated
 
@@ -10,7 +10,7 @@
 
 > **Source:** [`lib/debug.c`](https://github.com/jow-/ucode/blob/master/lib/debug.c)
 > **Live docs:** https://ucode.mein.io/module-debug.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -396,7 +396,7 @@ index is invalid.
 
 > **Source:** [`lib/digest.c`](https://github.com/jow-/ucode/blob/master/lib/digest.c)
 > **Live docs:** https://ucode.mein.io/module-digest.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -646,7 +646,7 @@ Returns `null` if an error occurred.
 
 > **Source:** [`lib/fs.c`](https://github.com/jow-/ucode/blob/master/lib/fs.c)
 > **Live docs:** https://ucode.mein.io/module-fs.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -2049,7 +2049,7 @@ print(error(), "\n");
 
 > **Source:** [`lib/io.c`](https://github.com/jow-/ucode/blob/master/lib/io.c)
 > **Live docs:** https://ucode.mein.io/module-io.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -2641,7 +2641,7 @@ print(io.error(), "\n");
 
 > **Source:** [`lib/log.c`](https://github.com/jow-/ucode/blob/master/lib/log.c)
 > **Live docs:** https://ucode.mein.io/module-log.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -3193,7 +3193,7 @@ The following ulog channel strings are recognized:
 
 > **Source:** [`lib/math.c`](https://github.com/jow-/ucode/blob/master/lib/math.c)
 > **Live docs:** https://ucode.mein.io/module-math.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -3515,7 +3515,7 @@ Note that a value can also be checked for `NaN` with the expression
 
 > **Source:** [`lib/nl80211.c`](https://github.com/jow-/ucode/blob/master/lib/nl80211.c)
 > **Live docs:** https://ucode.mein.io/module-nl80211.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -3835,7 +3835,7 @@ Constants for BSS use-for and cannot-use-reasons bitmasks.
 
 > **Source:** [`lib/resolv.c`](https://github.com/jow-/ucode/blob/master/lib/resolv.c)
 > **Live docs:** https://ucode.mein.io/module-resolv.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -4180,7 +4180,7 @@ if (err) {
 
 > **Source:** [`lib/rtnl.c`](https://github.com/jow-/ucode/blob/master/lib/rtnl.c)
 > **Live docs:** https://ucode.mein.io/module-rtnl.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -5068,7 +5068,7 @@ listener.close();
 
 > **Source:** [`lib/socket.c`](https://github.com/jow-/ucode/blob/master/lib/socket.c)
 > **Live docs:** https://ucode.mein.io/module-socket.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -6361,7 +6361,7 @@ the socket.
 
 > **Source:** [`lib/struct.c`](https://github.com/jow-/ucode/blob/master/lib/struct.c)
 > **Live docs:** https://ucode.mein.io/module-struct.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -7144,7 +7144,7 @@ const allData = buf.pull();
 
 > **Source:** [`lib/uci.c`](https://github.com/jow-/ucode/blob/master/lib/uci.c)
 > **Live docs:** https://ucode.mein.io/module-uci.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -8036,7 +8036,7 @@ arguments.
 
 > **Source:** [`lib/uloop.c`](https://github.com/jow-/ucode/blob/master/lib/uloop.c)
 > **Live docs:** https://ucode.mein.io/module-uloop.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
@@ -8994,7 +8994,7 @@ events that should be monitored on the given handle.
 
 > **Source:** [`lib/zlib.c`](https://github.com/jow-/ucode/blob/master/lib/zlib.c)
 > **Live docs:** https://ucode.mein.io/module-zlib.html
-> **Generated:** 2026-03-05 19:53 UTC from commit `e87be9d`
+> **Generated:** 2026-03-06 02:55 UTC from commit `e87be9d`
 
 ---
 
