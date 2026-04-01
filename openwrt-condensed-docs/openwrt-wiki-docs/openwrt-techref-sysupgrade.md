@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/sysupgrade
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 08:47 UTC
+> **Fetched:** 2026-04-01 05:06 UTC
 
 ---
 
@@ -13,7 +13,7 @@ This information is based upon v21.02, last updated for [commit 6d266ef158 on 20
 
 # Sysupgrade – Technical Reference
 
-In contrast to `opkg`, `mtd` and others, `sysupgrade` is merely a shell script: `/sbin/sysupgrade` intended to facilitate easy updates.
+In contrast to `apk`, `mtd` and others, `sysupgrade` is merely a shell script: `/sbin/sysupgrade` intended to facilitate easy updates.
 
 ## Usage
 
@@ -66,7 +66,7 @@ Files to be preserved depend on the following:
 
 - `/etc/sysupgrade.conf` - customizable backup configuration.
 - `/lib/upgrade/keep.d/*` - system configurations provided by specific packages preserved by default.
-- `opkg list-changed-conffiles` - list of files derived by package manager.
+- `apk audit` - list of files derived by package manager.
 - `-o` will cause the entire `/overlay` directory to be saved (with the `-u` caveat below).
 - `-n` will cause *NO* files will be saved and all configuration settings will be initialized from default values.
 - `-u` will prevent preservation of any file that has not been changed since the last sysupgrade. This prevents the need for programs to migrate an old configuration and reduces time needed for sysupgrade.

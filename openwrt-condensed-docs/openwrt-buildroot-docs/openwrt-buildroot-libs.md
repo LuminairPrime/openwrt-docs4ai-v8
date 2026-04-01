@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: `libs` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/libs
-> **Generated:** 2026-03-06 08:44 UTC from commit `6c7dd69`
+> **Generated:** 2026-04-01 05:04 UTC from commit `cd0f6dd`
 
 ---
 
@@ -563,7 +563,7 @@
 
 | Field | Value |
 |---|---|
-| Version | 5.8.4 |
+| Version | 5.9.0 |
 | License | GPL-3.0-or-later |
 | Maintainer | Eneas U de Queiroz <cotequeiroz@gmail.com> |
 | Source URL | https://github.com/wolfSSL/wolfssl/archive/v$(PKG_REAL_VERSION) |
@@ -576,9 +576,9 @@
 
 | Field | Value |
 |---|---|
-| Version | 1.3.1 |
+| Version | 1.3.2 |
 | License | Zlib |
-| Source URL | https://github.com/madler/zlib |
+| Source URL | https://github.com/madler/zlib/releases/download/v$(PKG_VERSION) |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/libs/zlib
 

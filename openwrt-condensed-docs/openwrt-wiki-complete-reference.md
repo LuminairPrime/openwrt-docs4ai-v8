@@ -1,6 +1,6 @@
 # OpenWrt Wiki Developer Documentation Complete Reference
 
-> **Generated:** 2026-03-06 08:48 UTC
+> **Generated:** 2026-04-01 05:07 UTC
 > **Source:** https://openwrt.org/docs/
 > **Contains:** 90 documents concatenated
 
@@ -6997,16 +6997,16 @@ This only lists security advisories for components directly maintained by the Op
 
 This table lists the support status of various OpenWrt releases:
 
-| Version           | Current status    | Initial Release           | EoL (Projected) | Latest Release | Release Date      |
-|:------------------|:------------------|:--------------------------|:----------------|:---------------|:------------------|
-| @yellow:25.12     | Release candidate | (projected February 2026) |                 |                |                   |
-| @lightgreen:24.10 | Supported         | 2025, February 06         | (2026, August)  | 24.10.5        | 2025, December 19 |
-| @pink:23.05       | End of Life       | 2023, October 13          | 2025, August    | 23.05.6        | 2025, August 20   |
-| @pink:22.03       | End of Life       | 2022, September 06        | 2024, July      | 22.03.7        | 2024, July 25     |
-| @pink:21.02       | End of Life       | 2021, September 04        | 2023, May       | 21.02.7        | 2023, May 01      |
-| @pink:19.07       | End of Life       | 2020, January 06          | 2022, April     | 19.07.10       | 2022, April 20    |
-| @pink:18.06       | End of Life       | 2018, July 31             | 2020, December  | 18.06.9        | 2020, December 09 |
-| @pink:17.01       | End of Life       | 2017, February 22         | 2019, June      | 17.01.7        | 2019, June 20     |
+| Version           | Current status       | Initial Release    | EoL (Projected)   | Latest Release | Release Date      |
+|:------------------|:---------------------|:-------------------|:------------------|:---------------|:------------------|
+| @lightgreen:25.12 | Supported            | 2026, March 06     | (2027, March)     | 25.12.1        | 2026, March 18    |
+| @yellow:24.10     | Security Maintenance | 2025, February 06  | (2026, September) | 24.10.6        | 2026, March 18    |
+| @pink:23.05       | End of Life          | 2023, October 13   | 2025, August      | 23.05.6        | 2025, August 20   |
+| @pink:22.03       | End of Life          | 2022, September 06 | 2024, July        | 22.03.7        | 2024, July 25     |
+| @pink:21.02       | End of Life          | 2021, September 04 | 2023, May         | 21.02.7        | 2023, May 01      |
+| @pink:19.07       | End of Life          | 2020, January 06   | 2022, April       | 19.07.10       | 2022, April 20    |
+| @pink:18.06       | End of Life          | 2018, July 31      | 2020, December    | 18.06.9        | 2020, December 09 |
+| @pink:17.01       | End of Life          | 2017, February 22  | 2019, June        | 17.01.7        | 2019, June 20     |
 
 The listed **Version** numbers reference the code base and the support status applies to the the latest minor release of that branch:
 
@@ -8683,28 +8683,28 @@ This can be used to estimate which OpenWrt version is running on a router if you
 
 ---
 
-[Dynamic_frequency_selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with weather radar. It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
+[Dynamic_frequency_selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with [Terminal_Doppler_Weather_Radar](https://en.wikipedia.org/wiki/Terminal_Doppler_Weather_Radar). It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
 
-DFS support is used during ACS/"survey" in hostapd to find and select free WLAN channels.
+DFS support is used during ACS/"survey" in [hostapd](/docs/guide-user/network/wifi/wireless-tool/wireless.utilities#hostapd) to find and select free WLAN channels.
 
-Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels).
+Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels) & [DFS/TPC channel information](https://en.wikipedia.org/wiki/List_of_WLAN_channels#DFS_and_TPC).
 
 :!: Due to fast development, changing hardware, regulatory changes and compliance issues there can be interoperability issues.
 
-:!: OpenWrt uses open source drivers with varying quality and upstream support. Sometimes they can be abandoned by the manufactorer, or no longer support some 5GHz operation due to regulatory changes.
+:!: OpenWrt uses open source drivers with varying quality and upstream support. Sometimes they may be abandoned by the manufacturer, or no longer support some 5GHz operation due to regulatory changes.
 
-:!: OEM proprietary drivers can sometimes offer DFS when OpenWrt does not.
+:!: OEM proprietary drivers can sometimes offer DFS channel where OpenWrt opensource drivers cannot.
 
 :!: There are different DFS schemes: DFS-FCC (USA), DFS-ETSI (Europe), DFS-JP (Japan).
 
-:!: Try to use the non DFS channels if you have old hardware/clients.
+:!: Try to use the non DFS channels if you have older wifi hardware/wifi clients.
 
 ## DFS support
 
 - ath9k: DFS-ETSI, DFS-FCC (source: [linux-wireless](http://marc.info/?l=linux-wireless&m=144524581929146)), probably DFS-JP (git commits)
 - ath10k: DFS-FCC (source: [linux-wireless](http://marc.info/?l=linux-wireless&m=144524581929146)), probably DFS-ETSI
 - ath11k: DFS-FCC (source: [linux-wireless](https://marc.info/?l=linux-wireless&m=170227574420539)), probably DFS-ETSI
-- mt76: DFS-ETSI, DFS-FCC, DFS-JP. As of 2021-02-22, DFS is unsupported on the MT7613 radio however, despite the hardware supporting it.
+- mt76: DFS-ETSI, DFS-FCC, DFS-JP. As of 2021-02-22, DFS is unsupported [on MT7613 radio](/unsupported/dfs) however, despite the hardware supporting it.
 - mwlwifi (source:[linux-wireless](http://marc.info/?l=linux-wireless&m=146707822404863&w=2)), but support is problematic on some hardware and won't be fixed ([GitHub issue \#75](https://github.com/kaloz/mwlwifi/issues/75))
 - mwifiex (source: git log: "DFS support in AP mode",[kernel.org](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=cf075eac9ca94ec54b5ae0c0ec798839f962be55))
 
@@ -11106,6 +11106,17 @@ An implementation of IEEE 802.1ab
 
 lldpd (Link Layer Discovery Protocol daemon) daemon providing an industry standard protocol designed to supplant proprietary Link-Layer protocols such as Extreme's EDP (Extreme Discovery Protocol) and CDP (Cisco Discovery Protocol).
 
+# Installation & Configuration
+
+## Installation
+
+OpenWRT uses the standard, lightweight lldpd package. Drop into your ER-X via SSH:
+
+``` bash
+opkg update
+opkg install lldpd
+```
+
 ## Configuration
 
 LLDP frames are link-local frames, do not use any network interfaces other than the ones that achieve a link with its link partner, and the link partner being another networking device. Do not use bridge,VLAN, or DSA conduit interfaces.
@@ -13463,7 +13474,7 @@ This information is based upon v21.02, last updated for [commit 6d266ef158 on 20
 
 # Sysupgrade – Technical Reference
 
-In contrast to `opkg`, `mtd` and others, `sysupgrade` is merely a shell script: `/sbin/sysupgrade` intended to facilitate easy updates.
+In contrast to `apk`, `mtd` and others, `sysupgrade` is merely a shell script: `/sbin/sysupgrade` intended to facilitate easy updates.
 
 ## Usage
 
@@ -13516,7 +13527,7 @@ Files to be preserved depend on the following:
 
 - `/etc/sysupgrade.conf` - customizable backup configuration.
 - `/lib/upgrade/keep.d/*` - system configurations provided by specific packages preserved by default.
-- `opkg list-changed-conffiles` - list of files derived by package manager.
+- `apk audit` - list of files derived by package manager.
 - `-o` will cause the entire `/overlay` directory to be saved (with the `-u` caveat below).
 - `-n` will cause *NO* files will be saved and all configuration settings will be initialized from default values.
 - `-u` will prevent preservation of any file that has not been changed since the last sysupgrade. This prevents the need for programs to migrate an old configuration and reduces time needed for sysupgrade.
@@ -14342,9 +14353,39 @@ However, the standard frontend handleSave/handleSaveApply methods do \_not\_ cal
 
 ------------------------------------------------------------------------
 
+## ucode Bindings for UCI
+
+Use in `ucode` scripts is provided by the `ucode-mod-uci` package. This package should already be installed on your device as it's a dependency of `firewall4`.
+
+The [API documentation](https://ucode.mein.io/module-uci.html) is quite throrough, but here's a small example to get you started.
+
+``` javascript
+#!/usr/bin/ucode -S
+
+import { cursor } from 'uci';
+let uci = cursor();
+
+printf("configs:\n");
+let configs = uci.configs();
+for (let item in configs) {
+    printf("  %s\n", item);
+}
+
+function show_section(config, section)
+{
+    printf("%s.%s:\n", config, section);
+    for (let item, value in uci.get_all(config, section)) {
+        printf("  %s = %s\n", item, value);
+    }
+}
+
+show_section("dhcp", "@host[0]");
+show_section("system", "ntp");
+```
+
 ## Lua Bindings for UCI
 
-For those who like lua, UCI can be accessed in your code via the package libuci-lua. Just install the package then, in your lua code do `require("uci")`
+For those who like lua, UCI can be accessed in your code via the package `libuci-lua`. Just install the package then, in your lua code do `require("uci")`
 
 ## API
 
@@ -14659,6 +14700,19 @@ To compile your application you have to link it against the uci library. Append 
     $(CC) test.o -o test -luci
 
 And examples on how to use UCI in C can be found in this thread: <https://forum.openwrt.org/viewtopic.php?pid=183335#p183335> To get more examples look into the source directory of uci which you got by git clone and open cli.c or ucimap-example.c
+
+### Building and running tests with scripts/devel-build.sh
+
+Assuming you already have the following packages installed: [install-buildsystem](/docs/guide-developer/toolchain/install-buildsystem).
+
+Additional packages required (package names for ubuntu):
+
+    cmake pkgconf python3.13-venv valgrind
+
+Clone the repo. Run:
+
+    cd uci
+    scripts/devel-build.sh
 
 ## See also
 

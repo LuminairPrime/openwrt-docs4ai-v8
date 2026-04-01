@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-03-06 08:48 UTC
+> **Generated:** 2026-04-01 05:07 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 14 documents concatenated
 
@@ -680,6 +680,7 @@ the `ucode` interpreter with the `-lfs` switch.
         * [.readlink(path)](#module_fs+readlink) ⇒ `string`
         * [.stat(path)](#module_fs+stat) ⇒ [`FileStatResult`](#module_fs.FileStatResult)
         * [.lstat(path)](#module_fs+lstat) ⇒ [`FileStatResult`](#module_fs.FileStatResult)
+        * [.statvfs(path)](#module_fs+statvfs) ⇒ [`StatVFSResult`](#module_fs.StatVFSResult)
         * [.mkdir(path)](#module_fs+mkdir) ⇒ `boolean`
         * [.rmdir(path)](#module_fs+rmdir) ⇒ `boolean`
         * [.symlink(target, path)](#module_fs+symlink) ⇒ `boolean`
@@ -689,6 +690,7 @@ the `ucode` interpreter with the `-lfs` switch.
         * [.chmod(path, mode)](#module_fs+chmod) ⇒ `boolean`
         * [.chown(path, [uid], [gid])](#module_fs+chown) ⇒ `boolean`
         * [.rename(oldPath, newPath)](#module_fs+rename) ⇒ `boolean`
+        * [.glob(...pattern)](#module_fs+glob) ⇒ `Array.<string>`
         * [.dirname(path)](#module_fs+dirname) ⇒ `string`
         * [.basename(path)](#module_fs+basename) ⇒ `string`
         * [.lsdir(path)](#module_fs+lsdir) ⇒ `Array.<string>`
@@ -728,6 +730,8 @@ the `ucode` interpreter with the `-lfs` switch.
             * [.close()](#module_fs.dir+close) ⇒ `boolean`
             * [.error()](#module_fs.dir+error) ⇒ `string`
         * [.FileStatResult](#module_fs.FileStatResult) : `Object`
+        * [.StatVFSResult](#module_fs.StatVFSResult) : `Object`
+        * [.ST_FLAGS](#module_fs.ST_FLAGS)
 
 <a name="module_fs+error"></a>
 
@@ -961,6 +965,34 @@ Returns `null` if an error occurred, e.g. due to insufficient permissions.
 // Get information about a directory
 const dirInfo = lstat('path/to/directory');
 ```
+<a name="module_fs+statvfs"></a>
+
+### fs.statvfs(path) ⇒ [`StatVFSResult`](#module_fs.StatVFSResult)
+Query filesystem statistics for a given pathname.
+
+The returned object mirrors the members of `struct statvfs`.
+Convenience properties `freesize` and `totalsize` are added,
+which are calculated as:
+- `frsize * bfree` to provide the free space in bytes and
+- `frsize * blocks` to provide the total size of the filesystem.
+
+On Linux an additional `type` field (magic number from `statfs`) is
+provided if the call succeeds.
+
+Returns `null` on failure (and sets `fs.last_error`).
+
+**Kind**: instance method of [`fs`](#module_fs)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the directory or file with which to query the filesystem. |
+
+**Example**  
+```js
+// Get filesystem statistics for a path
+const stats = statvfs('path/to/directory');
+print(stats.bsize); // file system block size
+```
 <a name="module_fs+mkdir"></a>
 
 ### fs.mkdir(path) ⇒ `boolean`
@@ -1153,6 +1185,34 @@ Returns `null` if an error occurred.
 ```js
 // Rename a file
 rename('old-name.txt', 'new-name.txt');
+```
+<a name="module_fs+glob"></a>
+
+### fs.glob(...pattern) ⇒ `Array.<string>`
+Takes an arbitrary number of glob patterns and
+resolves matching files for each one. In case of multiple patterns,
+no efforts are made to remove duplicates or to globally sort the combined
+match list. The list of matches for each individual pattern is sorted.
+Returns an array containing all matched file paths.
+
+**Kind**: instance method of [`fs`](#module_fs)  
+
+| Param | Type |
+| --- | --- |
+| ...pattern | `Arguments` | 
+
+**Example**  
+```js
+import { chdir, glob } from 'fs';
+chdir('/etc/ssl/certs/');
+for (let cert in glob('*.crt', '*.pem')) {
+	if (cert != null)
+		print(cert, '\n');
+}
+// ACCVRAIZ1.crt
+// AC_RAIZ_FNMT-RCM.crt
+// AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.crt
+// ...
 ```
 <a name="module_fs+dirname"></a>
 
@@ -2030,6 +2090,50 @@ print(error(), "\n");
 | mtime | `number` | The timestamp when the file was last modified. |
 | ctime | `number` | The timestamp when the file status was last changed. |
 | type | `string` | The type of the file ("directory", "file", etc.). |
+
+<a name="module_fs.StatVFSResult"></a>
+
+### fs.StatVFSResult : `Object`
+**Kind**: static typedef of [`fs`](#module_fs)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| bsize | `number` | file system block size |
+| frsize | `number` | fragment size |
+| blocks | `number` | total blocks |
+| bfree | `number` | free blocks |
+| bavail | `number` | free blocks available to unprivileged users |
+| files | `number` | total file nodes (inodes) |
+| ffree | `number` | free file nodes |
+| favail | `number` | free nodes available to unprivileged users |
+| fsid | `number` | file system id |
+| flag | [`ST\_FLAGS`](#module_fs.ST_FLAGS) | mount flags |
+| namemax | `number` | maximum filename length |
+| freesize | `number` | free space in bytes (calculated as `frsize * bfree`) |
+| totalsize | `number` | total size of the filesystem (calculated as `frsize * blocks`) |
+| type | `number` | (Linux only) magic number of the filesystem, obtained from `statfs` |
+
+<a name="module_fs.ST_FLAGS"></a>
+
+### fs.ST\_FLAGS
+Bitmask flags used at volume mount time (¹ - Linux only).
+
+**Kind**: static typedef of [`fs`](#module_fs)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| ST_MANDLOCK | `number` | Mandatory locking.¹ |
+| ST_NOATIME | `number` | Do not update access times.¹ |
+| ST_NODEV | `number` | Do not allow device files.¹ |
+| ST_NODIRATIME | `number` | Do not update directory access times.¹ |
+| ST_NOEXEC | `number` | Do not allow execution of binaries.¹ |
+| ST_NOSUID | `number` | Do not allow set-user-identifier or set-group-identifier bits. |
+| ST_RDONLY | `number` | Read-only filesystem. |
+| ST_RELATIME | `number` | Update access times relative to modification time.¹ |
+| ST_SYNCHRONOUS | `number` | Synchronous writes.¹ |
+| ST_NOSYMFOLLOW | `number` | Do not follow symbolic links.¹ |
 
 ---
 

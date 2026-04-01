@@ -52,6 +52,7 @@
 ### fs.readlink(path) ⇒ `string`
 ### fs.stat(path) ⇒ [`FileStatResult`](#module_fs.FileStatResult)
 ### fs.lstat(path) ⇒ [`FileStatResult`](#module_fs.FileStatResult)
+### fs.statvfs(path) ⇒ [`StatVFSResult`](#module_fs.StatVFSResult)
 ### fs.mkdir(path) ⇒ `boolean`
 ### fs.rmdir(path) ⇒ `boolean`
 ### fs.symlink(target, path) ⇒ `boolean`
@@ -61,6 +62,7 @@
 ### fs.chmod(path, mode) ⇒ `boolean`
 ### fs.chown(path, [uid], [gid]) ⇒ `boolean`
 ### fs.rename(oldPath, newPath) ⇒ `boolean`
+### fs.glob(...pattern) ⇒ `Array.<string>`
 ### fs.dirname(path) ⇒ `string`
 ### fs.basename(path) ⇒ `string`
 ### fs.lsdir(path) ⇒ `Array.<string>`
@@ -99,6 +101,8 @@
 #### dir.close() ⇒ `boolean`
 #### dir.error() ⇒ `string`
 ### fs.FileStatResult : `Object`
+### fs.StatVFSResult : `Object`
+### fs.ST\_FLAGS
 
 # ucode module: `io`
 ## io

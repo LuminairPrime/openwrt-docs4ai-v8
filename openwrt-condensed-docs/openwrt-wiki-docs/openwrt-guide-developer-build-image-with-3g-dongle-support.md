@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/build-image-with-3g-dongle-support
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 08:45 UTC
+> **Fetched:** 2026-04-01 05:04 UTC
 
 ---
 

@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: `firmware` packages
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/package/firmware
-> **Generated:** 2026-03-06 08:44 UTC from commit `6c7dd69`
+> **Generated:** 2026-04-01 05:04 UTC from commit `cd0f6dd`
 
 ---
 
@@ -62,7 +62,7 @@
 
 | Field | Value |
 |---|---|
-| Version | 20251111 |
+| Version | 20260227 |
 | Source URL | @DEBIAN/pool/non-free-firmware/i/intel-microcode/ |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/firmware/intel-microcode
@@ -90,7 +90,7 @@
 
 | Field | Value |
 |---|---|
-| Version | 20260221 |
+| Version | 20260309 |
 | Maintainer | Felix Fietkau <nbd@nbd.name> |
 | Source URL | @KERNEL/linux/kernel/firmware |
 

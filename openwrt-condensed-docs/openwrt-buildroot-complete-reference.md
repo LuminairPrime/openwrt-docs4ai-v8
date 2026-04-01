@@ -1,6 +1,6 @@
 # OpenWrt Buildroot Package Documentation Complete Reference
 
-> **Generated:** 2026-03-06 08:48 UTC
+> **Generated:** 2026-04-01 05:07 UTC
 > **Source:** https://github.com/openwrt/openwrt
 > **Contains:** 7 documents concatenated
 
@@ -577,7 +577,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 20251111 |
+| Version | 20260227 |
 | Source URL | @DEBIAN/pool/non-free-firmware/i/intel-microcode/ |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/firmware/intel-microcode
@@ -605,7 +605,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 20260221 |
+| Version | 20260309 |
 | Maintainer | Felix Fietkau <nbd@nbd.name> |
 | Source URL | @KERNEL/linux/kernel/firmware |
 
@@ -1919,7 +1919,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 5.8.4 |
+| Version | 5.9.0 |
 | License | GPL-3.0-or-later |
 | Maintainer | Eneas U de Queiroz <cotequeiroz@gmail.com> |
 | Source URL | https://github.com/wolfSSL/wolfssl/archive/v$(PKG_REAL_VERSION) |
@@ -1932,9 +1932,9 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 1.3.1 |
+| Version | 1.3.2 |
 | License | Zlib |
-| Source URL | https://github.com/madler/zlib |
+| Source URL | https://github.com/madler/zlib/releases/download/v$(PKG_VERSION) |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/libs/zlib
 

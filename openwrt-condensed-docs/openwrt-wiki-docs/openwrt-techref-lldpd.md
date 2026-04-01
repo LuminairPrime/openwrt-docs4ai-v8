@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/lldpd
 > **Last modified:** unknown
-> **Fetched:** 2026-03-06 08:47 UTC
+> **Fetched:** 2026-04-01 05:06 UTC
 
 ---
 
@@ -15,6 +15,17 @@ The goal of LLDP is to provide an inter-vendor compatible mechanism to deliver L
 An implementation of IEEE 802.1ab
 
 lldpd (Link Layer Discovery Protocol daemon) daemon providing an industry standard protocol designed to supplant proprietary Link-Layer protocols such as Extreme's EDP (Extreme Discovery Protocol) and CDP (Cisco Discovery Protocol).
+
+# Installation & Configuration
+
+## Installation
+
+OpenWRT uses the standard, lightweight lldpd package. Drop into your ER-X via SSH:
+
+``` bash
+opkg update
+opkg install lldpd
+```
 
 ## Configuration
 

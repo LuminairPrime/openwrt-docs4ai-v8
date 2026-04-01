@@ -905,6 +905,8 @@
 
 # lldpd
 ## Abstract
+# Installation & Configuration
+## Installation
 ## Configuration
 ## Usage
 ## Known Issues
@@ -1121,12 +1123,15 @@
 # save the changes to /etc/config/firewall
 ## ubus interface (rpcd)
 ## LuCI
+## ucode Bindings for UCI
+#!/usr/bin/ucode -S
 ## Lua Bindings for UCI
 ## API
 ### top level entry point
 ### on that you can call the usual operations
 #### About uci structure
 ## Usage outside of OpenWrt
+### Building and running tests with scripts/devel-build.sh
 ## See also
 
 # EasyCwmp (CPE WAN Management Protocol daemon)
