@@ -2,7 +2,7 @@
 module: struct
 title: ucode module - struct
 source: https://github.com/jow-/ucode/blob/master/lib/struct.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `struct`

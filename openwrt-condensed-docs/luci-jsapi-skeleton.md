@@ -132,34 +132,6 @@
 #### dom.parent(node, [selector]) ⇒ `Node` \| `null`
 #### dom.append(node, [children]) ⇒ `Node` \| `null`
 #### dom.content(node, [children]) ⇒ `Node` \| `null`
-#### dom.attr(node, key, [val]) ⇒ `null`
-#### dom.create(html, [attr], [data]) ⇒ `Node`
-#### dom.data(node, [key], [val]) ⇒ `\*`
-#### dom.bindClassInstance(node, inst) ⇒ `Class`
-#### dom.findClassInstance(node) ⇒ `Class` \| `null`
-#### dom.callClassMethod(node, method, ...args) ⇒ `\*` \| `null`
-#### dom.isEmpty(node, [ignoreFn]) ⇒ `boolean`
-#### dom~ignoreCallbackFn ⇒ `boolean`
-### LuCI.session
-#### session.getID() ⇒ `string`
-#### session.getToken() ⇒ `string` \| `null`
-#### session.getLocalData([key]) ⇒ `\*`
-#### session.setLocalData(key, value) ⇒ `boolean`
-### LuCI.view
-#### *view.load() ⇒ `\*` \| `Promise.<\*>`*
-#### *view.render(load_results) ⇒ `Node` \| `Promise.<Node>`*
-#### view.handleSave(ev) ⇒ `\*` \| `Promise.<\*>`
-#### view.handleSaveApply(ev, mode) ⇒ `\*` \| `Promise.<\*>`
-#### view.handleReset(ev) ⇒ `\*` \| `Promise.<\*>`
-#### view.addFooter() ⇒ `DocumentFragment`
-### ~~LuCI.xhr~~
-#### ~~xhr.get(url, [data], [callback], [timeout]) ⇒ `Promise.<null>`~~
-#### ~~xhr.post(url, [data], [callback], [timeout]) ⇒ `Promise.<null>`~~
-#### ~~xhr.cancel()~~
-#### ~~xhr.busy() ⇒ `boolean`~~
-#### ~~xhr.abort()~~
-#### ~~xhr.send\_form()~~
-### LuCI.requestCallbackFn : `function`
 
 # LuCI API: `prng`
 ## mul(a, b) ⇒ `Array.<number>`

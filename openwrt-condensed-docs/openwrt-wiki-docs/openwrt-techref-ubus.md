@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/ubus
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:06 UTC
+> **Fetched:** 2026-05-01 05:25 UTC
 
 ---
 
@@ -219,6 +219,29 @@ This happens to be `rpcd` at the moment, with the `http-json` interface, for fri
                 "read": {
                         "ubus": {
                                 "session": [ "access", "login" ]
+                        }
+                }
+        }
+}
+```
+
+Each method for each object can be separately allowed in the `"ubus"`-mapping. In the previous example only `ubus call session access` and `ubus call session login` are allowed. It is possible to use `*` to match multiple objects or methods. For example:
+
+1.  All methods of `session`: `"session": ["*"]`
+2.  Method `get_client` of all objects beginning with `hostapd.`: `"hostapd.*": ["get_client"]`
+
+Certain objects or methods might require other permission outside the `"ubus"`-mapping. For example reading a file requires `read` permission for the file itself. In that case the permission to only read `/tmp/dhcp.leases` might look like the following:
+
+``` yaml
+{
+        "readleases": {
+                "read": {
+                        "file": {
+                                "/tmp/dhcp.leases": ["read"]
+                        },
+                        "ubus": {
+                                "session": [ "access", "login" ],
+                                "file": ["read"]
                         }
                 }
         }

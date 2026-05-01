@@ -1,6 +1,6 @@
 # OpenWrt LuCI Application Examples Complete Reference
 
-> **Generated:** 2026-04-01 05:07 UTC
+> **Generated:** 2026-05-01 05:26 UTC
 > **Source:** https://github.com/openwrt/luci/tree/master/applications
 > **Contains:** 27 source files
 
@@ -6240,6 +6240,7 @@ return dm2.dv.extend({
 			let dnet = this.section.getOption('network').getUIElement(section_id).getValue();
 			const disallowed = builtInNetworks.has(dnet);
 			if (disallowed) return _('Only for user-defined networks');
+			return true;
 		};
 
 		o = s.option(form.Value, 'ipv4', _('IPv4 Address'));

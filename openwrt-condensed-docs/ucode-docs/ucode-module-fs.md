@@ -2,7 +2,7 @@
 module: fs
 title: ucode module - fs
 source: https://github.com/jow-/ucode/blob/master/lib/fs.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `fs`
@@ -132,7 +132,7 @@ The handle will be connected to the process stdin or stdout, depending on the
 value of the mode argument.
 
 The mode argument may be either "r" to open the process for reading (connect
-to its stdin) or "w" to open the process for writing (connect to its stdout).
+to its stdout) or "w" to open the process for writing (connect to its stdin).
 
 The mode character "r" or "w" may be optionally followed by "e" to apply the
 FD_CLOEXEC flag onto the open descriptor.
@@ -373,7 +373,7 @@ Creates a new directory.
 
 Returns `true` if the directory was successfully created.
 
-Returns `null` if an error occurred, e.g. due to inexistent path.
+Returns `null` if an error occurred, e.g. due to non-existent path.
 
 **Kind**: instance method of [`fs`](#module_fs)  
 
@@ -393,7 +393,7 @@ Removes the specified directory.
 
 Returns `true` if the directory was successfully removed.
 
-Returns `null` if an error occurred, e.g. due to inexistent path.
+Returns `null` if an error occurred, e.g. due to non-existent path.
 
 **Kind**: instance method of [`fs`](#module_fs)  
 
@@ -413,7 +413,7 @@ Creates a new symbolic link.
 
 Returns `true` if the symlink was successfully created.
 
-Returns `null` if an error occurred, e.g. due to inexistent path.
+Returns `null` if an error occurred, e.g. due to non-existent path.
 
 **Kind**: instance method of [`fs`](#module_fs)  
 
@@ -434,7 +434,7 @@ Removes the specified file or symbolic link.
 
 Returns `true` if the unlink operation was successful.
 
-Returns `null` if an error occurred, e.g. due to inexistent path.
+Returns `null` if an error occurred, e.g. due to non-existent path.
 
 **Kind**: instance method of [`fs`](#module_fs)  
 

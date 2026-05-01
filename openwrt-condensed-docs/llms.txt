@@ -1,6 +1,6 @@
 # openwrt-docs4ai — condensed OpenWrt documentation
 
-> Generated: 2026-04-01 05:07 UTC
+> Generated: 2026-05-01 05:26 UTC
 
 This repository provides LLM-optimized documentation scraped from
 multiple upstream OpenWrt sources. Two consumption modes:
@@ -12,19 +12,19 @@ multiple upstream OpenWrt sources. Two consumption modes:
 
 ## Complete Reference Files
 
-- [ucode-complete-reference.md](/ucode-complete-reference.md): ucode Documentation (9315 lines, 351 KB) — commit: a078b72
-  - ⚡ [ucode-skeleton.md](/ucode-skeleton.md) (Skeleton/Headers Version — 411 lines, 15 KB)
-- [luci-jsapi-complete-reference.md](/luci-jsapi-complete-reference.md): LuCI JS API Documentation (2290 lines, 91 KB) — commit: ba00517
-  - ⚡ [luci-jsapi-skeleton.md](/luci-jsapi-skeleton.md) (Skeleton/Headers Version — 188 lines, 7 KB)
-- [openwrt-wiki-complete-reference.md](/openwrt-wiki-complete-reference.md): OpenWrt Wiki Developer Docs (15327 lines, 857 KB)
+- [ucode-complete-reference.md](/ucode-complete-reference.md): ucode Documentation (10552 lines, 393 KB) — commit: 0beaa9d
+  - ⚡ [ucode-skeleton.md](/ucode-skeleton.md) (Skeleton/Headers Version — 474 lines, 17 KB)
+- [luci-jsapi-complete-reference.md](/luci-jsapi-complete-reference.md): LuCI JS API Documentation (1817 lines, 72 KB) — commit: 77d1f12
+  - ⚡ [luci-jsapi-skeleton.md](/luci-jsapi-skeleton.md) (Skeleton/Headers Version — 160 lines, 5 KB)
+- [openwrt-wiki-complete-reference.md](/openwrt-wiki-complete-reference.md): OpenWrt Wiki Developer Docs (15352 lines, 858 KB)
   - ⚡ [openwrt-wiki-skeleton.md](/openwrt-wiki-skeleton.md) (Skeleton/Headers Version — 1199 lines, 28 KB)
-- [openwrt-buildroot-complete-reference.md](/openwrt-buildroot-complete-reference.md): OpenWrt Buildroot Packages (2802 lines, 67 KB) — commit: cd0f6dd
-  - ⚡ [openwrt-buildroot-skeleton.md](/openwrt-buildroot-skeleton.md) (Skeleton/Headers Version — 263 lines, 4 KB)
-- [openwrt-examples-complete-reference.md](/openwrt-examples-complete-reference.md): LuCI Application Examples (11270 lines, 351 KB) — commit: ba00517
+- [openwrt-buildroot-complete-reference.md](/openwrt-buildroot-complete-reference.md): OpenWrt Buildroot Packages (2814 lines, 68 KB) — commit: a73e378
+  - ⚡ [openwrt-buildroot-skeleton.md](/openwrt-buildroot-skeleton.md) (Skeleton/Headers Version — 264 lines, 4 KB)
+- [openwrt-examples-complete-reference.md](/openwrt-examples-complete-reference.md): LuCI Application Examples (11271 lines, 351 KB) — commit: 77d1f12
 
 ## Documentation Directories
 
-- [ucode-docs/llms.txt](/ucode-docs/llms.txt): ucode Documentation index (14 files)
+- [ucode-docs/llms.txt](/ucode-docs/llms.txt): ucode Documentation index (15 files)
 - [luci-docs/llms.txt](/luci-docs/llms.txt): LuCI JS API Documentation index (10 files)
 - [openwrt-wiki-docs/llms.txt](/openwrt-wiki-docs/llms.txt): OpenWrt Wiki Developer Docs index (90 files)
 - [openwrt-buildroot-docs/llms.txt](/openwrt-buildroot-docs/llms.txt): OpenWrt Buildroot Packages index (7 files)

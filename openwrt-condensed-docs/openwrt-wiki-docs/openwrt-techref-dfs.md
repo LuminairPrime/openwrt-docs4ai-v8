@@ -2,11 +2,11 @@
 
 > **Source:** https://openwrt.org/docs/techref/dfs
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:05 UTC
+> **Fetched:** 2026-05-01 05:24 UTC
 
 ---
 
-[Dynamic_frequency_selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with [Terminal_Doppler_Weather_Radar](https://en.wikipedia.org/wiki/Terminal_Doppler_Weather_Radar). It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
+[Dynamic Frequency Selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with [Terminal Doppler Weather Radar (TDWR)](https://en.wikipedia.org/wiki/Terminal_Doppler_Weather_Radar). It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
 
 DFS support is used during ACS/"survey" in [hostapd](/docs/guide-user/network/wifi/wireless-tool/wireless.utilities#hostapd) to find and select free WLAN channels.
 
@@ -21,6 +21,8 @@ Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_chann
 :!: There are different DFS schemes: DFS-FCC (USA), DFS-ETSI (Europe), DFS-JP (Japan).
 
 :!: Try to use the non DFS channels if you have older wifi hardware/wifi clients.
+
+**In addition**: See also FAQ - [What does DFS mean?](/faq/what_does_dfs_mean) & [Wireless FAQ section](/tag/wireless) for more information.
 
 ## DFS support
 

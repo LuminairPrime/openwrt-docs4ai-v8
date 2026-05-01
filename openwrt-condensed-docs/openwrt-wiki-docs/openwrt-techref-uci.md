@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/uci
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:07 UTC
+> **Fetched:** 2026-05-01 05:25 UTC
 
 ---
 
@@ -488,9 +488,9 @@ And examples on how to use UCI in C can be found in this thread: <https://forum.
 
 Assuming you already have the following packages installed: [install-buildsystem](/docs/guide-developer/toolchain/install-buildsystem).
 
-Additional packages required (package names for ubuntu):
+Additional packages required (package names for debian/ubuntu):
 
-    cmake pkgconf python3.13-venv valgrind
+    cmake pkgconf python3-venv valgrind
 
 Clone the repo. Run:
 

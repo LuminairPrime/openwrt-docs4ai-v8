@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/image.makefile
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:06 UTC
+> **Fetched:** 2026-05-01 05:24 UTC
 
 ---
 

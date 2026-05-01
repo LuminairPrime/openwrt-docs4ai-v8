@@ -2,7 +2,7 @@
 module: math
 title: ucode module - math
 source: https://github.com/jow-/ucode/blob/master/lib/math.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `math`
@@ -54,6 +54,8 @@ Additionally, the math module namespace may also be imported by invoking the
     * [.rand([a], [b])](#module_math+rand) ⇒ `number`
     * [.srand(seed)](#module_math+srand)
     * [.isnan(x)](#module_math+isnan) ⇒ `boolean`
+    * [.deg2rad(number)](#module_math+deg2rad) ⇒ `number`
+    * [.rad2deg(number)](#module_math+rad2deg) ⇒ `number`
 
 <a name="module_math+abs"></a>
 
@@ -111,7 +113,7 @@ returned.
 ### math.cos(x) ⇒ `number`
 Calculates the cosine of `x`, where `x` is given in radians.
 
-Returns the resulting consine value.
+Returns the resulting cosine value.
 
 Returns `NaN` if the `x` value can't be converted to a number.
 
@@ -150,7 +152,7 @@ Calculates the natural logarithm of `x`.
 On success, returns the natural logarithm of `x`.
 
  - If `x` is `1`, the result is `+0`.
- - If `x` is positive nfinity, positive infinity is returned.
+ - If `x` is positive infinity, positive infinity is returned.
  - If `x` is zero, then a pole error occurs, and the function
    returns negative infinity.
  - If `x` is negative (including negative infinity), then a domain
@@ -162,7 +164,7 @@ Returns `NaN` if the `x` value can't be converted to a number.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| x | `number` | Value to calulate natural logarithm of. |
+| x | `number` | Value to calculate natural logarithm of. |
 
 <a name="module_math+sin"></a>
 
@@ -185,7 +187,7 @@ Returns `NaN` if the `x` value can't be converted to a number.
 <a name="module_math+sqrt"></a>
 
 ### math.sqrt(x) ⇒ `number`
-Calculates the nonnegative square root of `x`.
+Calculates the non-negative square root of `x`.
 
 Returns the resulting square root value.
 
@@ -226,7 +228,7 @@ On success, returns the value of `x` raised to the power of `y`.
  - If `x` is `+1`, the result is `1.0` (even if `y` is `NaN`).
  - If `y` is `0`, the result is `1.0` (even if `x` is `NaN`).
  - If `x` is a finite value less than `0`, and `y` is a finite
-   noninteger, a domain error occurs, and `NaN` is returned.
+   non-integer, a domain error occurs, and `NaN` is returned.
  - If the absolute value of `x` is less than `1`, and `y` is negative
    infinity, the result is positive infinity.
  - If the absolute value of `x` is greater than `1`, and `y` is
@@ -322,3 +324,40 @@ Note that a value can also be checked for `NaN` with the expression
 | Param | Type | Description |
 | --- | --- | --- |
 | x | `number` | The value to test. |
+
+<a name="module_math+deg2rad"></a>
+
+### math.deg2rad(number) ⇒ `number`
+Returns the radian value of the given degree value.
+
+**Kind**: instance method of [`math`](#module_math)  
+**Returns**: `number` - Returns the absolute value or `NaN` if the given argument could
+not be converted to a number.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| number | `double` | The number to return the radian value for. |
+
+**Example**  
+```js
+deg2rad(180);   // 3.1415926535898
+deg2rad("180"); // 3.1415926535898
+```
+<a name="module_math+rad2deg"></a>
+
+### math.rad2deg(number) ⇒ `number`
+Returns the degree value of the given radian value.
+
+**Kind**: instance method of [`math`](#module_math)  
+**Returns**: `number` - Returns the absolute value or `NaN` if the given argument could
+not be converted to a number.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| number | `double` | The number to return the degree value for. |
+
+**Example**  
+```js
+rad2deg(3.1415926535898);   // 180.0
+rad2deg("3.1415926535898"); // 180.0
+```

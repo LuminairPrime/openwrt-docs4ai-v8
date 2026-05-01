@@ -2,7 +2,7 @@
 module: static
 title: LuCI API - static
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/protocol/static.js
-generated: 2026-04-01 05:04 UTC from commit ba00517
+generated: 2026-05-01 05:22 UTC from commit 77d1f12
 ---
 
 # LuCI API: `static`

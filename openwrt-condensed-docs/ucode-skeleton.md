@@ -1,6 +1,6 @@
 # ucode Complete Reference (Skeleton Semantic Map)
 
-> **Contains:** Only headers and function signatures for 14 files.
+> **Contains:** Only headers and function signatures for 15 files.
 
 ---
 
@@ -28,6 +28,8 @@
 ### digest.md5(str) ⇒ `string`
 ### digest.sha1(str) ⇒ `string`
 ### digest.sha256(str) ⇒ `string`
+### digest.fnv1a64(str) ⇒ `string`
+### digest.fnv1a64\_file(path) ⇒ `string`
 ### digest.md2(str) ⇒ `string`
 ### digest.md4(str) ⇒ `string`
 ### digest.sha384(str) ⇒ `string`
@@ -169,6 +171,8 @@
 ### math.rand([a], [b]) ⇒ `number`
 ### math.srand(seed)
 ### math.isnan(x) ⇒ `boolean`
+### math.deg2rad(number) ⇒ `number`
+### math.rad2deg(number) ⇒ `number`
 
 # ucode module: `nl80211`
 ## nl80211
@@ -314,6 +318,65 @@
 #### buffer.slice([start], [end]) ⇒ `string`
 #### buffer.set([value], [start], [end]) ⇒ [`buffer`](#module_struct.buffer)
 #### buffer.pull() ⇒ `string`
+
+# ucode module: `ubus`
+## ubus
+# Ubus IPC
+## Architecture
+## Communication Schemes
+## Roles in Ubus
+## Data Format
+## Usage Examples
+### Basic connection and method call
+### Asynchronous method invocation with callback
+### Persistent connection pattern
+### Publishing an object
+### Event broadcasting
+### ubus.error([numeric]) ⇒ `string` \| `number`
+### ubus.connect([socket], [timeout]) ⇒ [`connection`](#module_ubus.connection)
+### ubus.open\_channel(fd, cb, [disconnect_cb], [timeout]) ⇒ [`channel`](#module_ubus.channel)
+### ubus.guard([handler]) ⇒ `function` \| `boolean`
+### ubus.connection
+#### connection.list([object_name]) ⇒ `Array.<string>`
+#### connection.call(object, method, [data], [return], [fd], [fd_cb]) ⇒ `\*`
+#### connection.defer(object, method, [data], [cb], [data_cb], [fd], [fd_cb]) ⇒ [`deferred`](#module_ubus.deferred)
+#### connection.publish(object_name, [methods], [subscribe_callback]) ⇒ [`object`](#module_ubus.object)
+#### connection.listener(pattern, cb) ⇒ [`listener`](#module_ubus.listener)
+#### connection.event(event_type, [event_data]) ⇒ `boolean`
+#### connection.subscriber(notify_callback, remove_callback, [subscription_patterns]) ⇒ [`subscriber`](#module_ubus.subscriber)
+#### connection.disconnect() ⇒ `boolean`
+#### connection.error([numeric]) ⇒ `string` \| `number`
+### ubus.channel
+#### channel.request(method, [data], [return], [fd], [fd_cb]) ⇒ `\*`
+#### channel.defer(method, [data], [cb], [data_cb], [fd], [fd_cb]) ⇒ [`deferred`](#module_ubus.deferred)
+#### channel.error([numeric]) ⇒ `string` \| `number`
+### ubus.deferred
+#### deferred.completed() ⇒ `boolean`
+#### deferred.await() ⇒ `boolean`
+#### deferred.abort() ⇒ `boolean`
+### ubus.object
+#### object.notify(type, [data], [data_cb], [status_cb], [cb], [timeout]) ⇒ [`notify`](#module_ubus.notify) \| `number`
+#### object.remove() ⇒ `boolean`
+#### object.subscribed() ⇒ `boolean`
+### ubus.request
+#### request.reply([reply], [rcode]) ⇒ `boolean`
+#### request.defer() ⇒ `boolean`
+#### request.get\_fd() ⇒ `number`
+#### request.set\_fd(fd) ⇒ `boolean`
+#### request.error([rcode]) ⇒ `boolean`
+#### request.reply(data) ⇒ `boolean`
+#### request.new\_channel(cb, [disconnect_cb], [timeout]) ⇒ [`channel`](#module_ubus.channel)
+### ubus.notify
+#### notify.completed() ⇒ `boolean`
+#### notify.abort() ⇒ `boolean`
+### ubus.listener
+#### listener.remove() ⇒ `boolean`
+### ubus.subscriber
+#### subscriber.subscribe(object_name) ⇒ `boolean`
+#### subscriber.unsubscribe(object_name) ⇒ `boolean`
+#### subscriber.remove() ⇒ `boolean`
+### ubus~Ubus status codes
+### ubus~Ubus system object IDs
 
 # ucode module: `uci`
 ## uci

@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/filesystems
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:06 UTC
+> **Fetched:** 2026-05-01 05:24 UTC
 
 ---
 
@@ -103,7 +103,7 @@ The [flash.layout](/docs/techref/flash.layout) article documents how OpenWrt use
 
 System bootup is as follows: -\>[process.boot](process.boot)
 
-1.  kernel boots from a known raw partition (without a FS), scans mtd partition *rootfs* for a valid superblock and mounts the SquashFS partition (containing `/etc`) then runs `/etc/preinit`. (More info at [filesystems#technical.details](/docs/techref/filesystems#technical.details))
+1.  kernel boots from a known raw partition (without a FS), scans mtd partition *rootfs* for a valid superblock and mounts the SquashFS partition (containing `/etc`) then runs `/etc/preinit`. (More info at [filesystems#technical_details](/docs/techref/filesystems#technical_details))
 2.  `/etc/preinit` runs `/sbin/mount_root`
 3.  `mount_root` mounts the JFFS2 partition (`/overlay`) and **combines** it with the SquashFS partition (`/rom`) to create a new *virtual root filesystem* (`/`)
 4.  bootup continues with `/sbin/init`

@@ -2,7 +2,7 @@
 module: digest
 title: ucode module - digest
 source: https://github.com/jow-/ucode/blob/master/lib/digest.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `digest`
@@ -22,6 +22,8 @@ The `digest` module bundles various digest functions.
     * [.md5(str)](#module_digest+md5) ⇒ `string`
     * [.sha1(str)](#module_digest+sha1) ⇒ `string`
     * [.sha256(str)](#module_digest+sha256) ⇒ `string`
+    * [.fnv1a64(str)](#module_digest+fnv1a64) ⇒ `string`
+    * [.fnv1a64_file(path)](#module_digest+fnv1a64_file) ⇒ `string`
     * [.md2(str)](#module_digest+md2) ⇒ `string`
     * [.md4(str)](#module_digest+md4) ⇒ `string`
     * [.sha384(str)](#module_digest+sha384) ⇒ `string`
@@ -88,6 +90,39 @@ Returns `null` if a non-string argument is given.
 sha256("This is a test");  // Returns "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
 sha256(123);               // Returns null
 ```
+<a name="module_digest+fnv1a64"></a>
+
+### digest.fnv1a64(str) ⇒ `string`
+Calculates the 64-bit FNV-1a non-cryptographic hash of string and returns
+that hash.
+
+Returns `null` if a non-string argument is given.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | `string` | The string to hash. |
+
+**Example**  
+```js
+fnv1a64("This is a test");  // Returns "25f0b040ca8b4ce0"
+fnv1a64(123);               // Returns null
+```
+<a name="module_digest+fnv1a64_file"></a>
+
+### digest.fnv1a64\_file(path) ⇒ `string`
+Calculates the 64-bit FNV-1a non-cryptographic hash of a given file and
+returns that hash.
+
+Returns `null` if an error occurred.
+
+**Kind**: instance method of [`digest`](#module_digest)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | `string` | The path to the file. |
+
 <a name="module_digest+md2"></a>
 
 ### digest.md2(str) ⇒ `string`

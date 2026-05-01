@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/device-support-policies
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:04 UTC
+> **Fetched:** 2026-05-01 05:23 UTC
 
 ---
 
@@ -106,7 +106,7 @@ Where possible, add your device to an existing block instead of creating a new o
 
 ### No wildcards
 
-Occationally, you might be tempted to use wildcards in a case like the following:
+Occasionally, you might be tempted to use wildcards in a case like the following:
 
     vendor_model-v1|\
     vendor_model-v2)

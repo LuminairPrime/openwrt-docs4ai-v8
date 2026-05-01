@@ -2,7 +2,7 @@
 module: debug
 title: ucode module - debug
 source: https://github.com/jow-/ucode/blob/master/lib/debug.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `debug`
@@ -372,7 +372,7 @@ index is invalid.
 | linefrom | `number` | The source line number of the local variable declaration. |
 | bytefrom | `number` | The source line offset of the local variable declaration. |
 | lineto | `number` | The source line number where the local variable goes out of scope. |
-| byteto | `number` | The source line offset where the local vatiable goes out of scope. |
+| byteto | `number` | The source line offset where the local variable goes out of scope. |
 
 <a name="module_debug.UpvalInfo"></a>
 

@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/ucwmp
 > **Last modified:** unknown
-> **Fetched:** 2026-04-01 05:07 UTC
+> **Fetched:** 2026-05-01 05:25 UTC
 
 ---
 

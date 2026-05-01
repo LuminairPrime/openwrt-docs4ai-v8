@@ -2,7 +2,7 @@
 module: log
 title: ucode module - log
 source: https://github.com/jow-/ucode/blob/master/lib/log.c
-generated: 2026-04-01 05:04 UTC from commit a078b72
+generated: 2026-05-01 05:22 UTC from commit 0beaa9d
 ---
 
 # ucode module: `log`
@@ -237,8 +237,8 @@ connection tear down is not required.
 ### log.ulog\_open([channel], [facility], [ident]) ⇒ `boolean`
 Configure ulog logger.
 
-This functions configures the ulog mechanism and is analogeous to using the
-`openlog()` function in conjuncton with `syslog()`.
+This functions configures the ulog mechanism and is analogous to using the
+`openlog()` function in conjunction with `syslog()`.
 
 The `ulog_open()` function is OpenWrt specific and may not be present on
 other systems. Use `openlog()` and `syslog()` instead for portability to
@@ -302,7 +302,7 @@ use of format strings and associated arguments to construct log messages.
 
 If the `ulog_open()` function has not been called explicitly before, `ulog()`
 implicitly configures certain defaults, see
-[ulog_open()](#module_log+ulog_open) for a detailled description.
+[ulog_open()](#module_log+ulog_open) for a detailed description.
 
 If the `format` argument is not a string and not `null`, it will be
 implicitly converted to a string and logged as-is, without further format
@@ -394,7 +394,7 @@ Returns `false` if an invalid priority value was given.
 // Set threshold to "warning" or more severe
 ulog_threshold(LOG_WARNING);
 
-// This message will be supressed
+// This message will be suppressed
 ulog(LOG_DEBUG, "Testing thresholds");
 
 // Using priority name

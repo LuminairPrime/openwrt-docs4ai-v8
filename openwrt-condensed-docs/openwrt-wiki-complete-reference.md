@@ -1,6 +1,6 @@
 # OpenWrt Wiki Developer Documentation Complete Reference
 
-> **Generated:** 2026-04-01 05:07 UTC
+> **Generated:** 2026-05-01 05:26 UTC
 > **Source:** https://openwrt.org/docs/
 > **Contains:** 90 documents concatenated
 
@@ -2612,7 +2612,7 @@ Where possible, add your device to an existing block instead of creating a new o
 
 ### No wildcards
 
-Occationally, you might be tempted to use wildcards in a case like the following:
+Occasionally, you might be tempted to use wildcards in a case like the following:
 
     vendor_model-v1|\
     vendor_model-v2)
@@ -6999,7 +6999,7 @@ This table lists the support status of various OpenWrt releases:
 
 | Version           | Current status       | Initial Release    | EoL (Projected)   | Latest Release | Release Date      |
 |:------------------|:---------------------|:-------------------|:------------------|:---------------|:------------------|
-| @lightgreen:25.12 | Supported            | 2026, March 06     | (2027, March)     | 25.12.1        | 2026, March 18    |
+| @lightgreen:25.12 | Supported            | 2026, March 06     | TBD               | 25.12.2        | 2026, March 27    |
 | @yellow:24.10     | Security Maintenance | 2025, February 06  | (2026, September) | 24.10.6        | 2026, March 18    |
 | @pink:23.05       | End of Life          | 2023, October 13   | 2025, August      | 23.05.6        | 2025, August 20   |
 | @pink:22.03       | End of Life          | 2022, September 06 | 2024, July        | 22.03.7        | 2024, July 25     |
@@ -8683,7 +8683,7 @@ This can be used to estimate which OpenWrt version is running on a router if you
 
 ---
 
-[Dynamic_frequency_selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with [Terminal_Doppler_Weather_Radar](https://en.wikipedia.org/wiki/Terminal_Doppler_Weather_Radar). It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
+[Dynamic Frequency Selection](https://en.wikipedia.org/wiki/Dynamic_frequency_selection) plays a role in 5GHz frequencies that are shared with [Terminal Doppler Weather Radar (TDWR)](https://en.wikipedia.org/wiki/Terminal_Doppler_Weather_Radar). It is related to [802.11h](https://en.wikipedia.org/wiki/IEEE_802.11h).
 
 DFS support is used during ACS/"survey" in [hostapd](/docs/guide-user/network/wifi/wireless-tool/wireless.utilities#hostapd) to find and select free WLAN channels.
 
@@ -8698,6 +8698,8 @@ Many countries regulate operation of the 5GHz spectrum - see [List_of_WLAN_chann
 :!: There are different DFS schemes: DFS-FCC (USA), DFS-ETSI (Europe), DFS-JP (Japan).
 
 :!: Try to use the non DFS channels if you have older wifi hardware/wifi clients.
+
+**In addition**: See also FAQ - [What does DFS mean?](/faq/what_does_dfs_mean) & [Wireless FAQ section](/tag/wireless) for more information.
 
 ## DFS support
 
@@ -9002,7 +9004,7 @@ The [flash.layout](/docs/techref/flash.layout) article documents how OpenWrt use
 
 System bootup is as follows: -\>[process.boot](process.boot)
 
-1.  kernel boots from a known raw partition (without a FS), scans mtd partition *rootfs* for a valid superblock and mounts the SquashFS partition (containing `/etc`) then runs `/etc/preinit`. (More info at [filesystems#technical.details](/docs/techref/filesystems#technical.details))
+1.  kernel boots from a known raw partition (without a FS), scans mtd partition *rootfs* for a valid superblock and mounts the SquashFS partition (containing `/etc`) then runs `/etc/preinit`. (More info at [filesystems#technical_details](/docs/techref/filesystems#technical_details))
 2.  `/etc/preinit` runs `/sbin/mount_root`
 3.  `mount_root` mounts the JFFS2 partition (`/overlay`) and **combines** it with the SquashFS partition (`/rom`) to create a new *virtual root filesystem* (`/`)
 4.  bootup continues with `/sbin/init`
@@ -13845,6 +13847,29 @@ This happens to be `rpcd` at the moment, with the `http-json` interface, for fri
 }
 ```
 
+Each method for each object can be separately allowed in the `"ubus"`-mapping. In the previous example only `ubus call session access` and `ubus call session login` are allowed. It is possible to use `*` to match multiple objects or methods. For example:
+
+1.  All methods of `session`: `"session": ["*"]`
+2.  Method `get_client` of all objects beginning with `hostapd.`: `"hostapd.*": ["get_client"]`
+
+Certain objects or methods might require other permission outside the `"ubus"`-mapping. For example reading a file requires `read` permission for the file itself. In that case the permission to only read `/tmp/dhcp.leases` might look like the following:
+
+``` yaml
+{
+        "readleases": {
+                "read": {
+                        "file": {
+                                "/tmp/dhcp.leases": ["read"]
+                        },
+                        "ubus": {
+                                "session": [ "access", "login" ],
+                                "file": ["read"]
+                        }
+                }
+        }
+}
+```
+
 An example of a complicated ACL, allowing quite fine grained access to different ubus modules and methods is [available in the Luci2 project](https://git.openwrt.org/?p=project/luci2/ui.git;a=blob;f=luci2/share/acl.d/luci2.json)
 
 An example of a "security is for suckers" config, where a `superuser` ACL group is defined, allowing unrestricted access to everything, is shown below. This illustrates the usage of `*` definitions in the ACLs, but keep reading for better examples.
@@ -14705,9 +14730,9 @@ And examples on how to use UCI in C can be found in this thread: <https://forum.
 
 Assuming you already have the following packages installed: [install-buildsystem](/docs/guide-developer/toolchain/install-buildsystem).
 
-Additional packages required (package names for ubuntu):
+Additional packages required (package names for debian/ubuntu):
 
-    cmake pkgconf python3.13-venv valgrind
+    cmake pkgconf python3-venv valgrind
 
 Clone the repo. Run:
 

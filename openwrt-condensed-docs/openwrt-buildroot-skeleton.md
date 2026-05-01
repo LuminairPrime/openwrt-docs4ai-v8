@@ -120,6 +120,7 @@
 ## `mt7621-qtn-rgmii`
 ## `mwlwifi`
 ## `nat46`
+## `ntfs`
 ## `qca-nss-dp`
 ## `qca-ssdk`
 ## `r8101`
