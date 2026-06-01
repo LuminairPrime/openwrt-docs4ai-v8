@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/adding_new_device
 > **Last modified:** unknown
-> **Fetched:** 2026-05-01 05:22 UTC
+> **Fetched:** 2026-06-01 05:45 UTC
 
 ---
 

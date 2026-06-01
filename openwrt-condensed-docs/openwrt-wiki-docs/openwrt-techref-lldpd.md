@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/lldpd
 > **Last modified:** unknown
-> **Fetched:** 2026-05-01 05:25 UTC
+> **Fetched:** 2026-06-01 05:48 UTC
 
 ---
 
@@ -26,6 +26,8 @@ OpenWRT uses the standard, lightweight lldpd package. Drop into your ER-X via SS
 opkg update
 opkg install lldpd
 ```
+
+Alternatively/additionally install `luci-app-lldpd` package to add Luci Web interface for LLPD - discovered information are neatly presented in GUI.
 
 ## Configuration
 
@@ -61,3 +63,21 @@ lldpcli show statistics
 ## Known Issues
 
 \- lldpd unable to receive frames on mediatek due to bug: <https://github.com/openwrt/openwrt/issues/13788>
+
+It has been confirmed that on MediaTek (i.e. on ER-X, 25.12.4), the following configuration file works well:
+
+    config lldpd config
+            option enable_cdp 1
+            option enable_fdp 1
+            option enable_sonmp 1
+            option enable_edp 1
+
+            option lldp_class 4
+            option lldp_location "address country EU"
+
+            # interfaces to listen on
+            list interface "loopback"
+            list interface "eth1"
+            list interface "eth2"
+            list interface "eth3"
+            list interface "eth4"

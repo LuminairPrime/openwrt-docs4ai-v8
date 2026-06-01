@@ -1,6 +1,6 @@
 # OpenWrt Wiki Developer Documentation Complete Reference
 
-> **Generated:** 2026-05-01 05:26 UTC
+> **Generated:** 2026-06-01 05:48 UTC
 > **Source:** https://openwrt.org/docs/
 > **Contains:** 90 documents concatenated
 
@@ -6999,7 +6999,7 @@ This table lists the support status of various OpenWrt releases:
 
 | Version           | Current status       | Initial Release    | EoL (Projected)   | Latest Release | Release Date      |
 |:------------------|:---------------------|:-------------------|:------------------|:---------------|:------------------|
-| @lightgreen:25.12 | Supported            | 2026, March 06     | TBD               | 25.12.2        | 2026, March 27    |
+| @lightgreen:25.12 | Supported            | 2026, March 06     | TBD               | 25.12.4        | 2026, May 14      |
 | @yellow:24.10     | Security Maintenance | 2025, February 06  | (2026, September) | 24.10.6        | 2026, March 18    |
 | @pink:23.05       | End of Life          | 2023, October 13   | 2025, August      | 23.05.6        | 2025, August 20   |
 | @pink:22.03       | End of Life          | 2022, September 06 | 2024, July        | 22.03.7        | 2024, July 25     |
@@ -11119,6 +11119,8 @@ opkg update
 opkg install lldpd
 ```
 
+Alternatively/additionally install `luci-app-lldpd` package to add Luci Web interface for LLPD - discovered information are neatly presented in GUI.
+
 ## Configuration
 
 LLDP frames are link-local frames, do not use any network interfaces other than the ones that achieve a link with its link partner, and the link partner being another networking device. Do not use bridge,VLAN, or DSA conduit interfaces.
@@ -11153,6 +11155,24 @@ lldpcli show statistics
 ## Known Issues
 
 \- lldpd unable to receive frames on mediatek due to bug: <https://github.com/openwrt/openwrt/issues/13788>
+
+It has been confirmed that on MediaTek (i.e. on ER-X, 25.12.4), the following configuration file works well:
+
+    config lldpd config
+            option enable_cdp 1
+            option enable_fdp 1
+            option enable_sonmp 1
+            option enable_edp 1
+
+            option lldp_class 4
+            option lldp_location "address country EU"
+
+            # interfaces to listen on
+            list interface "loopback"
+            list interface "eth1"
+            list interface "eth2"
+            list interface "eth3"
+            list interface "eth4"
 
 ---
 
@@ -13262,7 +13282,7 @@ It is enough to issue `service rpcd reload` to make it pick up new plugin execut
 
 The program `swconfig` allows you to configure *configurable* [Ethernet network switches](/docs/techref/hardware/switch).
 
-It is considered legacy and new switch drivers should use the DSA (distributed switch architecture) kernel framework which makes it possible to use standard userspace tools such as `ip` to configure the switches.
+It is considered legacy and new switch drivers should use the DSA [(Distributed Switch Architecture)](https://www.kernel.org/doc/html/latest/networking/dsa/dsa.html) kernel framework which makes it possible to use standard userspace tools such as `ip` to configure the switches.
 
 \<color red\>Make sure you can [safemode](/docs/guide-user/troubleshooting/failsafe_and_factory_reset) or TTL before changing network/switch settings\</color\>
 
@@ -14253,7 +14273,7 @@ echo "${VERSION}"
 
 This is the Technical Reference. Please see **[UCI (Unified Configuration Interface) – Usage](/docs/guide-user/base-system/uci)**
 
-Source code is available here <http://git.openwrt.org/project/uci.git>
+Source code is available here <https://git.openwrt.org/project/uci>
 
 ### What is UCI?
 

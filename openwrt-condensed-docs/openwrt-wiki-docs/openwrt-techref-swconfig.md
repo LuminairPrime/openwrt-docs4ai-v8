@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/swconfig
 > **Last modified:** unknown
-> **Fetched:** 2026-05-01 05:25 UTC
+> **Fetched:** 2026-06-01 05:48 UTC
 
 ---
 
@@ -11,7 +11,7 @@
 
 The program `swconfig` allows you to configure *configurable* [Ethernet network switches](/docs/techref/hardware/switch).
 
-It is considered legacy and new switch drivers should use the DSA (distributed switch architecture) kernel framework which makes it possible to use standard userspace tools such as `ip` to configure the switches.
+It is considered legacy and new switch drivers should use the DSA [(Distributed Switch Architecture)](https://www.kernel.org/doc/html/latest/networking/dsa/dsa.html) kernel framework which makes it possible to use standard userspace tools such as `ip` to configure the switches.
 
 \<color red\>Make sure you can [safemode](/docs/guide-user/troubleshooting/failsafe_and_factory_reset) or TTL before changing network/switch settings\</color\>
 

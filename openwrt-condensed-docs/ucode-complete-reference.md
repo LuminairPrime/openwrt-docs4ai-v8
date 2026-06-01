@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-05-01 05:26 UTC
+> **Generated:** 2026-06-01 05:48 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 

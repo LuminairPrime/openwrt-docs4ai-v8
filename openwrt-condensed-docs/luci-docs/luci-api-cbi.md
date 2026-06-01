@@ -2,7 +2,7 @@
 module: cbi
 title: LuCI API - cbi
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/cbi.js
-generated: 2026-05-01 05:22 UTC from commit 77d1f12
+generated: 2026-06-01 05:45 UTC from commit 1bffbf4
 ---
 
 # LuCI API: `cbi`

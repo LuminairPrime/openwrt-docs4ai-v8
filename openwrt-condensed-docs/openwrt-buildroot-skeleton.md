@@ -67,6 +67,7 @@
 ## `murata-nvram`
 ## `omnia-mcu-firmware`
 ## `prism54-firmware`
+## `rtl826x-firmware`
 ## `wireless-regdb`
 
 # OpenWrt Buildroot: Build System Include Files

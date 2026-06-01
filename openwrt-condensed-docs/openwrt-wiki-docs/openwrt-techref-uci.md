@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/uci
 > **Last modified:** unknown
-> **Fetched:** 2026-05-01 05:25 UTC
+> **Fetched:** 2026-06-01 05:48 UTC
 
 ---
 
@@ -11,7 +11,7 @@
 
 This is the Technical Reference. Please see **[UCI (Unified Configuration Interface) – Usage](/docs/guide-user/base-system/uci)**
 
-Source code is available here <http://git.openwrt.org/project/uci.git>
+Source code is available here <https://git.openwrt.org/project/uci>
 
 ### What is UCI?
 
