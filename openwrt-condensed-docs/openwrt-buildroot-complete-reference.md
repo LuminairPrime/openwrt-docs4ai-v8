@@ -1,12 +1,24 @@
 # OpenWrt Buildroot Package Documentation Complete Reference
 
-> **Generated:** 2026-06-01 05:48 UTC
+> **Generated:** 2026-07-01 05:43 UTC
 > **Source:** https://github.com/openwrt/openwrt
 > **Contains:** 7 documents concatenated
 
 ---
 
 # OpenWrt Buildroot: `boot` packages
+
+---
+
+## `apboot-aruba-ipq806x`
+
+| Field | Value |
+|---|---|
+| License | GPL-2.0-or-later |
+| Maintainer | Lukas Stockner <lukas@lukasstockner.de> # Legacy U-Boot tree, not Kbuild-parallel safe. |
+| Source URL | https://github.com/lukasstockner/ap325-apboot-openwrt.git |
+
+> Source: https://github.com/openwrt/openwrt/tree/master/package/boot/apboot-aruba-ipq806x
 
 ---
 
@@ -30,6 +42,17 @@
 | Maintainer | Rafał Miłecki <rafal@milecki.pl> include $(INCLUDE_DIR)/[kernel.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) include $(INCLUDE_DIR)/trusted-firmware-a.mk include $(INCLUDE_DIR)/[package.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) define Trusted-Firmware-A/Default PLAT:=bcm DEFAULT:=y  |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/arm-trusted-firmware-bcm63xx
+
+---
+
+## `arm-trusted-firmware-imx`
+
+| Field | Value |
+|---|---|
+| Version | 2.14.0 |
+| Maintainer | Martin Schiller <ms@dev.tdt.de> include $(INCLUDE_DIR)/[kernel.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) include $(INCLUDE_DIR)/trusted-firmware-a.mk include $(INCLUDE_DIR)/[package.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) define Trusted-Firmware-A/Default BUILD_TARGET:=imx BUIL |
+
+> Source: https://github.com/openwrt/openwrt/tree/master/package/boot/arm-trusted-firmware-imx
 
 ---
 
@@ -229,7 +252,7 @@
 
 | Field | Value |
 |---|---|
-| Version | 6.12.20.2.0.0 |
+| Version | 6.18.2.1.0.0 |
 | Source URL | https://github.com/nxp-qoriq/atf |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/tfa-layerscape
@@ -331,7 +354,7 @@
 
 | Field | Value |
 |---|---|
-| Version | 2022.01 |
+| Version | 2026.04 |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-imx
 
@@ -370,7 +393,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 6.12.20.2.0.0 |
+| Version | 6.18.2.1.0.0 |
 | Source URL | https://github.com/nxp-qoriq/u-boot |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-layerscape
@@ -381,7 +404,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 2026.01 |
+| Version | 2026.04 |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-mediatek
 
@@ -422,7 +445,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 2021.07 |
+| Version | 2024.07 |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-omap
 
@@ -573,6 +596,18 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 ---
 
+## `firmware-imx`
+
+| Field | Value |
+|---|---|
+| Version | 8.28-994fa14 |
+| License | LA_OPT_NXP_Software_License |
+| Source URL | https://www.nxp.com/lgfiles/NMG/MAD/YOCTO/ |
+
+> Source: https://github.com/openwrt/openwrt/tree/master/package/firmware/firmware-imx
+
+---
+
 ## `intel-microcode`
 
 | Field | Value |
@@ -605,7 +640,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 20260519 |
+| Version | 20260622 |
 | Maintainer | Felix Fietkau <nbd@nbd.name> |
 | Source URL | @KERNEL/linux/kernel/firmware |
 
@@ -670,7 +705,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 2026.03.18 |
+| Version | 2026.05.30 |
 | License | ISC |
 | Maintainer | Felix Fietkau <nbd@nbd.name> include $(INCLUDE_DIR)/[package.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) define Package/wireless-regdb PKGARCH:=all SECTION:=firmware CATEGORY:=Firmware URL:=https://git.kernel.org/pub/scm/linux/kernel/git/wens |
 | Source URL | @KERNEL/software/network/wireless-regdb/ |
@@ -1402,7 +1437,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 0.192 |
+| Version | 0.195 |
 | License | GPL-2.0-or-later LGPL-3.0-or-later |
 | Maintainer | Luiz Angelo Daros de Luca <luizluca@gmail.com> |
 | Source URL | https://sourceware.org/$(PKG_NAME)/ftp/$(PKG_VERSION) https://mirrors.kernel.org/sourceware/$(PKG_NAME)/$(PKG_VERSION) |
@@ -1539,7 +1574,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 1.1.0 |
+| Version | 1.2.0 |
 | License | BSD-3-Clause |
 | Source URL | https://archive.hadrons.org/software/libmd/ |
 
@@ -1762,7 +1797,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 2.15.1 |
+| Version | 2.15.3 |
 | License | MIT |
 | Source URL | @GNOME/libxml2/$(basename $(PKG_VERSION)) |
 
@@ -1836,7 +1871,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 3.5.6 |
+| Version | 3.5.7 |
 | License | Apache-2.0 |
 | Maintainer | Eneas U de Queiroz <cotequeiroz@gmail.com> |
 | Source URL | https://www.openssl.org/source/ https://www.openssl.org/source/old/$(PKG_BASE)/ https://github.com/openssl/openssl/relea |
@@ -1987,7 +2022,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 20260223 |
+| Version | 20260601 |
 | License | GPL-2.0-or-later MPL-2.0 |
 | Maintainer | PKG_LICENSE:=GPL-2.0-or-later MPL-2.0 |
 | Source URL | @DEBIAN/pool/main/c/ca-certificates |
@@ -2258,7 +2293,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 1.37.0 |
+| Version | 1.38.0 |
 | License | GPL-2.0 |
 | Source URL | https://www.busybox.net/downloads https://sources.buildroot.net/$(PKG_NAME) |
 
@@ -2337,7 +2372,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 1.7.2 |
+| Version | 1.8.1 |
 | License | GPL-2.0-only |
 | Maintainer | Yousong Zhou <yszhou4tech@gmail.com> |
 | Source URL | @KERNEL/software/utils/dtc |
@@ -2572,7 +2607,7 @@ See `LICENSE`:
 
 | Field | Value |
 |---|---|
-| Version | 2.2.12 |
+| Version | 2.3.0 |
 | License | GPL-2.0 |
 | Maintainer | Pavlo Samko <bulldozerbsg@gmail.com> |
 | Source URL | https://nilfs.sourceforge.io/download/ |
@@ -2792,7 +2827,7 @@ See `LICENSE`:
 
 | Field | Value |
 |---|---|
-| Version | 2.42.1 |
+| Version | 2.42.2 |
 | Source URL | @KERNEL/linux/utils/$(PKG_NAME)/v2.42 |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/utils/util-linux

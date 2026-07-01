@@ -2,7 +2,7 @@
 module: hotplug_events
 title: OpenWrt hotplug.d Event Handlers
 source: package/**/etc/hotplug.d/*
-generated: 2026-06-01 05:45 UTC
+generated: 2026-07-01 05:40 UTC
 ---
 
 # OpenWrt Core Hotplug Events
@@ -39,7 +39,7 @@ generated: 2026-06-01 05:45 UTC
 ```shell
 #!/bin/sh
 
-[ "${ACTION}" = "add" ] && {
+[ "${ACTION}" = "add" ] && [ -f /etc/board.json ] && {
 	/sbin/wifi config
 	ubus call network.wireless retry
 }

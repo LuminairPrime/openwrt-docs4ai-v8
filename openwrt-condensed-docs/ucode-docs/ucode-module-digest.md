@@ -2,7 +2,7 @@
 module: digest
 title: ucode module - digest
 source: https://github.com/jow-/ucode/blob/master/lib/digest.c
-generated: 2026-06-01 05:45 UTC from commit 0beaa9d
+generated: 2026-07-01 05:40 UTC from commit fecacb8
 ---
 
 # ucode module: `digest`

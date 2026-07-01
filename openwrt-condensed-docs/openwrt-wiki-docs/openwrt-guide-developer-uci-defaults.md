@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/uci-defaults
 > **Last modified:** unknown
-> **Fetched:** 2026-06-01 05:47 UTC
+> **Fetched:** 2026-07-01 05:42 UTC
 
 ---
 

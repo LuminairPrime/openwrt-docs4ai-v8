@@ -2,7 +2,7 @@
 module: widgets
 title: LuCI API - widgets
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/widgets.js
-generated: 2026-06-01 05:45 UTC from commit 1bffbf4
+generated: 2026-07-01 05:40 UTC from commit 2d05d31
 ---
 
 # LuCI API: `widgets`

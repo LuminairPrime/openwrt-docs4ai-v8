@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/packages
 > **Last modified:** unknown
-> **Fetched:** 2026-06-01 05:46 UTC
+> **Fetched:** 2026-07-01 05:41 UTC
 
 ---
 
@@ -10,6 +10,8 @@
 > This page references `new`, which is marked as **deprecated** in the official API documentation. See [new](/luci-docs/luci-api-luci.md) for the current approach.
 
 **See also -\> [Package Policy Guide](package-policies)**, which contains a wealth of extra technical information not covered here.
+
+**See instead -\> [Working with Patches](/docs/guide-developer/toolchain/use-patches-with-buildsystem)**, if you only need to make minor modifications to existing packages.
 
 One of the things that we've attempted to do with OpenWrt's template system is make it incredibly easy to port software to OpenWrt. If you look at a typical package directory in OpenWrt you'll find three things:
 

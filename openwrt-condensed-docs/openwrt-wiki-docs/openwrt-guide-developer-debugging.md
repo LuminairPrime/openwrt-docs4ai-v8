@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/debugging
 > **Last modified:** unknown
-> **Fetched:** 2026-06-01 05:46 UTC
+> **Fetched:** 2026-07-01 05:41 UTC
 
 ---
 
@@ -46,7 +46,7 @@ ssh root@192.168.1.1 'grep -q mon0 /proc/net/dev || /usr/sbin/iw phy phy0 interf
 
 ### Logging hostapd behaviour
 
-Note that recent versions of openwrt ship with a version of hostapd which has verbose debug messages disabled in order to save on space (see <https://dev.openwrt.org/ticket/15658> ).
+Note that recent versions of openwrt ship with a version of hostapd which has verbose debug messages disabled in order to save on space (see <https://dev.openwrt.org/ticket/15658> ). Set "Minimum debug message priority" in menuconfig to 0 to have all log levels available for debugging.
 
 \<del\>To enable debug you need to install the debug build of hostapd from the packages for your router (package name hostapd), having first removed the cut-down version:
 

@@ -1,6 +1,6 @@
 # OpenWrt LuCI Application Examples Complete Reference
 
-> **Generated:** 2026-06-01 05:48 UTC
+> **Generated:** 2026-07-01 05:43 UTC
 > **Source:** https://github.com/openwrt/luci/tree/master/applications
 > **Contains:** 27 source files
 
@@ -26,8 +26,12 @@ return view.extend({
 		s.anonymous = true;
 		s.addremove = true;
 
-		o = s.option(form.Value, 'name', _('Description'),
-			_('A short textual description of the configured command'));
+		o = s.option(form.Value, 'name', _('Name'),
+			_('A short name for the configured command'));
+
+		o = s.option(form.Value, 'description', _('Description'),
+			_('An optional longer description to display on the execution page'));
+		o.optional = true;
 
 		o = s.option(form.Value, 'command', _('Command'), _('Command line to execute'));
 		o.textvalue = function(section_id) {

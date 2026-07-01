@@ -2,7 +2,7 @@
 module: io
 title: ucode module - io
 source: https://github.com/jow-/ucode/blob/master/lib/io.c
-generated: 2026-06-01 05:45 UTC from commit 0beaa9d
+generated: 2026-07-01 05:40 UTC from commit fecacb8
 ---
 
 # ucode module: `io`
@@ -531,7 +531,7 @@ Returns `null` if an error occurred.
 | --- | --- | --- |
 | direction | `number` | The direction of the ioctl operation. Use constants IOC_DIR_*. |
 | type | `number` | The ioctl type (see https://www.kernel.org/doc/html/latest/userspace-api/ioctl/ioctl-number.html) |
-| num | `number` | The ioctl sequence number. |
+| num | `number` \| `null` | The ioctl sequence number. |
 | [value] | `number` \| `string` | The value to pass to the ioctl system call. For `IOC_DIR_NONE`, this argument is ignored. With `IOC_DIR_READ`, the value should be a positive integer specifying the number of bytes to expect from the kernel. For the other directions, `IOC_DIR_WRITE` and `IOC_DIR_RW`, that value parameter must be a string, serving as buffer for the data to send. |
 
 **Example**  

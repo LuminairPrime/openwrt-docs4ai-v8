@@ -161,18 +161,43 @@
 ## math
 # Mathematical Functions
 ### math.abs(number) ⇒ `number`
+### math.acos(x) ⇒ `double`
+### math.asin(x) ⇒ `double`
+### math.atan(x) ⇒ `double`
+### math.cosh(x) ⇒ `double`
+### math.sinh(x) ⇒ `double`
+### math.tanh(x) ⇒ `double`
 ### math.atan2(y, x) ⇒ `number`
+### math.tan(x) ⇒ `double`
 ### math.cos(x) ⇒ `number`
 ### math.exp(x) ⇒ `number`
 ### math.log(x) ⇒ `number`
+### math.log10(x) ⇒ `double`
+### math.log2(x) ⇒ `double`
+### math.log1p(x) ⇒ `double`
+### math.expm1(x) ⇒ `double`
 ### math.sin(x) ⇒ `number`
 ### math.sqrt(x) ⇒ `number`
+### math.cbrt(x) ⇒ `double`
+### math.hypot(x, y) ⇒ `double`
 ### math.pow(x, y) ⇒ `number`
 ### math.rand([a], [b]) ⇒ `number`
 ### math.srand(seed)
 ### math.isnan(x) ⇒ `boolean`
+### math.isinf(x) ⇒ `boolean`
 ### math.deg2rad(number) ⇒ `number`
 ### math.rad2deg(number) ⇒ `number`
+### math.fmin(x, y) ⇒ `double`
+### math.fmax(x, y) ⇒ `double`
+### math.clamp(x, upper, lower) ⇒ `double`
+### math.sign(x) ⇒ `integer`
+### math.signbit(x) ⇒ `integer`
+### math.signnz(x) ⇒ `integer`
+### math.copysign(x, y) ⇒ `double`
+### math.floor(x, output_type) ⇒ `number`
+### math.ceil(x, output_type) ⇒ `number`
+### math.round(x, output_type) ⇒ `number`
+### math.trunc(x, output_type) ⇒ `number`
 
 # ucode module: `nl80211`
 ## nl80211

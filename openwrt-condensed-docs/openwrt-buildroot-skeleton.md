@@ -5,8 +5,10 @@
 ---
 
 # OpenWrt Buildroot: `boot` packages
+## `apboot-aruba-ipq806x`
 ## `apex`
 ## `arm-trusted-firmware-bcm63xx`
+## `arm-trusted-firmware-imx`
 ## `arm-trusted-firmware-mediatek`
 ## `arm-trusted-firmware-microchipsw`
 ## `arm-trusted-firmware-mvebu`
@@ -59,6 +61,7 @@
 ## `broadcom-sprom`
 ## `cypress-firmware`
 ## `cypress-nvram`
+## `firmware-imx`
 ## `intel-microcode`
 ## `ipq-wifi`
 ## `ixp4xx-microcode`
