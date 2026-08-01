@@ -2,7 +2,7 @@
 module: nl80211
 title: ucode module - nl80211
 source: https://github.com/jow-/ucode/blob/master/lib/nl80211.c
-generated: 2026-07-01 05:40 UTC from commit fecacb8
+generated: 2026-08-01 05:09 UTC from commit 81205a2
 ---
 
 # ucode module: `nl80211`
@@ -69,6 +69,8 @@ the `ucode` interpreter with the `-lnl80211` switch.
         * [~BSS use-for and cannot-use-reasons constants](#module_nl80211..BSS use-for and cannot-use-reasons constants)
         * [~HWSIM commands](#module_nl80211..HWSIM commands)
         * [~Interface types](#module_nl80211..Interface types)
+        * [~States of a mesh peer link](#module_nl80211..States of a mesh peer link)
+        * [~Actions on mesh peer links](#module_nl80211..Actions on mesh peer links)
 
 <a name="module_nl80211.listener"></a>
 
@@ -320,3 +322,31 @@ Constants for BSS use-for and cannot-use-reasons bitmasks.
 | NL80211_IFTYPE_P2P_GO | `number` | P2P group owner interface |
 | NL80211_IFTYPE_P2P_DEVICE | `number` | P2P device interface |
 | NL80211_IFTYPE_OCB | `number` | Outside context of BSS (OCB) interface |
+
+<a name="module_nl80211..States of a mesh peer link"></a>
+
+### nl80211~States of a mesh peer link
+**Kind**: inner typedef of [`nl80211`](#module_nl80211)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| NL80211_PLINK_LISTEN | `number` | initial state of non-existent mesh peer links |
+| NL80211_PLINK_OPN_SNT | `number` | mesh plink open frame has been sent |
+| NL80211_PLINK_OPN_RCVD | `number` | mesh plink open frame has been received |
+| NL80211_PLINK_CNF_RCVD | `number` | mesh plink confirm frame has been received |
+| NL80211_PLINK_ESTAB | `number` | mesh peer link is established |
+| NL80211_PLINK_HOLDING | `number` | mesh peer link is being closed or cancelled |
+| NL80211_PLINK_BLOCKED | `number` | all frames are discarded, except for authentication frames |
+
+<a name="module_nl80211..Actions on mesh peer links"></a>
+
+### nl80211~Actions on mesh peer links
+**Kind**: inner typedef of [`nl80211`](#module_nl80211)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| NL80211_PLINK_ACTION_NO_ACTION | `number` | perform no action |
+| NL80211_PLINK_ACTION_OPEN | `number` | start mesh peer link establishment |
+| NL80211_PLINK_ACTION_BLOCK | `number` | block traffic from this mesh peer |

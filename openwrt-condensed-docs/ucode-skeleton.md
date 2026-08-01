@@ -210,6 +210,8 @@
 ### nl80211~BSS use-for and cannot-use-reasons constants
 ### nl80211~HWSIM commands
 ### nl80211~Interface types
+### nl80211~States of a mesh peer link
+### nl80211~Actions on mesh peer links
 
 # ucode module: `resolv`
 ## resolv

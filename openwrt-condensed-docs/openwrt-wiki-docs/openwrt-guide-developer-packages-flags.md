@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/packages.flags
 > **Last modified:** unknown
-> **Fetched:** 2026-07-01 05:41 UTC
+> **Fetched:** 2026-08-01 05:11 UTC
 
 ---
 

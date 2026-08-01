@@ -1,6 +1,6 @@
 # Changes
 
-> Generated: 2026-07-01 05:43 UTC
+> Generated: 2026-08-01 05:13 UTC
 
 ## File Changes Since Last Commit
 
@@ -13,6 +13,6 @@
 
 ## Source Commits
 
-- ucode: `fecacb8`
-- LuCI: `2d05d31`
-- OpenWrt: `4abe97b`
+- ucode: `81205a2`
+- LuCI: `fe9d6b4`
+- OpenWrt: `c9833b9`

@@ -125,8 +125,6 @@
 ## `mwlwifi`
 ## `nat46`
 ## `ntfs`
-## `qca-nss-dp`
-## `qca-ssdk`
 ## `r8101`
 ## `r8125`
 ## `r8126`

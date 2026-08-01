@@ -2,7 +2,7 @@
 module: uloop
 title: ucode module - uloop
 source: https://github.com/jow-/ucode/blob/master/lib/uloop.c
-generated: 2026-07-01 05:40 UTC from commit fecacb8
+generated: 2026-08-01 05:09 UTC from commit 81205a2
 ---
 
 # ucode module: `uloop`

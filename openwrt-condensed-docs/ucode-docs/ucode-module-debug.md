@@ -2,7 +2,7 @@
 module: debug
 title: ucode module - debug
 source: https://github.com/jow-/ucode/blob/master/lib/debug.c
-generated: 2026-07-01 05:40 UTC from commit fecacb8
+generated: 2026-08-01 05:09 UTC from commit 81205a2
 ---
 
 # ucode module: `debug`
@@ -81,7 +81,8 @@ memory leaks in scripts.
 
 The file parameter can be either a string value containing a file path, in
 which case this function tries to create and write the report file at the
-given location, or an already open file handle this function should write to.
+given location, a numeric file descriptor, or a resource implementing a
+`fileno()` method which returns a numeric file descriptor.
 
 Returns `true` if the report has been written.
 
@@ -91,7 +92,7 @@ Returns `null` if the file could not be opened or if the handle was invalid.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| file | `string` \| `module:fs.file` \| `module:fs.proc` | The file path or open file handle to write report to. |
+| file | `string` \| `number` \| `module:fs.file` \| `module:fs.proc` \| `module:uloop.handle` \| `module:socket.socket` | The file path, file descriptor number, or open file handle to write report to. |
 
 <a name="module_debug+traceback"></a>
 

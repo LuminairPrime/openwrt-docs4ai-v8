@@ -1,6 +1,6 @@
 # LuCI JavaScript API Complete Reference
 
-> **Generated:** 2026-07-01 05:43 UTC
+> **Generated:** 2026-08-01 05:13 UTC
 > **Source:** https://github.com/openwrt/luci
 > **Contains:** 10 documents concatenated
 

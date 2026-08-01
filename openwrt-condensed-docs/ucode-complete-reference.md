@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-07-01 05:43 UTC
+> **Generated:** 2026-08-01 05:13 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 
@@ -80,7 +80,8 @@ memory leaks in scripts.
 
 The file parameter can be either a string value containing a file path, in
 which case this function tries to create and write the report file at the
-given location, or an already open file handle this function should write to.
+given location, a numeric file descriptor, or a resource implementing a
+`fileno()` method which returns a numeric file descriptor.
 
 Returns `true` if the report has been written.
 
@@ -90,7 +91,7 @@ Returns `null` if the file could not be opened or if the handle was invalid.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| file | `string` \| `module:fs.file` \| `module:fs.proc` | The file path or open file handle to write report to. |
+| file | `string` \| `number` \| `module:fs.file` \| `module:fs.proc` \| `module:uloop.handle` \| `module:socket.socket` | The file path, file descriptor number, or open file handle to write report to. |
 
 <a name="module_debug+traceback"></a>
 
@@ -807,13 +808,18 @@ Returns `null` if an error occurred.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| command | `string` |  | The command to be executed. |
+| command | `string` \| `Array.<\*>` |  | The command to be executed, either as a plain shell command string or as an array of arguments. When an array is provided the process is started directly via execvp() without involving a shell, so argument values are never interpreted as shell syntax. Non-string array elements are converted to their string representation. A string command is passed to /bin/sh -c as usual. |
 | [mode] | `string` | `"\"r\""` | The open mode of the process handle. |
 
 **Example**  
 ```js
-// Open a process
-const process = popen('command', 'r');
+// Open a process with a command string (interpreted by the shell)
+const process = popen('ls -la /tmp', 'r');
+```
+**Example**  
+```js
+// Open a process with an argument array (no shell involved)
+const process = popen(['ls', '-la', '/tmp'], 'r');
 ```
 <a name="module_fs+open"></a>
 
@@ -4376,6 +4382,8 @@ the `ucode` interpreter with the `-lnl80211` switch.
         * [~BSS use-for and cannot-use-reasons constants](#module_nl80211..BSS use-for and cannot-use-reasons constants)
         * [~HWSIM commands](#module_nl80211..HWSIM commands)
         * [~Interface types](#module_nl80211..Interface types)
+        * [~States of a mesh peer link](#module_nl80211..States of a mesh peer link)
+        * [~Actions on mesh peer links](#module_nl80211..Actions on mesh peer links)
 
 <a name="module_nl80211.listener"></a>
 
@@ -4627,6 +4635,34 @@ Constants for BSS use-for and cannot-use-reasons bitmasks.
 | NL80211_IFTYPE_P2P_GO | `number` | P2P group owner interface |
 | NL80211_IFTYPE_P2P_DEVICE | `number` | P2P device interface |
 | NL80211_IFTYPE_OCB | `number` | Outside context of BSS (OCB) interface |
+
+<a name="module_nl80211..States of a mesh peer link"></a>
+
+### nl80211~States of a mesh peer link
+**Kind**: inner typedef of [`nl80211`](#module_nl80211)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| NL80211_PLINK_LISTEN | `number` | initial state of non-existent mesh peer links |
+| NL80211_PLINK_OPN_SNT | `number` | mesh plink open frame has been sent |
+| NL80211_PLINK_OPN_RCVD | `number` | mesh plink open frame has been received |
+| NL80211_PLINK_CNF_RCVD | `number` | mesh plink confirm frame has been received |
+| NL80211_PLINK_ESTAB | `number` | mesh peer link is established |
+| NL80211_PLINK_HOLDING | `number` | mesh peer link is being closed or cancelled |
+| NL80211_PLINK_BLOCKED | `number` | all frames are discarded, except for authentication frames |
+
+<a name="module_nl80211..Actions on mesh peer links"></a>
+
+### nl80211~Actions on mesh peer links
+**Kind**: inner typedef of [`nl80211`](#module_nl80211)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| NL80211_PLINK_ACTION_NO_ACTION | `number` | perform no action |
+| NL80211_PLINK_ACTION_OPEN | `number` | start mesh peer link establishment |
+| NL80211_PLINK_ACTION_BLOCK | `number` | block traffic from this mesh peer |
 
 ---
 

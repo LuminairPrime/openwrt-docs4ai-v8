@@ -2,7 +2,7 @@
 module: zlib
 title: ucode module - zlib
 source: https://github.com/jow-/ucode/blob/master/lib/zlib.c
-generated: 2026-07-01 05:40 UTC from commit fecacb8
+generated: 2026-08-01 05:09 UTC from commit 81205a2
 ---
 
 # ucode module: `zlib`

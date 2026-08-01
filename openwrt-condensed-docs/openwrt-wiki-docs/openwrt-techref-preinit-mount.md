@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/preinit_mount
 > **Last modified:** unknown
-> **Fetched:** 2026-07-01 05:43 UTC
+> **Fetched:** 2026-08-01 05:12 UTC
 
 ---
 

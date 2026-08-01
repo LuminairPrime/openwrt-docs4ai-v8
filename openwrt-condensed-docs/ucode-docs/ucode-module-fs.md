@@ -2,7 +2,7 @@
 module: fs
 title: ucode module - fs
 source: https://github.com/jow-/ucode/blob/master/lib/fs.c
-generated: 2026-07-01 05:40 UTC from commit fecacb8
+generated: 2026-08-01 05:09 UTC from commit 81205a2
 ---
 
 # ucode module: `fs`
@@ -145,13 +145,18 @@ Returns `null` if an error occurred.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| command | `string` |  | The command to be executed. |
+| command | `string` \| `Array.<\*>` |  | The command to be executed, either as a plain shell command string or as an array of arguments. When an array is provided the process is started directly via execvp() without involving a shell, so argument values are never interpreted as shell syntax. Non-string array elements are converted to their string representation. A string command is passed to /bin/sh -c as usual. |
 | [mode] | `string` | `"\"r\""` | The open mode of the process handle. |
 
 **Example**  
 ```js
-// Open a process
-const process = popen('command', 'r');
+// Open a process with a command string (interpreted by the shell)
+const process = popen('ls -la /tmp', 'r');
+```
+**Example**  
+```js
+// Open a process with an argument array (no shell involved)
+const process = popen(['ls', '-la', '/tmp'], 'r');
 ```
 <a name="module_fs+open"></a>
 
