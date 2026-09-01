@@ -248,6 +248,8 @@
 ### rtnl~Port profile responses
 ### rtnl~IPoIB modes
 ### rtnl~HSR protocols
+### rtnl~CAN controller modes
+### rtnl~CAN operational states
 ### rtnl~Link extended statistics types
 ### rtnl~XDP attach types
 ### rtnl~FDB notification bits

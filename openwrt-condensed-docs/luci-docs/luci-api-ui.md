@@ -2,7 +2,7 @@
 module: ui
 title: LuCI API - ui
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/ui.js
-generated: 2026-08-01 05:09 UTC from commit fe9d6b4
+generated: 2026-09-01 04:18 UTC from commit 4c0a4ed
 ---
 
 # LuCI API: `ui`

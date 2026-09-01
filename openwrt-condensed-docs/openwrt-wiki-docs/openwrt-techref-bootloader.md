@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/bootloader
 > **Last modified:** unknown
-> **Fetched:** 2026-08-01 05:11 UTC
+> **Fetched:** 2026-09-01 04:20 UTC
 
 ---
 
@@ -86,6 +86,7 @@ An embedded bootloader fulfills the same functionality as the [BIOS](https://en.
 - [jboot](/docs/techref/bootloader/jboot) \<color red\>unknown\</color\>
 - [myloader](/docs/techref/bootloader/myloader) \<color red\>unknown\</color\>
 - [pp_boot](/docs/techref/bootloader/pp_boot) \<color red\>unknown\</color\>
+- [tcBoot](/docs/techref/bootloader/tcBoot) \<color red\>unknown\</color\> used by EcoNet and Airoha devices.
 - [yamon](/docs/techref/bootloader/yamon) \<color red\>unknown\</color\> by [Imagination Technology](https://en.wikipedia.org/wiki/Imagination Technology); the Linux kernel can only be booted when it is in SREC format.
 - [Breed](/docs/techref/bootloader/Breed) - Breed booatloader
 - [bl-mt798x](/docs/techref/bootloader/bl-mt798x) - ATF and u-boot for mt798x-based routers

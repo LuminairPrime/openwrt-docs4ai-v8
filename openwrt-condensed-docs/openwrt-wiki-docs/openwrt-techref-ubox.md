@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/ubox
 > **Last modified:** unknown
-> **Fetched:** 2026-08-01 05:13 UTC
+> **Fetched:** 2026-09-01 04:21 UTC
 
 ---
 

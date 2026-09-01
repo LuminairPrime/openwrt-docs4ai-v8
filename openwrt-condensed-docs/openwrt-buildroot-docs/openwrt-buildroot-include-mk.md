@@ -1,7 +1,7 @@
 # OpenWrt Buildroot: Build System Include Files
 
 > **Source:** https://github.com/openwrt/openwrt/tree/master/include
-> **Generated:** 2026-08-01 05:09 UTC from commit `c9833b9`
+> **Generated:** 2026-09-01 04:18 UTC from commit `0c0d6dd`
 
 Core build system Makefile fragments.
 

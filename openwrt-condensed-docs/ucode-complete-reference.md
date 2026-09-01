@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-08-01 05:13 UTC
+> **Generated:** 2026-09-01 04:22 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 
@@ -5077,6 +5077,8 @@ the `ucode` interpreter with the `-lrtnl` switch.
         * [~Port profile responses](#module_rtnl..Port profile responses)
         * [~IPoIB modes](#module_rtnl..IPoIB modes)
         * [~HSR protocols](#module_rtnl..HSR protocols)
+        * [~CAN controller modes](#module_rtnl..CAN controller modes)
+        * [~CAN operational states](#module_rtnl..CAN operational states)
         * [~Link extended statistics types](#module_rtnl..Link extended statistics types)
         * [~XDP attach types](#module_rtnl..XDP attach types)
         * [~FDB notification bits](#module_rtnl..FDB notification bits)
@@ -5416,6 +5418,44 @@ listener.close();
 | --- | --- | --- |
 | HSR_PROTOCOL_HSR | `number` | HSR protocol |
 | HSR_PROTOCOL_PRP | `number` | PRP protocol |
+
+<a name="module_rtnl..CAN controller modes"></a>
+
+### rtnl~CAN controller modes
+Flag bits used in the `mask` and `flags` members of the `ctrlmode`
+attribute of `can` type links.
+
+**Kind**: inner typedef of [`rtnl`](#module_rtnl)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| CAN_CTRLMODE_LOOPBACK | `number` | Loopback mode |
+| CAN_CTRLMODE_LISTENONLY | `number` | Listen-only mode |
+| CAN_CTRLMODE_3_SAMPLES | `number` | Triple sampling mode |
+| CAN_CTRLMODE_ONE_SHOT | `number` | One-shot mode |
+| CAN_CTRLMODE_BERR_REPORTING | `number` | Bus error reporting |
+| CAN_CTRLMODE_FD | `number` | CAN FD mode |
+| CAN_CTRLMODE_PRESUME_ACK | `number` | Ignore missing CAN ACKs |
+| CAN_CTRLMODE_FD_NON_ISO | `number` | CAN FD in non-ISO mode |
+| CAN_CTRLMODE_CC_LEN8_DLC | `number` | Classic CAN DLC option |
+
+<a name="module_rtnl..CAN operational states"></a>
+
+### rtnl~CAN operational states
+Values of the `state` attribute of `can` type links.
+
+**Kind**: inner typedef of [`rtnl`](#module_rtnl)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| CAN_STATE_ERROR_ACTIVE | `number` | RX/TX error count < 96 |
+| CAN_STATE_ERROR_WARNING | `number` | RX/TX error count < 128 |
+| CAN_STATE_ERROR_PASSIVE | `number` | RX/TX error count < 256 |
+| CAN_STATE_BUS_OFF | `number` | RX/TX error count >= 256 |
+| CAN_STATE_STOPPED | `number` | Device is stopped |
+| CAN_STATE_SLEEPING | `number` | Device is sleeping |
 
 <a name="module_rtnl..Link extended statistics types"></a>
 
@@ -5981,6 +6021,7 @@ the `ucode` interpreter with the `-lsocket` switch.
         * [~Socket Option Constants](#module_socket..Socket Option Constants)
         * [~TCP Protocol Constants](#module_socket..TCP Protocol Constants)
         * [~Packet Socket Constants](#module_socket..Packet Socket Constants)
+        * [~CAN Protocol Constants](#module_socket..CAN Protocol Constants)
         * [~UDP Protocol Constants](#module_socket..UDP Protocol Constants)
         * [~Shutdown Constants](#module_socket..Shutdown Constants)
         * [~Address Info Flags](#module_socket..Address Info Flags)
@@ -6861,11 +6902,11 @@ print(socket.error(true), "\n");  //
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| family | `number` |  | Address family, one of AF_INET, AF_INET6, AF_UNIX or AF_PACKET. |
+| family | `number` |  | Address family, one of AF_INET, AF_INET6, AF_UNIX, AF_PACKET or AF_CAN. |
 | address | `string` |  | IPv4/IPv6 address string (AF_INET or AF_INET6 only) or hardware address in hexadecimal notation (AF_PACKET only). |
 | [port] | `number` |  | Port number (AF_INET or AF_INET6 only). |
 | [flowinfo] | `number` |  | IPv6 flow information (AF_INET6 only). |
-| [interface] | `string` \| `number` |  | Link local address scope (for IPv6 sockets) or bound network interface (for packet sockets), either a network device name string or a nonzero positive integer representing a network interface index (AF_INET6 and AF_PACKET only). |
+| [interface] | `string` \| `number` |  | Link local address scope (for IPv6 sockets) or bound network interface (for packet and CAN sockets), either a network device name string or a nonzero positive integer representing a network interface index (AF_INET6, AF_PACKET and AF_CAN only). |
 | path | `string` |  | Domain socket filesystem path (AF_UNIX only). |
 | [protocol] | `number` | `0` | Physical layer protocol (AF_PACKET only). |
 | [hardware_type] | `number` | `0` | ARP hardware type (AF_PACKET only). |
@@ -6965,6 +7006,7 @@ Constants representing address families and socket domains.
 | AF_INET | `number` | IPv4 Internet protocols. |
 | AF_INET6 | `number` | IPv6 Internet protocols. |
 | AF_PACKET | `number` | Low-level packet interface. |
+| AF_CAN | `number` | Controller Area Network sockets. |
 
 <a name="module_socket..Socket Types"></a>
 
@@ -7174,9 +7216,7 @@ the socket.
 | SO_PROTOCOL | `number` | Retrieves the protocol number. |
 | SO_RCVBUF | `number` | Set the receive buffer size. |
 | SO_RCVBUFFORCE | `number` | Set the receive buffer size forcefully. |
-| SO_RCVLOWAT | `number` | Set the minimum number of bytes to process for input operations. |
-| SO_RCVTIMEO | `number` | Set the timeout for receiving data. |
-| SO_REUSEADDR | `number` | Allow the socket to
+| SO_RCVLOWAT | `number` | Set the minimum number of bytes to
 
 ---
 

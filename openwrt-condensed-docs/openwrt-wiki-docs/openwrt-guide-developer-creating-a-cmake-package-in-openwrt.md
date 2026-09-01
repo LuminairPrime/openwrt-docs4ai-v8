@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/creating-a-cmake-package-in-openwrt
 > **Last modified:** unknown
-> **Fetched:** 2026-08-01 05:10 UTC
+> **Fetched:** 2026-09-01 04:19 UTC
 
 ---
 

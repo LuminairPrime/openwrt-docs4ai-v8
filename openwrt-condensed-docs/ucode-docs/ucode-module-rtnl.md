@@ -2,7 +2,7 @@
 module: rtnl
 title: ucode module - rtnl
 source: https://github.com/jow-/ucode/blob/master/lib/rtnl.c
-generated: 2026-08-01 05:09 UTC from commit 81205a2
+generated: 2026-09-01 04:18 UTC from commit fa2c1bc
 ---
 
 # ucode module: `rtnl`
@@ -77,6 +77,8 @@ the `ucode` interpreter with the `-lrtnl` switch.
         * [~Port profile responses](#module_rtnl..Port profile responses)
         * [~IPoIB modes](#module_rtnl..IPoIB modes)
         * [~HSR protocols](#module_rtnl..HSR protocols)
+        * [~CAN controller modes](#module_rtnl..CAN controller modes)
+        * [~CAN operational states](#module_rtnl..CAN operational states)
         * [~Link extended statistics types](#module_rtnl..Link extended statistics types)
         * [~XDP attach types](#module_rtnl..XDP attach types)
         * [~FDB notification bits](#module_rtnl..FDB notification bits)
@@ -416,6 +418,44 @@ listener.close();
 | --- | --- | --- |
 | HSR_PROTOCOL_HSR | `number` | HSR protocol |
 | HSR_PROTOCOL_PRP | `number` | PRP protocol |
+
+<a name="module_rtnl..CAN controller modes"></a>
+
+### rtnl~CAN controller modes
+Flag bits used in the `mask` and `flags` members of the `ctrlmode`
+attribute of `can` type links.
+
+**Kind**: inner typedef of [`rtnl`](#module_rtnl)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| CAN_CTRLMODE_LOOPBACK | `number` | Loopback mode |
+| CAN_CTRLMODE_LISTENONLY | `number` | Listen-only mode |
+| CAN_CTRLMODE_3_SAMPLES | `number` | Triple sampling mode |
+| CAN_CTRLMODE_ONE_SHOT | `number` | One-shot mode |
+| CAN_CTRLMODE_BERR_REPORTING | `number` | Bus error reporting |
+| CAN_CTRLMODE_FD | `number` | CAN FD mode |
+| CAN_CTRLMODE_PRESUME_ACK | `number` | Ignore missing CAN ACKs |
+| CAN_CTRLMODE_FD_NON_ISO | `number` | CAN FD in non-ISO mode |
+| CAN_CTRLMODE_CC_LEN8_DLC | `number` | Classic CAN DLC option |
+
+<a name="module_rtnl..CAN operational states"></a>
+
+### rtnl~CAN operational states
+Values of the `state` attribute of `can` type links.
+
+**Kind**: inner typedef of [`rtnl`](#module_rtnl)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| CAN_STATE_ERROR_ACTIVE | `number` | RX/TX error count < 96 |
+| CAN_STATE_ERROR_WARNING | `number` | RX/TX error count < 128 |
+| CAN_STATE_ERROR_PASSIVE | `number` | RX/TX error count < 256 |
+| CAN_STATE_BUS_OFF | `number` | RX/TX error count >= 256 |
+| CAN_STATE_STOPPED | `number` | Device is stopped |
+| CAN_STATE_SLEEPING | `number` | Device is sleeping |
 
 <a name="module_rtnl..Link extended statistics types"></a>
 

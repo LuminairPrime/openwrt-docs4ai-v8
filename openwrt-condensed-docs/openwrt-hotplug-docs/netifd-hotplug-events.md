@@ -2,7 +2,7 @@
 module: hotplug_events
 title: OpenWrt hotplug.d Event Handlers
 source: package/**/etc/hotplug.d/*
-generated: 2026-08-01 05:09 UTC
+generated: 2026-09-01 04:18 UTC
 ---
 
 # OpenWrt Core Hotplug Events

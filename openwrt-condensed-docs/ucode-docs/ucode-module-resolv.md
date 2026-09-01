@@ -2,7 +2,7 @@
 module: resolv
 title: ucode module - resolv
 source: https://github.com/jow-/ucode/blob/master/lib/resolv.c
-generated: 2026-08-01 05:09 UTC from commit 81205a2
+generated: 2026-09-01 04:18 UTC from commit fa2c1bc
 ---
 
 # ucode module: `resolv`

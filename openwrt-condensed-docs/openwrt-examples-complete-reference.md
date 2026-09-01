@@ -1,6 +1,6 @@
 # OpenWrt LuCI Application Examples Complete Reference
 
-> **Generated:** 2026-08-01 05:13 UTC
+> **Generated:** 2026-09-01 04:22 UTC
 > **Source:** https://github.com/openwrt/luci/tree/master/applications
 > **Contains:** 27 source files
 
@@ -353,10 +353,10 @@ return view.extend({
 	}),
 
 	callInitAction: rpc.declare({
-		object: 'luci',
-		method: 'setInitAction',
+		object: 'rc',
+		method: 'init',
 		params: [ 'name', 'action' ],
-		expect: { result: false }
+		reject: true
 	}),
 
 	callDDnsGetStatus: rpc.declare({
@@ -507,7 +507,8 @@ return view.extend({
 
 	handleRestartDDns(m, ev) {
 		return this.callInitAction('ddns', 'restart')
-			.then(L.bind(m.render, m));
+			.then(L.bind(m.render, m))
+			.catch(function(e) { ui.addNotification(null, E('p', e.message)) });
 	},
 
 	poll_status(map, data) {
@@ -1587,7 +1588,7 @@ function trimnonewline(input) {
 }
 
 function get_date(seconds, format) {
-	return trimnonewline( popen(`date -d @${seconds} "+${format}" 2>/dev/null`, 'r')?.read?.('line') );
+	return trimnonewline( popen(`date -d @${seconds} +${shellquote(format)} 2>/dev/null`, 'r')?.read?.('line') );
 }
 
 // convert epoch date to given format

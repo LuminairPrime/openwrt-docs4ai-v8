@@ -401,6 +401,7 @@
 ### init_config
 ### Setup
 ### renew
+### Restart (unreleased)
 ### Teardown
 ### Coldplug
 ### Keep config
@@ -598,11 +599,13 @@
 ## Security advisories
 ## Support Status
 #### Notes
+## Set strong root password
 ## Identifying problems
 ### uscan
 ### Coverity Scan
 ## Reproducible builds
 ## Deliver to users
+## LAN side attack
 ## Hardening build options
 
 # OpenWrt SELinux policy development, customization, and testing

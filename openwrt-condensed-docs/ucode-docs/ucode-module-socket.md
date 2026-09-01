@@ -2,7 +2,7 @@
 module: socket
 title: ucode module - socket
 source: https://github.com/jow-/ucode/blob/master/lib/socket.c
-generated: 2026-08-01 05:09 UTC from commit 81205a2
+generated: 2026-09-01 04:18 UTC from commit fa2c1bc
 ---
 
 # ucode module: `socket`
@@ -97,6 +97,7 @@ the `ucode` interpreter with the `-lsocket` switch.
         * [~Socket Option Constants](#module_socket..Socket Option Constants)
         * [~TCP Protocol Constants](#module_socket..TCP Protocol Constants)
         * [~Packet Socket Constants](#module_socket..Packet Socket Constants)
+        * [~CAN Protocol Constants](#module_socket..CAN Protocol Constants)
         * [~UDP Protocol Constants](#module_socket..UDP Protocol Constants)
         * [~Shutdown Constants](#module_socket..Shutdown Constants)
         * [~Address Info Flags](#module_socket..Address Info Flags)
@@ -977,11 +978,11 @@ print(socket.error(true), "\n");  //
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| family | `number` |  | Address family, one of AF_INET, AF_INET6, AF_UNIX or AF_PACKET. |
+| family | `number` |  | Address family, one of AF_INET, AF_INET6, AF_UNIX, AF_PACKET or AF_CAN. |
 | address | `string` |  | IPv4/IPv6 address string (AF_INET or AF_INET6 only) or hardware address in hexadecimal notation (AF_PACKET only). |
 | [port] | `number` |  | Port number (AF_INET or AF_INET6 only). |
 | [flowinfo] | `number` |  | IPv6 flow information (AF_INET6 only). |
-| [interface] | `string` \| `number` |  | Link local address scope (for IPv6 sockets) or bound network interface (for packet sockets), either a network device name string or a nonzero positive integer representing a network interface index (AF_INET6 and AF_PACKET only). |
+| [interface] | `string` \| `number` |  | Link local address scope (for IPv6 sockets) or bound network interface (for packet and CAN sockets), either a network device name string or a nonzero positive integer representing a network interface index (AF_INET6, AF_PACKET and AF_CAN only). |
 | path | `string` |  | Domain socket filesystem path (AF_UNIX only). |
 | [protocol] | `number` | `0` | Physical layer protocol (AF_PACKET only). |
 | [hardware_type] | `number` | `0` | ARP hardware type (AF_PACKET only). |
@@ -1081,6 +1082,7 @@ Constants representing address families and socket domains.
 | AF_INET | `number` | IPv4 Internet protocols. |
 | AF_INET6 | `number` | IPv6 Internet protocols. |
 | AF_PACKET | `number` | Low-level packet interface. |
+| AF_CAN | `number` | Controller Area Network sockets. |
 
 <a name="module_socket..Socket Types"></a>
 
@@ -1290,6 +1292,4 @@ the socket.
 | SO_PROTOCOL | `number` | Retrieves the protocol number. |
 | SO_RCVBUF | `number` | Set the receive buffer size. |
 | SO_RCVBUFFORCE | `number` | Set the receive buffer size forcefully. |
-| SO_RCVLOWAT | `number` | Set the minimum number of bytes to process for input operations. |
-| SO_RCVTIMEO | `number` | Set the timeout for receiving data. |
-| SO_REUSEADDR | `number` | Allow the socket to
+| SO_RCVLOWAT | `number` | Set the minimum number of bytes to
