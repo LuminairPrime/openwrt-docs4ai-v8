@@ -2,7 +2,7 @@
 module: resolv
 title: ucode module - resolv
 source: https://github.com/jow-/ucode/blob/master/lib/resolv.c
-generated: 2026-09-01 04:18 UTC from commit fa2c1bc
+generated: 2026-10-01 10:48 UTC from commit cef095d
 ---
 
 # ucode module: `resolv`
@@ -242,7 +242,7 @@ for failed queries.
 | [options.type] | `Array.<string>` |  | Array of DNS record types to query for. Valid types are: 'A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SOA', 'SRV', 'TXT', 'ANY'. If not specified, defaults to 'A' and 'AAAA' for domain names, or 'PTR' for IP addresses. |
 | [options.nameserver] | `Array.<string>` |  | Array of DNS nameserver addresses to query. Each address can optionally include a port number using '#' separator (e.g., '8.8.8.8#53'). IPv6 addresses can include interface scope using '%' separator. If not specified, nameservers are read from /etc/resolv.conf, falling back to '127.0.0.1'. |
 | [options.timeout] | `number` | `5000` | Total timeout for all queries in milliseconds. |
-| [options.retries] | `number` | `2` | Number of retry attempts for failed queries. |
+| [options.retries] | `number` | `2` | Number of attempts spread over the timeout; must be at least 1. Passing 0 or a negative value is rejected with an EINVAL error. |
 | [options.edns_maxsize] | `number` | `4096` | Maximum UDP packet size for EDNS (Extension Mechanisms for DNS). Set to 0 to disable EDNS. |
 | [options.txt_as_array] | `boolean` | `false` | Return TXT record strings as array elements instead of space-joining all record strings into one single string per record. |
 

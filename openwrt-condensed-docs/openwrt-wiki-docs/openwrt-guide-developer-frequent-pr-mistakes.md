@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/frequent-pr-mistakes
 > **Last modified:** unknown
-> **Fetched:** 2026-09-01 04:19 UTC
+> **Fetched:** 2026-10-01 10:49 UTC
 
 ---
 

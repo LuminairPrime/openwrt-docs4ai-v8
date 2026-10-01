@@ -1,6 +1,6 @@
 # OpenWrt Buildroot Package Documentation Complete Reference
 
-> **Generated:** 2026-09-01 04:22 UTC
+> **Generated:** 2026-10-01 10:51 UTC
 > **Source:** https://github.com/openwrt/openwrt
 > **Contains:** 7 documents concatenated
 
@@ -426,8 +426,9 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
+| Version | 2026.10-rc5 |
 | Maintainer | Robert Marko <robert.marko@sartura.hr> include $(INCLUDE_DIR)/u-boot.mk include $(INCLUDE_DIR)/[package.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) include $(INCLUDE_DIR)/[kernel.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) define U-Boot/Default BUILD_TARGET:=microchipsw HIDDEN:=1 UBO |
-| Source URL | https://github.com/microchip-ung/u-boot.git |
+| Source URL | https://git.u-boot-project.org/u-boot/u-boot.git |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-microchipsw
 
@@ -447,7 +448,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 2020.04 |
+| Version | 2026.04 |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-mxs
 
@@ -520,7 +521,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 2025.04 |
+| Version | 2026.04 |
 | Maintainer | Tomasz Maciej Nowak <tmn505@gmail.com> |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/boot/uboot-tegra
@@ -641,7 +642,7 @@ $ git format-patch -p -k --no-renames --no-binary -o $OPENWRT_ROOT/package/boot/
 
 | Field | Value |
 |---|---|
-| Version | 20260810 |
+| Version | 20260910 |
 | Maintainer | Felix Fietkau <nbd@nbd.name> |
 | Source URL | @KERNEL/linux/kernel/firmware |
 
@@ -1058,6 +1059,17 @@ Copyright (C) 2007-2020 OpenWrt.org
 
 ---
 
+## `trusted-firmware-a.mk`
+
+```
+TF-A embeds __TIME__ and __DATE__ by default, which makes the binaries
+differ on every build.
+```
+
+> Source: https://github.com/openwrt/openwrt/blob/master/include/trusted-firmware-a.mk
+
+---
+
 ## `unpack.mk`
 
 ```
@@ -1114,7 +1126,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 2026.05.21 |
+| Version | 2026.09.15 |
 | Source URL | https://github.com/raspberrypi/firmware/releases/download/$(PKG_VERSION_REAL) |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/kernel/bcm27xx-gpu-fw
@@ -1428,7 +1440,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 0.195 |
+| Version | 0.196 |
 | License | GPL-2.0-or-later LGPL-3.0-or-later |
 | Maintainer | Luiz Angelo Daros de Luca <luizluca@gmail.com> |
 | Source URL | https://sourceware.org/$(PKG_NAME)/ftp/$(PKG_VERSION) https://mirrors.kernel.org/sourceware/$(PKG_NAME)/$(PKG_VERSION) |
@@ -1652,7 +1664,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 1.10.6 |
+| Version | 1.10.7 |
 | License | BSD-3-Clause |
 | Maintainer | Felix Fietkau <nbd@nbd.name> |
 | Source URL | https://www.tcpdump.org/release/ |
@@ -2043,6 +2055,17 @@ Copyright (C) 2016 LEDE Project
 
 ---
 
+## `hardware-support`
+
+| Field | Value |
+|---|---|
+| License | GPL-2.0-only |
+| Maintainer | Daniel Golle <daniel@makrotopia.org> |
+
+> Source: https://github.com/openwrt/openwrt/tree/master/package/system/hardware-support
+
+---
+
 ## `iucode-tool`
 
 | Field | Value |
@@ -2252,7 +2275,7 @@ Copyright (C) 2016 LEDE Project
 
 | Field | Value |
 |---|---|
-| Version | 2026.06.21 |
+| Version | 2026.09.17 |
 | License | BSD-3-Clause |
 | Source URL | https://github.com/raspberrypi/utils.git |
 
@@ -2586,7 +2609,7 @@ See `LICENSE`:
 |---|---|
 | Version | 2.3.1 |
 | License | GPLv2 |
-| Maintainer | John Crispin <john@phrozen.org> include $(INCLUDE_DIR)/[package.mk](/openwrt-buildroot-docs/openwrt-buildroot-include-mk.md) define Package/mtd-utils/Default SECTION:=utils CATEGORY:=Utilities URL:=http://www.linux-mtd.infradead.org/ DEPENDS:=@NAND_SUPPORT en |
+| Maintainer | John Crispin <john@phrozen.org> |
 | Source URL | https://infraroot.at/pub/mtd/ |
 
 > Source: https://github.com/openwrt/openwrt/tree/master/package/utils/mtd-utils

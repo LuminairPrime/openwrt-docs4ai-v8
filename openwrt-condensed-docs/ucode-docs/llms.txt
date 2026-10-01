@@ -1,7 +1,7 @@
 # ucode Documentation Index
-# Source: https://github.com/jow-/ucode (commit: fa2c1bc)
+# Source: https://github.com/jow-/ucode (commit: cef095d)
 # Live docs: https://ucode.mein.io/
-# Generated: 2026-09-01 04:18 UTC
+# Generated: 2026-10-01 10:48 UTC
 #
 # ucode is a tiny ECMAScript-like scripting language for OpenWrt.
 # Provides bindings for ubus, uci, uloop, netlink, and other OpenWrt APIs.
@@ -12,7 +12,7 @@
 #
 ## Files in this directory
 
-- [ucode-module-debug.md](/ucode-docs/ucode-module-debug.md): ucode `debug` module — 15 documented members
+- [ucode-module-debug.md](/ucode-docs/ucode-module-debug.md): ucode `debug` module — 18 documented members
 - [ucode-module-digest.md](/ucode-docs/ucode-module-digest.md): ucode `digest` module — 17 documented members
 - [ucode-module-fs.md](/ucode-docs/ucode-module-fs.md): ucode `fs` module — 85 documented members
 - [ucode-module-io.md](/ucode-docs/ucode-module-io.md): ucode `io` module — 41 documented members

@@ -2,7 +2,7 @@
 module: nl80211
 title: ucode module - nl80211
 source: https://github.com/jow-/ucode/blob/master/lib/nl80211.c
-generated: 2026-09-01 04:18 UTC from commit fa2c1bc
+generated: 2026-10-01 10:48 UTC from commit cef095d
 ---
 
 # ucode module: `nl80211`

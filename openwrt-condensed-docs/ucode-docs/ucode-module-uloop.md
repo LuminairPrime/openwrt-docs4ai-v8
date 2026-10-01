@@ -2,7 +2,7 @@
 module: uloop
 title: ucode module - uloop
 source: https://github.com/jow-/ucode/blob/master/lib/uloop.c
-generated: 2026-09-01 04:18 UTC from commit fa2c1bc
+generated: 2026-10-01 10:48 UTC from commit cef095d
 ---
 
 # ucode module: `uloop`
@@ -341,7 +341,7 @@ Returns `null` on error, e.g. due to `exec()` failure or invalid arguments.
 | executable | `string` | The path to the executable program. |
 | [args] | `Array.<string>` | Optional. An array of strings representing the arguments passed to the executable. |
 | [env] | `Object.<string, \*>` | Optional. A dictionary describing environment variables for the process. |
-| callback | `function` | The callback function to be invoked when the invoked process ends. |
+| callback | `function` | The callback function to be invoked when the invoked process ends. Receives the exit code for a normally exited process, or the negative signal number if the process was terminated by a signal. |
 
 **Example**  
 ```js

@@ -2,7 +2,7 @@
 module: prng
 title: LuCI API - prng
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/tools/prng.js
-generated: 2026-09-01 04:18 UTC from commit 4c0a4ed
+generated: 2026-10-01 10:48 UTC from commit 32775cf
 ---
 
 # LuCI API: `prng`

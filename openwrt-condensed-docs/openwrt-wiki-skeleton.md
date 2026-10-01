@@ -203,7 +203,7 @@
 ## Serial Port
 ## JTAG
 ## GDB
-## perf/oprofile cpu profiling
+## CPU Profiling perf/oprofile
 ## Wireless
 ### Capture Management Traffic
 ### Logging hostapd behaviour

@@ -2,7 +2,7 @@
 module: form
 title: LuCI API - form
 source: https://github.com/openwrt/luci/blob/master/modules/luci-base/htdocs/luci-static/resources/form.js
-generated: 2026-09-01 04:18 UTC from commit 4c0a4ed
+generated: 2026-10-01 10:48 UTC from commit 32775cf
 ---
 
 # LuCI API: `form`

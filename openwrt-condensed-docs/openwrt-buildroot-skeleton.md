@@ -103,6 +103,7 @@
 ## `target.mk`
 ## `toolchain-build.mk`
 ## `toplevel.mk`
+## `trusted-firmware-a.mk`
 ## `unpack.mk`
 ## `verbose.mk`
 ## `version.mk`
@@ -191,6 +192,7 @@
 ## `ca-certificates`
 ## `fstools`
 ## `fwtool`
+## `hardware-support`
 ## `iucode-tool`
 ## `mtd`
 ## `openwrt-keyring`

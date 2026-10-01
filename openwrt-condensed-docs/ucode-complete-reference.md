@@ -1,6 +1,6 @@
 # ucode Complete Reference
 
-> **Generated:** 2026-09-01 04:22 UTC
+> **Generated:** 2026-10-01 10:51 UTC
 > **Source:** https://github.com/jow-/ucode
 > **Contains:** 15 documents concatenated
 
@@ -61,6 +61,9 @@ and `UCODE_DEBUG_MEMDUMP_PATH` environment variables respectively.
         * [.setlocal([level], variable, [value])](#module_debug+setlocal) ⇒ [`LocalInfo`](#module_debug.LocalInfo)
         * [.getupval(target, variable)](#module_debug+getupval) ⇒ [`UpvalInfo`](#module_debug.UpvalInfo)
         * [.setupval(target, variable, value)](#module_debug+setupval) ⇒ [`UpvalInfo`](#module_debug.UpvalInfo)
+        * [.breakpoint(spec, [mainfn])](#module_debug+breakpoint) ⇒ `number` \| `boolean`
+        * [.notifyExit(status, exitCode, [exception])](#module_debug+notifyExit)
+        * [.debugger([target])](#module_debug+debugger)
     * _static_
         * [.StackTraceEntry](#module_debug.StackTraceEntry) : `Object`
         * [.SourcePosition](#module_debug.SourcePosition) : `Object`
@@ -278,6 +281,90 @@ index is invalid.
 | variable | `string` \| `number` | The variable index or variable name to update. |
 | value | `\*` | The value to set the variable to. |
 
+<a name="module_debug+breakpoint"></a>
+
+### debug.breakpoint(spec, [mainfn]) ⇒ `number` \| `boolean`
+Install a user breakpoint from a location specification, using the exact
+same grammar as the interactive `break` CLI command (`path[:line[:offset]]`,
+a bare function name, or a ucode expression evaluating to a function).
+
+Unlike the `break` CLI command, this may be called before the program has
+started running and thus without any active script call frame - e.g. by
+the `-x <expr>`/`-X <expr>` command line options, which use this function
+to resolve their argument early, before `uc_vm_execute()` is even called.
+In that case, `mainfn` is used to resolve bare function names instead of
+the (nonexistent) current frame; a `:line` spec without an explicit path,
+or an arbitrary expression, cannot be resolved without a frame and are
+reported as an error.
+
+**Kind**: instance method of [`debug`](#module_debug)  
+**Returns**: `number` \| `boolean` - The installed breakpoint id, or `false` on failure.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| spec | `string` | The breakpoint location specification. |
+| [mainfn] | `function` | The program entry function, used to resolve bare function names when there is no active call frame yet. |
+
+<a name="module_debug+notifyExit"></a>
+
+### debug.notifyExit(status, exitCode, [exception])
+Notify an attached remote debugger client, if any, that the target is
+about to exit, with the final VM status (successful completion,
+`exit()`/`quit`, or an uncaught error). A no-op when nobody is attached,
+or for the local interactive debugger, where the exit is immediately
+visible on the same terminal.
+
+Called by [main.c](/openwrt-wiki-docs/openwrt-guide-developer-creating-a-meson-based-package.md) right after `uc_vm_execute()` returns, passing its raw
+`uc_vm_status_t` return value plus the corresponding detail (exit code, or
+an exception object), so a remote client learns the final outcome as an
+explicit event instead of only noticing sometime later that the
+connection dropped, with no indication of why.
+
+The detail arguments must be passed in explicitly by the caller rather
+than read off the vm here: by the time this C function body runs,
+uc_vm_call() has already cleared vm->exception as its own first action
+(a normal safety reset for ordinary calls), so [main.c](/openwrt-wiki-docs/openwrt-guide-developer-creating-a-meson-based-package.md) has to snapshot
+vm->arg.s32 / call uc_vm_exception_object() into locals before making
+this call.
+
+**Kind**: instance method of [`debug`](#module_debug)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| status | `number` | The `uc_vm_status_t` value `uc_vm_execute()` returned. |
+| exitCode | `number` | `vm->arg.s32` at the time `status` was returned, meaningful only for `STATUS_EXIT`. |
+| [exception] | `object` | `uc_vm_exception_object(vm)` at the time `status` was returned - the same `{type, message, stacktrace}` shape script code sees via try/catch. Meaningful only for `ERROR_COMPILE`/`ERROR_RUNTIME`. |
+
+<a name="module_debug+debugger"></a>
+
+### debug.debugger([target])
+Initialize interactive debugger.
+
+The `debugger()` function sets up the interactive command line debugger and
+immediately starts it, or - when a function argument is provided - defers the
+debugger invocation until the given function is called.
+
+This function does not return any value.
+
+**Kind**: instance method of [`debug`](#module_debug)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [target] | `function` | An optional function to attach the debugger to. When provided, a debug breakpoint is installed at the first instruction of the given function, causing the debug cli to get launched as soon as this function is entered. |
+
+**Example**  
+```js
+// Launch debugger immediately
+debug.debugger();
+
+// Attach debugger to function
+function test(a, b) {
+  print(`Result is ${a * b}\n`);
+}
+
+debug.debugger(test); // Install debug breakpoint in `test()` function
+test();               // Starts debugger, breaking before `print(…)`
+```
 <a name="module_debug.StackTraceEntry"></a>
 
 ### debug.StackTraceEntry : `Object`
@@ -2326,8 +2413,12 @@ Returns `null` if an error occurred.
 **Kind**: instance method of [`io`](#module_io)  
 **Example**  
 ```js
-const [reader, writer] = io.pipe();
+const pair = io.pipe();
+const reader = pair[0], writer = pair[1];
+
 writer.write('Hello from pipe!');
+writer.close();
+
 const data = reader.read(100);
 print(data, "\n");  // Prints: Hello from pipe!
 ```
@@ -4901,7 +4992,7 @@ for failed queries.
 | [options.type] | `Array.<string>` |  | Array of DNS record types to query for. Valid types are: 'A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SOA', 'SRV', 'TXT', 'ANY'. If not specified, defaults to 'A' and 'AAAA' for domain names, or 'PTR' for IP addresses. |
 | [options.nameserver] | `Array.<string>` |  | Array of DNS nameserver addresses to query. Each address can optionally include a port number using '#' separator (e.g., '8.8.8.8#53'). IPv6 addresses can include interface scope using '%' separator. If not specified, nameservers are read from /etc/resolv.conf, falling back to '127.0.0.1'. |
 | [options.timeout] | `number` | `5000` | Total timeout for all queries in milliseconds. |
-| [options.retries] | `number` | `2` | Number of retry attempts for failed queries. |
+| [options.retries] | `number` | `2` | Number of attempts spread over the timeout; must be at least 1. Passing 0 or a negative value is rejected with an EINVAL error. |
 | [options.edns_maxsize] | `number` | `4096` | Maximum UDP packet size for EDNS (Extension Mechanisms for DNS). Set to 0 to disable EDNS. |
 | [options.txt_as_array] | `boolean` | `false` | Return TXT record strings as array elements instead of space-joining all record strings into one single string per record. |
 
@@ -10384,7 +10475,7 @@ Returns `null` on error, e.g. due to `exec()` failure or invalid arguments.
 | executable | `string` | The path to the executable program. |
 | [args] | `Array.<string>` | Optional. An array of strings representing the arguments passed to the executable. |
 | [env] | `Object.<string, \*>` | Optional. A dictionary describing environment variables for the process. |
-| callback | `function` | The callback function to be invoked when the invoked process ends. |
+| callback | `function` | The callback function to be invoked when the invoked process ends. Receives the exit code for a normally exited process, or the negative signal number if the process was terminated by a signal. |
 
 **Example**  
 ```js

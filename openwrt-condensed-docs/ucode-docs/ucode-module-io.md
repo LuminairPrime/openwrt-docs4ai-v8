@@ -2,7 +2,7 @@
 module: io
 title: ucode module - io
 source: https://github.com/jow-/ucode/blob/master/lib/io.c
-generated: 2026-09-01 04:18 UTC from commit fa2c1bc
+generated: 2026-10-01 10:48 UTC from commit cef095d
 ---
 
 # ucode module: `io`
@@ -155,8 +155,12 @@ Returns `null` if an error occurred.
 **Kind**: instance method of [`io`](#module_io)  
 **Example**  
 ```js
-const [reader, writer] = io.pipe();
+const pair = io.pipe();
+const reader = pair[0], writer = pair[1];
+
 writer.write('Hello from pipe!');
+writer.close();
+
 const data = reader.read(100);
 print(data, "\n");  // Prints: Hello from pipe!
 ```

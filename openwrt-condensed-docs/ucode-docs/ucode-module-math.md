@@ -2,7 +2,7 @@
 module: math
 title: ucode module - math
 source: https://github.com/jow-/ucode/blob/master/lib/math.c
-generated: 2026-09-01 04:18 UTC from commit fa2c1bc
+generated: 2026-10-01 10:48 UTC from commit cef095d
 ---
 
 # ucode module: `math`

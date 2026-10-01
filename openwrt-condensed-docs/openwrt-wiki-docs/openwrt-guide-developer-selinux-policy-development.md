@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/guide-developer/selinux_policy_development
 > **Last modified:** unknown
-> **Fetched:** 2026-09-01 04:20 UTC
+> **Fetched:** 2026-10-01 10:49 UTC
 
 ---
 

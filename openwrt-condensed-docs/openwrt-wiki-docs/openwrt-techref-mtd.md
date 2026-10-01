@@ -2,7 +2,7 @@
 
 > **Source:** https://openwrt.org/docs/techref/mtd
 > **Last modified:** unknown
-> **Fetched:** 2026-09-01 04:21 UTC
+> **Fetched:** 2026-10-01 10:51 UTC
 
 ---
 

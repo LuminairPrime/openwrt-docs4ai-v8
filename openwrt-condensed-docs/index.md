@@ -2,7 +2,7 @@
 
 Condensed OpenWrt documentation, optimized for AI LLMs and developers.
 
-*Last updated: 2026-09-01 04:22 UTC*
+*Last updated: 2026-10-01 10:51 UTC*
 
 ## Quick Start
 
